@@ -10,7 +10,7 @@ import ProjectDescription from '../display/ProjectDescription';
 
 export default function Cofi(){
     return(
-        <div className="Cofi">
+        <div className="Cofi project">
             <ProjectIntro />
             <ProjectPreview />
             <ProjectDescription />

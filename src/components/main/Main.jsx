@@ -5,6 +5,7 @@ import React from 'react';
 
 // projects
 import Progress from './Progress';
+import BDA from '../projects/BDA';
 import Diffuse from '../projects/Diffuse';
 import BikeStar from '../projects/BikeStar';
 import Cofi from '../projects/Cofi';

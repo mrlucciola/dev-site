@@ -19,7 +19,7 @@ export default function BDA(){
         },
     }
     return(
-        <div className="BDA">
+        <div className="BDA project">
             <ProjectIntro projectObj={projectObj} />
             <ProjectPreview projectObj={projectObj} />
             <ProjectDescription projectObj={projectObj} />

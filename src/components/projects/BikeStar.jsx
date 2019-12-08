@@ -10,7 +10,7 @@ import ProjectDescription from '../display/ProjectDescription';
 
 export default function BikeStar(){
     return(
-        <div className="BikeStar">
+        <div className="BikeStar project">
             <ProjectIntro />
             <ProjectPreview />
             <ProjectDescription />

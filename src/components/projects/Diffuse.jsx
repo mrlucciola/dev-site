@@ -10,7 +10,7 @@ import ProjectDescription from '../display/ProjectDescription';
 
 export default function Diffuse(){
     return(
-        <div className="Diffuse">
+        <div className="Diffuse project">
             <ProjectIntro />
             <ProjectPreview />
             <ProjectDescription />

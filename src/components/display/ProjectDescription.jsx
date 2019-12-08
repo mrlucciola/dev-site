@@ -5,11 +5,11 @@ import React from 'react';
 
 export default function ProjectDescription({projectObj}){
     // destructuring
-    const {name, repoURL, siteURL, stackObj} = projectObj;
+    const {title, repoURL, siteURL, stackObj} = projectObj;
 
     return(
         <div className="ProjectDescription">
-            div.
+            <div className="title"></div>
         </div>
     )
 }
