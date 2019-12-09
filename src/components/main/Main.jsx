@@ -14,6 +14,7 @@ export default function Main(){
     return(
         <div className="Main" onScroll={(e) => {}} >
             <Progress />
+            <BDA />
             <Diffuse />
             <BikeStar />
             <Cofi />

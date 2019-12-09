@@ -20,6 +20,7 @@ code {
 .Nav {
   position:absolute; position: fixed;
   display: flex; flex-flow: row;
+  top: 0;
   width:100%; height: 60px;
   margin: auto;
   justify-content: space-evenly;
@@ -27,6 +28,7 @@ code {
   /* height: 200px;width: 200px; */
   color: whitesmoke;
   background: linear-gradient( rgba(107, 121, 150, 1), rgba(107, 121, 150, .99), rgba(107, 121, 150, .99), rgba(107, 121, 150, .99), rgba(107, 121, 150, .99), rgba(107, 121, 150, 0)) ;
+  z-index: 10000000;
 }
   .Nav div {
     margin-top: 15px;
@@ -37,7 +39,10 @@ code {
 
 /* ############################################################################################################################ */
 /* ########################################################### Main ########################################################### */
-.Main {}
+.Main {
+  /* top: 60px; */
+  margin-top: 50px;
+}
   /* ###################################################################################### */
   /* ###################################### Progress ###################################### */
   .Progress {
@@ -47,6 +52,7 @@ code {
     background: grey;
     border-radius: 5px;
     margin-left: 20px;
+    z-index: 1000000000;
   }
     .Progress .prog-amt {
       background: rgb(141, 109, 109);
@@ -59,12 +65,129 @@ code {
 
 /* ################################################################################################################################ */
 /* ########################################################### PROJECTS ########################################################### */
-
+.flexcol {display: flex; flex-flow: column;}
+.flexrow {display: flex; flex-flow: row;}
+.left {left: 0;}
+.right {right: 0;}
+a {all: unset;}
+.project {
+  display: flex; flex-flow: row;
+  position: relative;
+  justify-content: space-between;
+  width: 100%; height: 600px;
+}
+  .intro-container {
+    position: relative;
+    margin: 0;
+    width: 40%;
+  }
+    .ProjectIntro {
+      display: flex; flex-flow: column;
+      align-items: center;
+      position: relative;
+      top: 150px; left: 150px;
+      width: 500px;
+      border-radius: 5px;
+      background: rgba(185, 188, 202, 0.685);
+      /* box-shadow: 0px -5px 10px 10px rgb(167, 167, 163) inset; */
+    }
+      .ProjectIntro .title {
+        width: 100%;
+        margin: 0 auto;
+        padding: 10px 0;
+        font-weight: 700;
+        font-size: 30px;
+        text-align: center;
+        border-radius: 5px 5px 0 0;
+        box-shadow: -.5px 3px 5px .1px rgba(0, 0, 0, 0.288);
+        color: rgb(168, 191, 233);
+        background:rgb(35, 57, 71);
+      }
+      .ProjectIntro .urls {
+        display: flex; flex-flow: row;
+        justify-content: center; align-items: center;
+        text-align: center;
+        background:rgba(35, 57, 71, 0.411);
+        width: 100%;
+      }
+        .ProjectIntro .urls .url-container {
+          display: flex; flex-flow: row;
+          justify-content: space-between;
+          width: 100%;
+        }
+          .ProjectIntro .url-container a {
+            width: 50%;
+            margin: 5px 5px;
+            padding: 7px 10px;
+            color: rgb(255, 255, 255);
+            text-shadow: 0 0 5px rgba(0, 0, 0, 0.26);
+            font-weight: 800;
+            background: cornflowerblue;
+            box-shadow: 0 0 3px .1px rgba(0, 0, 0, 0.151);
+            border-radius: 3px;
+        }
+      .ProjectIntro .description {
+        position: relative;
+        bottom: 0;
+        margin: 5px;
+        padding: 10px;
+        border-radius: 2px;
+        background: rgba(243, 243, 243, 0.815);
+        box-shadow: 0 0 3px .1px rgba(0, 0, 0, 0.151);
+      }
+      .ProjectIntro .stack {
+        display: flex; flex-flow: row;
+        margin: 10px;
+        padding: 10px;
+        background: rgba(164, 185, 226, 0.637);
+      }
+        .ProjectIntro .stack .group {
+          margin: 5px 10px;
+          background: rgb(72, 89, 122);
+          color: rgb(230, 238, 253);
+        }
+          .ProjectIntro .stack .group .group-title {
+            margin: 5px;
+            padding: 0 20px;
+            text-align: center;
+            border-bottom: 1px solid white;
+          }
+          .ProjectIntro .stack .group .group-list .tool {
+            margin: 5px;
+          }
+  .pd-container {
+    display: flex; flex-flow: column;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    width: 60%;
+  }
+    .ProjectPreview {
+      position: relative;
+      max-width: 100%;
+      /* height: 25%; */
+      margin: 0 auto;
+      /* margin-top: 15px; */
+      background: rgb(51, 51, 50);
+      overflow: visible;
+    }
+      .ProjectPreview:hover {
+        overflow: visible;
+        z-index: 100;
+      }
+    .ProjectDescription {
+      position: relative;
+      width: 80%; height: 65%;
+      margin: auto;
+      margin-bottom: 25px;
+      background: rgb(119, 119, 119);
+    }
+    
 /* ############################################################################################################################ */
 /* ########################################################## Diffuse ######################################################### */
 .Diffuse {
-  width: 100%; height: 600px;
-  background: black;
+  background: rgb(153, 118, 95);
 }
 /* ########################################################## Diffuse ######################################################### */
 /* ############################################################################################################################ */
@@ -72,7 +195,6 @@ code {
 /* ############################################################################################################################ */
 /* ######################################################### BikeStar ######################################################### */
 .BikeStar {
-  width: 100%; height: 600px;
   background: rgb(78, 70, 70);
 }
 /* ######################################################### BikeStar ######################################################### */
@@ -81,8 +203,15 @@ code {
 /* ############################################################################################################################ */
 /* ########################################################### Cofi ########################################################### */
 .Cofi {
-  width: 100%; height: 600px;
   background: rgb(112, 112, 98);
+}
+/* ########################################################### Cofi ########################################################### */
+/* ############################################################################################################################ */
+
+/* ############################################################################################################################ */
+/* ########################################################### Cofi ########################################################### */
+.BDA {
+  background: rgb(74, 121, 129);
 }
 /* ########################################################### Cofi ########################################################### */
 /* ############################################################################################################################ */

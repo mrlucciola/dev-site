@@ -6,23 +6,27 @@ import React from 'react';
 // projects
 import ProjectIntro       from '../display/ProjectIntro';
 import ProjectPreview     from '../display/ProjectPreview';
-import ProjectDescription from '../display/ProjectDescription';
+// import ProjectDescription from '../display/ProjectDescription';
 
 export default function BDA(){
     // name, repoURL, siteURL, stackObj
     const projectObj = {
-        title: "BDA",
+        title: "BPM Detection Algorithm",
         repoURL: "https://github.com/mattrlucciola/bpm-detection-algorithm.git",
         siteURL: "https://mattrlucciola.github.io/bpm-detection-algorithm/",
+        description: "Detects BPM and displays track information from user-added songs using a simple peak-detection algorithm",
         stackObj: {
             frontend: ['JavaScript (ES6)', 'Web Audio API'],
         },
+        // imgURL: "/assets/images/bikestar-preview.png",
     }
     return(
         <div className="BDA project">
-            <ProjectIntro projectObj={projectObj} />
-            <ProjectPreview projectObj={projectObj} />
-            <ProjectDescription projectObj={projectObj} />
+            <div className="intro-continer left"><ProjectIntro projectObj={projectObj} /></div>
+            <div className="pd-container flexcol right">
+                <ProjectPreview imgURL={projectObj['imgURL']} siteURL={projectObj['siteURL']} />
+                {/* <ProjectDescription projectObj={projectObj} /> */}
+            </div>
         </div>
     )
 }
