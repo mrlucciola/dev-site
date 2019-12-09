@@ -1,5 +1,5 @@
 {
-  "homepage": "https://m-r-l.dev",
+  "homepage": "https://auxsauce.com",
   "name": "portfolio-page",
   "version": "1.0.0",
   "private": true,
@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mattrlucciola/dev-site.git"
+    "url": "git+https://github.com/mattrlucciola/auxsauce.github.io.git"
   },
   "author": "Matt Lucciola",
   "license": "MIT",
