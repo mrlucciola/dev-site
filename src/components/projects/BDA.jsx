@@ -9,7 +9,6 @@ import ProjectPreview     from '../display/ProjectPreview';
 // import ProjectDescription from '../display/ProjectDescription';
 
 export default function BDA(){
-    // name, repoURL, siteURL, stackObj
     const projectObj = {
         title: "BPM Detection Algorithm",
         repoURL: "https://github.com/mattrlucciola/bpm-detection-algorithm.git",
@@ -18,7 +17,7 @@ export default function BDA(){
         stackObj: {
             frontend: ['JavaScript (ES6)', 'Web Audio API'],
         },
-        // imgURL: "/assets/images/bikestar-preview.png",
+        imgURL: "/assets/images/bda-preview.png",
     }
     return(
         <div className="BDA project">
