@@ -1,7 +1,7 @@
 {
   "homepage": "https://m-r-l.dev",
   "name": "portfolio-page",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "dependencies": {
     "react": "^16.12.0",
