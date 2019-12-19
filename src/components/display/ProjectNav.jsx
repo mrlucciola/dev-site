@@ -12,7 +12,7 @@ export default function ProjectNav({projectObj}){
             {title !== "Matt Rocco Lucciola" && <a href="#Intro" className="home">Home</a>}
             <div className="title">{title}</div>
             <div className="urls">
-                {repoURL && <a className="repoURL" href={repoURL}>GitHub Repo</a>}
+                {repoURL && <a className="repoURL" href={repoURL}>GitHub</a>}
                 {siteURL && <a className="siteURL" href={siteURL}>Website</a>}
             </div>
         </div>
