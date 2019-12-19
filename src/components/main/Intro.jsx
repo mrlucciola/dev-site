@@ -4,12 +4,15 @@ import React from 'react';
 import ProjectNav from '../display/ProjectNav';
 
 export default function Intro(){
-    const projectObj = {
-        title: "Matt Rocco Lucciola",
-    }
+    const introText = 
+        <div className="introText">
+            
+        </div>
     return(
         <div className='Intro' id="Intro" >
-            <ProjectNav projectObj={projectObj} />
+            <div className="introNav">
+                <div className='title'>Matthew Rocco Lucciola</div>
+            </div>
         </div>
     )
 }

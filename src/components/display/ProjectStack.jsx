@@ -28,10 +28,7 @@ export default function ProjectStack({projectObj}){
             </div>
             )
         }
-
-        return (
-            <div className="stack">{stackElemArr}</div>
-        )
+        return stackElemArr
     }
     return(
         <div className="ProjectStack">

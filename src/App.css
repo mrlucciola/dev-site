@@ -74,16 +74,35 @@ code {
 a {all: unset; cursor: pointer;}
 .Intro {
   position: relative;
-  width: 100%; height: 50vh;
-  background: darkcyan;
+  width: 100%; height: 100px;
+  background: rgb(103, 116, 116);
 }
+  .Intro .introNav {
+    display: flex; flex-flow: row;
+    position: sticky; top: 0; left: 0;
+    margin-left: -12.5vw;
+    width: 100vw; height: 50px;
+    justify-content: space-between;
+    align-items: center;
+
+    background: rgb(107, 114, 124);
+    z-index: 100000;
+  }
+    .Intro .introNav .title {
+      width: 100%;
+      /* margin-left: 20px; */
+      text-align: center;
+      font-weight: 500;
+      font-size: 30px;
+      font-family: helvetica;
+    }
 .project {
   /* display: flex; flex-flow: row; */
   position: relative;
   justify-content: space-between;
   width: 75vw;
   margin: 0 auto;
-  height: 100vh; /* height: 600px; */
+  /* height: 100vh; height: 600px; */
 }
   .ProjectNav {
     display: flex; flex-flow: row;
@@ -142,8 +161,32 @@ a {all: unset; cursor: pointer;}
     color: rgb(234, 240, 243);
   }
   .ProjectStack {
+    display: flex; flex-flow: row;
+    justify-content: center;
     color: rgb(234, 240, 243);
+    /* margin: 10px; */
+    /* padding: 10px; */
+    /* background: rgba(164, 185, 226, 0.637); */
   }
+    .ProjectStack .group {
+      margin: 5px 10px;
+      border-radius: 10px;
+      box-shadow: .05em -.05em .3em rgb(44, 48, 56);
+      background: rgb(72, 89, 122);
+      color: rgb(234, 240, 243);
+    }
+      .ProjectStack .group .group-title {
+        margin: 5px;
+        padding: 0 20px;
+        text-align: center;
+        border-bottom: 1px solid white;
+      }
+      .ProjectStack .group .group-list {
+        margin: 10px 20px;
+      }
+        .ProjectStack .group .group-list .tool {
+          margin: 10px 0;
+        }
   @media screen and (max-width: 1000px) {
     .project {
       width: 90vw;
@@ -151,8 +194,27 @@ a {all: unset; cursor: pointer;}
       padding-bottom: 25px;
       margin-bottom: 25px;
     }
-    .ProjectStack {
-    }
+    
+    /* .ProjectStack {
+      display: flex; flex-flow: row;
+      margin: 10px;
+      padding: 10px;
+      background: rgba(164, 185, 226, 0.637);
+    } */
+      /* .ProjectStack .group {
+        margin: 5px 10px;
+        background: rgb(72, 89, 122);
+        color: rgb(234, 240, 243);
+      } */
+        /* .ProjectStack .group .group-title {
+          margin: 5px;
+          padding: 0 20px;
+          text-align: center;
+          border-bottom: 1px solid white;
+        } */
+        /* .ProjectStack .group .group-list .tool {
+          margin: 5px;
+        } */
   }
     
 /* ############################################################################################################################ */
