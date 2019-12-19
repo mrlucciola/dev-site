@@ -41,7 +41,7 @@ code {
 /* ########################################################### Main ########################################################### */
 .Main {
   /* top: 60px; */
-  margin-top: 50px;
+  /* margin-top: 50px; */
 }
   /* ###################################################################################### */
   /* ###################################### Progress ###################################### */
@@ -77,8 +77,39 @@ a {all: unset; cursor: pointer;}
   /* display: flex; flex-flow: row; */
   position: relative;
   justify-content: space-between;
-  width: 100%; height: 600px;
+  width: 100%;
+  /* height: 600px; */
+  height: 100vh;
 }
+  .ProjectNav {
+    display: flex; flex-flow: row;
+    position: sticky; top: 0;
+    width: 100%; height: 50px;
+    justify-content: space-between;
+    align-items: center;
+
+    background: rgb(121, 136, 156);
+    z-index: 100000;
+  }
+    .ProjectNav .title {
+      width: 80%;
+      margin-left: 20px;
+      text-align: center;
+      font-weight: 900;
+      font-size: 30px;
+      font-family: helvetica;
+    }
+    .ProjectNav .urls {
+      display: flex; flex-flow: row;
+      margin-right: 10px;
+    }
+      .ProjectNav .urls a {
+        padding: 10px 5px;
+        margin: 0 5px;
+        height: 90%;
+        border-radius: 5px;
+        background: rgba(17, 17, 17, 0.137);
+      }
   .intro-container {
     /* position: relative; */
     /* margin: 0; */
@@ -174,10 +205,10 @@ a {all: unset; cursor: pointer;}
       margin: 0 auto;
       /* margin-top: 15px; */
       background: rgb(51, 51, 50);
-      overflow: visible;
+      /* overflow: visible; */
     }
       .ProjectPreview:hover {
-        overflow: visible;
+        /* overflow: visible; */
         z-index: 100;
       }
     .ProjectDescription {
@@ -222,3 +253,13 @@ a {all: unset; cursor: pointer;}
 
 /* ########################################################### PROJECTS ########################################################### */
 /* ################################################################################################################################ */
+
+@media screen and (max-width: 1500px) {
+  .Main .project {
+    display: flex;
+    flex-flow: column;
+    /* justify-content: space-between; */
+    /* align-items: center; */
+    /* width: unset; height: unset; */
+  }
+}

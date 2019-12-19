@@ -5,6 +5,7 @@ import React from 'react';
 
 // projects
 import ProjectIntro       from '../display/ProjectIntro';
+import ProjectNav       from '../display/ProjectNav';
 import ProjectPreview     from '../display/ProjectPreview';
 // import ProjectDescription from '../display/ProjectDescription';
 
@@ -21,6 +22,7 @@ export default function BDA(){
     }
     return(
         <div className="BDA project">
+            <ProjectNav projectObj={projectObj} />
             <div className="intro-continer left"><ProjectIntro projectObj={projectObj} /></div>
             <div className="pd-container flexcol right">
                 <ProjectPreview imgURL={projectObj['imgURL']} siteURL={projectObj['siteURL']} />

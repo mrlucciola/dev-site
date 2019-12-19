@@ -5,6 +5,7 @@ import React from 'react';
 
 // projects
 import ProjectIntro       from '../display/ProjectIntro';
+import ProjectNav       from '../display/ProjectNav';
 import ProjectPreview     from '../display/ProjectPreview';
 // import ProjectDescription from '../display/ProjectDescription';
 
@@ -23,6 +24,7 @@ export default function BikeStar(){
     }
     return(
         <div className="BikeStar project">
+            <ProjectNav projectObj={projectObj} />
             <div className="intro-continer left"><ProjectIntro projectObj={projectObj} /></div>
             <div className="pd-container flexcol right">
                 <ProjectPreview imgURL={projectObj['imgURL']} siteURL={projectObj['siteURL']} />

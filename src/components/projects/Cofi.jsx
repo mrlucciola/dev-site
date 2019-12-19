@@ -5,6 +5,7 @@ import React from 'react';
 
 // projects
 import ProjectIntro       from '../display/ProjectIntro';
+import ProjectNav       from '../display/ProjectNav';
 import ProjectPreview     from '../display/ProjectPreview';
 // import ProjectDescription from '../display/ProjectDescription';
 
@@ -24,6 +25,7 @@ export default function Cofi(){
     }
     return(
         <div className="Cofi project">
+            <ProjectNav projectObj={projectObj} />
             <div className="intro-continer right"><ProjectIntro projectObj={projectObj} /></div>
             <div className="pd-container flexcol left">
                 <ProjectPreview imgURL={projectObj['imgURL']} siteURL={projectObj['siteURL']} />
