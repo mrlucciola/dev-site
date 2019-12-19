@@ -15,6 +15,7 @@ code {
   user-select: none;
   -webkit-user-select: none;
 }
+
 /* ########################################################################################################################### */
 /* ########################################################### Nav ########################################################### */
 .Nav {
@@ -47,16 +48,15 @@ code {
   /* ###################################### Progress ###################################### */
   .Progress {
     position: fixed;
-    top: 80px;
-    width: 50px; height: 300px;
+    top: 50px;
+    width: 100vw; height: 10px;
     background: grey;
-    border-radius: 5px;
-    margin-left: 20px;
-    z-index: 1000000000;
+    z-index: 10;
   }
     .Progress .prog-amt {
       background: rgb(141, 109, 109);
       border-radius: 5px;
+      z-index: 100;
     }
   /* ###################################### Progress ###################################### */
   /* ###################################################################################### */
@@ -73,6 +73,11 @@ code {
 .right {right: 0;}
 
 a {all: unset; cursor: pointer;}
+.Intro {
+  position: relative;
+  width: 100%; height: 50vh;
+  background: darkcyan;
+}
 .project {
   /* display: flex; flex-flow: row; */
   position: relative;
@@ -91,11 +96,17 @@ a {all: unset; cursor: pointer;}
     background: rgb(121, 136, 156);
     z-index: 100000;
   }
+    .ProjectNav .home {
+      margin-left: 10px;
+      padding: 10px 20px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.068);
+    }
     .ProjectNav .title {
-      width: 80%;
+      width: 50%;
       margin-left: 20px;
       text-align: center;
-      font-weight: 900;
+      font-weight: 500;
       font-size: 30px;
       font-family: helvetica;
     }
@@ -110,6 +121,22 @@ a {all: unset; cursor: pointer;}
         border-radius: 5px;
         background: rgba(17, 17, 17, 0.137);
       }
+  @media screen and (max-width: 1000px) {
+    .ProjectNav .title {
+      font-size: 30px;
+      width: 100%;
+    }
+    .ProjectNav .urls {
+      margin-right: 2px;
+    }
+      .ProjectNav .urls a {
+        margin: auto 2px;
+        padding: 5px;
+      }
+    img {
+      max-width: 80vw;
+    }
+  }
   .intro-container {
     /* position: relative; */
     /* margin: 0; */

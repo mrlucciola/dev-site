@@ -7,20 +7,13 @@ export default function ProjectNav({projectObj}){
     // destructuring
     let {title, repoURL, siteURL, stackObj} = projectObj;
 
-    const showProperty = (projectObj, param) => {
-        if (projectObj) {
-            return projectObj[param]
-        } else {
-            return 'nothing'
-        }
-    }
-
     return(
         <div className="ProjectNav">
-            <div className="title">{showProperty(projectObj, 'title')}</div>
+            {title !== "Matt Rocco Lucciola" && <a href="#Intro" className="home">Home</a>}
+            <div className="title">{title}</div>
             <div className="urls">
-                <a className="repoURL" href={showProperty(projectObj, 'repoURL')}>GitHub Repo</a>
-                <a className="siteURL" href={showProperty(projectObj, 'siteURL')}>Website</a>
+                {repoURL && <a className="repoURL" href={repoURL}>GitHub Repo</a>}
+                {siteURL && <a className="siteURL" href={siteURL}>Website</a>}
             </div>
         </div>
     )

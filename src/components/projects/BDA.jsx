@@ -11,7 +11,7 @@ import ProjectPreview     from '../display/ProjectPreview';
 
 export default function BDA(){
     const projectObj = {
-        title: "BPM Detection Algorithm",
+        title: "BDA",
         repoURL: "https://github.com/mattrlucciola/bpm-detection-algorithm.git",
         siteURL: "https://mattrlucciola.github.io/bpm-detection-algorithm/",
         description: "Detects BPM and displays track information from user-added songs using a simple peak-detection algorithm",

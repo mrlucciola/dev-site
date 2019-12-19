@@ -11,7 +11,7 @@ import ProjectPreview     from '../display/ProjectPreview';
 
 export default function Cofi(){
     const projectObj = {
-        title: "Cofi: Step-sequencer",
+        title: "Cofi",
         repoURL: "https://github.com/mattrlucciola/cofi.git",
         siteURL: "https://mattrlucciola.github.io/cofi/",
         description: `\

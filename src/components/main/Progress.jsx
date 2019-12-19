@@ -24,24 +24,23 @@ export default function Progress(){
 
         let yCoordPct = (pageHeight - offsetTop) / elementHeight;
 
-        // let scrollMax = document.body.scrollHeight - window.outerHeight;
         let scrollMax = document.body.scrollHeight - window.innerHeight;
         let scrollCurrent = window.scrollY;
-        // let scrollPct = scrollCurrent / scrollMax;
         window.scrollTo(0, yCoordPct * scrollMax)
     }
 
     window.onscroll = updateScrollProgress
     const scrollProgressStyle = {
-        top: 0,
-        height: `${scrollProgress * 100}%`,
+        left: 0,
+        height: '100%',
+        width: `${scrollProgress * 100}%`,
     }
     return(
         <div className="Progress noselect" 
-            onMouseDown={() => {setMouseIsDown(() => true); setActiveProgress(() => true); console.log('activated')}}
-            onMouseMove={(e) => {activeProgress && clickScrollProgress(e)}}
-            onMouseUp={() => {setMouseIsDown(() => false); setActiveProgress(() => false); console.log('deactivated')}}
-            onMouseLeave={() => {if (!mouseIsDown) {setActiveProgress(() =>  false); console.log('deactivated')}}}
+            // onMouseDown={() => {setMouseIsDown(() => true); setActiveProgress(() => true); console.log('activated')}}
+            // onMouseMove={(e) => {activeProgress && clickScrollProgress(e)}}
+            // onMouseUp={() => {setMouseIsDown(() => false); setActiveProgress(() => false); console.log('deactivated')}}
+            // onMouseLeave={() => {if (!mouseIsDown) {setActiveProgress(() =>  false); console.log('deactivated')}}}
             >
             <div className='prog-amt noselect' style={scrollProgressStyle} ></div>
             <div>
