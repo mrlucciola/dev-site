@@ -4,9 +4,10 @@
 import React from 'react';
 
 // projects
-import ProjectIntro       from '../display/ProjectIntro';
-import ProjectNav       from '../display/ProjectNav';
+import ProjectNav         from '../display/ProjectNav';
 import ProjectPreview     from '../display/ProjectPreview';
+import ProjectStack       from '../display/ProjectStack';
+import ProjectDescription from '../display/ProjectDescription';
 // import ProjectDescription from '../display/ProjectDescription';
 
 export default function BikeStar(){
@@ -25,11 +26,9 @@ export default function BikeStar(){
     return(
         <div className="BikeStar project">
             <ProjectNav projectObj={projectObj} />
-            <div className="intro-continer left"><ProjectIntro projectObj={projectObj} /></div>
-            <div className="pd-container flexcol right">
-                <ProjectPreview imgURL={projectObj['imgURL']} siteURL={projectObj['siteURL']} />
-                {/* <ProjectDescription projectObj={projectObj} /> */}
-            </div>
+            <ProjectPreview projectObj={projectObj} />
+            <ProjectDescription projectObj={projectObj} />
+            <ProjectStack projectObj={projectObj} />
         </div>
     )
 }

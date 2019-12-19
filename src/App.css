@@ -26,7 +26,6 @@ code {
   margin: auto;
   justify-content: space-evenly;
   align-content: center;
-  /* height: 200px;width: 200px; */
   color: whitesmoke;
   background: linear-gradient( rgba(107, 121, 150, 1), rgba(107, 121, 150, .99), rgba(107, 121, 150, .99), rgba(107, 121, 150, .99), rgba(107, 121, 150, .99), rgba(107, 121, 150, 0)) ;
   z-index: 10000000;
@@ -82,18 +81,19 @@ a {all: unset; cursor: pointer;}
   /* display: flex; flex-flow: row; */
   position: relative;
   justify-content: space-between;
-  width: 100%;
-  /* height: 600px; */
-  height: 100vh;
+  width: 75vw;
+  margin: 0 auto;
+  height: 100vh; /* height: 600px; */
 }
   .ProjectNav {
     display: flex; flex-flow: row;
-    position: sticky; top: 0;
-    width: 100%; height: 50px;
+    position: sticky; top: 0; left: 0;
+    margin-left: -12.5vw;
+    width: 100vw; height: 50px;
     justify-content: space-between;
     align-items: center;
 
-    background: rgb(121, 136, 156);
+    background: rgb(107, 114, 124);
     z-index: 100000;
   }
     .ProjectNav .home {
@@ -121,134 +121,44 @@ a {all: unset; cursor: pointer;}
         border-radius: 5px;
         background: rgba(17, 17, 17, 0.137);
       }
+  .ProjectPreview {
+    position: relative;
+    width: 90%;
+    margin: 0 auto;
+  }
+    .ProjectPreview a {
+      display: flex;
+      flex-flow: row;
+      justify-content: center;
+    }
+      .ProjectPreview a img {}
+  .ProjectDescription {
+    position: relative;
+    width: 80%;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid rgba(245, 245, 245, 0.192);
+    color: rgb(234, 240, 243);
+  }
+  .ProjectStack {
+    color: rgb(234, 240, 243);
+  }
   @media screen and (max-width: 1000px) {
-    .ProjectNav .title {
-      width: 100%;
-    }
-    .ProjectNav .urls {
-      margin-right: 2px;
-    }
-      .ProjectNav .urls a {
-        margin: auto 2px;
-        padding: 5px auto;
-      }
-    img {
-      max-width: 80vw;
-    }
-  }
-  .intro-container {
-    /* position: relative; */
-    /* margin: 0; */
-    width: 40%;
-    margin-top: -40px;
-  }
-    .ProjectIntro {
-      display: flex; flex-flow: column;
-      align-items: center;
-      position: relative;
-      width: 500px;
-      margin: 0 100px;
-      margin-top: 100px;
-      border-radius: 5px;
-      background: rgba(185, 188, 202, 0.685);
-      /* box-shadow: 0px -5px 10px 10px rgb(167, 167, 163) inset; */
-    }
-      .ProjectIntro .title {
-        width: 100%;
-        margin: 0 auto;
-        padding: 10px 0;
-        font-weight: 700;
-        font-size: 30px;
-        text-align: center;
-        border-radius: 5px 5px 0 0;
-        box-shadow: -.5px 3px 5px .1px rgba(0, 0, 0, 0.288);
-        color: rgb(168, 191, 233);
-        background:rgb(35, 57, 71);
-      }
-      .ProjectIntro .urls {
-        display: flex; flex-flow: row;
-        justify-content: center; align-items: center;
-        text-align: center;
-        background:rgba(35, 57, 71, 0.411);
-        width: 100%;
-      }
-        .ProjectIntro .urls .url-container {
-          display: flex; flex-flow: row;
-          justify-content: space-between;
-          width: 100%;
-        }
-          .ProjectIntro .url-container a {
-            width: 50%;
-            margin: 5px 5px;
-            padding: 7px 10px;
-            color: rgb(255, 255, 255);
-            text-shadow: 0 0 5px rgba(0, 0, 0, 0.26);
-            font-weight: 800;
-            background: cornflowerblue;
-            box-shadow: 0 0 3px .1px rgba(0, 0, 0, 0.151);
-            border-radius: 3px;
-        }
-      .ProjectIntro .description {
-        position: relative;
-        bottom: 0;
-        margin: 5px;
-        padding: 10px;
-        border-radius: 2px;
-        background: rgba(243, 243, 243, 0.815);
-        box-shadow: 0 0 3px .1px rgba(0, 0, 0, 0.151);
-      }
-      .ProjectIntro .stack {
-        display: flex; flex-flow: row;
-        margin: 10px;
-        padding: 10px;
-        background: rgba(164, 185, 226, 0.637);
-      }
-        .ProjectIntro .stack .group {
-          margin: 5px 10px;
-          background: rgb(72, 89, 122);
-          color: rgb(230, 238, 253);
-        }
-          .ProjectIntro .stack .group .group-title {
-            margin: 5px;
-            padding: 0 20px;
-            text-align: center;
-            border-bottom: 1px solid white;
-          }
-          .ProjectIntro .stack .group .group-list .tool {
-            margin: 5px;
-          }
-  .pd-container {
-    display: flex; flex-flow: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 50px;
-    width: 60%;
-  }
-    .ProjectPreview {
-      position: relative;
-      max-width: 100%;
-      /* height: 25%; */
-      margin: 0 auto;
-      /* margin-top: 15px; */
-      background: rgb(51, 51, 50);
-      /* overflow: visible; */
-    }
-      .ProjectPreview:hover {
-        /* overflow: visible; */
-        z-index: 100;
-      }
-    .ProjectDescription {
-      position: relative;
-      width: 80%; height: 65%;
-      margin: auto;
+    .project {
+      width: 90vw;
+      height: unset;
+      padding-bottom: 25px;
       margin-bottom: 25px;
-      background: rgb(119, 119, 119);
     }
+    .ProjectStack {
+    }
+  }
     
 /* ############################################################################################################################ */
 /* ########################################################## Diffuse ######################################################### */
 .Diffuse {
-  background: rgb(153, 118, 95);
+  background: rgb(98, 101, 112);
 }
 /* ########################################################## Diffuse ######################################################### */
 /* ############################################################################################################################ */
@@ -256,7 +166,7 @@ a {all: unset; cursor: pointer;}
 /* ############################################################################################################################ */
 /* ######################################################### BikeStar ######################################################### */
 .BikeStar {
-  background: rgb(78, 70, 70);
+  background: rgb(98, 105, 112);
 }
 /* ######################################################### BikeStar ######################################################### */
 /* ############################################################################################################################ */
@@ -264,7 +174,7 @@ a {all: unset; cursor: pointer;}
 /* ############################################################################################################################ */
 /* ########################################################### Cofi ########################################################### */
 .Cofi {
-  background: rgb(112, 112, 98);
+  background: rgb(98, 112, 111);
 }
 /* ########################################################### Cofi ########################################################### */
 /* ############################################################################################################################ */
@@ -272,7 +182,7 @@ a {all: unset; cursor: pointer;}
 /* ############################################################################################################################ */
 /* ########################################################### Cofi ########################################################### */
 .BDA {
-  background: rgb(74, 121, 129);
+  background: rgb(99, 104, 104);
 }
 /* ########################################################### Cofi ########################################################### */
 /* ############################################################################################################################ */
@@ -288,4 +198,30 @@ a {all: unset; cursor: pointer;}
     /* align-items: center; */
     /* width: unset; height: unset; */
   }
+}
+
+@media screen and (max-width: 1000px) {
+  .ProjectNav {
+    width: 100vw;
+  }
+    .ProjectNav .title {
+      width: 100%;
+    }
+    .ProjectNav .urls {
+      margin-right: 2px;
+    }
+      .ProjectNav .urls a {
+        margin: auto 2px;
+        padding: 5px auto;
+      }
+  .ProjectPreview {}
+    .ProjectPreview a {
+      display: unset;
+      flex-flow: unset;
+      justify-content: unset;
+    }
+    .ProjectPreview a img {
+      width: 80vw;
+      margin: 0 auto;
+    }
 }

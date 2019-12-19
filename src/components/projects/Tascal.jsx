@@ -25,10 +25,10 @@ export default function Tascal(){
     return(
         <div className="Tascal project">
             <div className="intro-continer right"><ProjectIntro projectObj={projectObj} /></div>
-            <div className="pd-container flexcol left">
+            {/* <div className="pd-container flexcol left"> */}
                 <ProjectPreview imgURL={projectObj['imgURL']} siteURL={projectObj['siteURL']} />
                 {/* <ProjectDescription projectObj={projectObj} /> */}
-            </div>
+            {/* </div> */}
         </div>
     )
 }

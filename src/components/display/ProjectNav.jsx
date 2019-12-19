@@ -5,7 +5,7 @@ import React from 'react';
 
 export default function ProjectNav({projectObj}){
     // destructuring
-    let {title, repoURL, siteURL, stackObj} = projectObj;
+    let {title, repoURL, siteURL} = projectObj;
 
     return(
         <div className="ProjectNav">

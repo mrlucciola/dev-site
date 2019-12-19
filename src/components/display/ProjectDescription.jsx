@@ -5,24 +5,11 @@ import React from 'react';
 
 export default function ProjectDescription({projectObj}){
     // destructuring
-    if (projectObj){
-        let {title, repoURL, siteURL, stackObj} = projectObj;
-    } else {
-        let title, repoURL, siteURL, stackObj;
-        title = 0;
-    }
-
-    const showProperty = (projectObj, param) => {
-        if (projectObj) {
-            return projectObj[param]
-        } else {
-            return 'nothing'
-        }
-    }
+    let {description} = projectObj;
 
     return(
         <div className="ProjectDescription">
-            <div className="title"></div>
+            {description && description}
         </div>
     )
 }

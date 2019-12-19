@@ -3,26 +3,14 @@
 // react
 import React from 'react';
 
-export default function ProjectIntro({projectObj}){
+export default function ProjectStack({projectObj}){
     // destructuring
-    if (projectObj){
-        let {title, repoURL, siteURL, stackObj} = projectObj;
-    } else {
-        let title, repoURL, siteURL, stackObj;
-    }
+    let {stackObj} = projectObj;
 
-    const showProperty = (projectObj, param) => {
-        if (projectObj) {
-            return projectObj[param]
-        } else {
-            return 'nothing'
-        }
-    }
     const buildStackElem = () => {
         // holds our whole stack
         let stackElemArr = []
 
-        let stackObj = showProperty(projectObj, 'stackObj');
         if (typeof stackObj !== typeof {}) {
             return <div className="notstack"></div>
         }
@@ -46,15 +34,7 @@ export default function ProjectIntro({projectObj}){
         )
     }
     return(
-        <div className="ProjectIntro">
-            <div className="title">{showProperty(projectObj, 'title')}</div>
-            <div className="urls">
-                <div className="url-container">
-                    <a className="repoURL" href={showProperty(projectObj, 'repoURL')}>GitHub Repo</a>
-                    <a className="siteURL" href={showProperty(projectObj, 'siteURL')}>Website</a>
-                </div>
-            </div>
-            <div className="description">{showProperty(projectObj, 'description')}</div>
+        <div className="ProjectStack">
             {buildStackElem()}
         </div>
     )

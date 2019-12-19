@@ -3,16 +3,9 @@
 // react
 import React from 'react';
 
-export default function ProjectPreview({imgURL, siteURL}){
+export default function ProjectPreview({projectObj}){
     // destructuring
-
-    const showProperty = (projectObj, param) => {
-        if (projectObj) {
-            return projectObj[param]
-        } else {
-            return 'nothing'
-        }
-    }
+    const {imgURL, siteURL} = projectObj;
     const buildImgElem = () => {
 
         return (

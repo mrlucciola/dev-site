@@ -4,10 +4,10 @@
 import React from 'react';
 
 // projects
-import ProjectIntro       from '../display/ProjectIntro';
-import ProjectNav       from '../display/ProjectNav';
+import ProjectNav         from '../display/ProjectNav';
 import ProjectPreview     from '../display/ProjectPreview';
-// import ProjectDescription from '../display/ProjectDescription';
+import ProjectStack       from '../display/ProjectStack';
+import ProjectDescription from '../display/ProjectDescription';
 
 export default function Diffuse(){
     const projectObj = {
@@ -28,11 +28,9 @@ export default function Diffuse(){
     return(
         <div className="Diffuse project">
             <ProjectNav projectObj={projectObj} />
-            <div className="intro-continer right"><ProjectIntro projectObj={projectObj} /></div>
-            <div className="pd-container flexcol left">
-                <ProjectPreview imgURL={projectObj['imgURL']} siteURL={projectObj['siteURL']} />
-                {/* <ProjectDescription projectObj={projectObj} /> */}
-            </div>
+            <ProjectPreview projectObj={projectObj} />
+            <ProjectDescription projectObj={projectObj} />
+            <ProjectStack projectObj={projectObj} />
         </div>
     )
 }
