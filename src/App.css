@@ -53,7 +53,7 @@ code {
     z-index: 10;
   }
     .Progress .prog-amt {
-      background: rgb(141, 109, 109);
+      background: rgb(182, 197, 212);
       border-radius: 5px;
       z-index: 100;
     }
@@ -72,21 +72,24 @@ code {
 .right {right: 0;}
 
 a {all: unset; cursor: pointer;}
+.Intro .introNav, .ProjectNav {
+  display: flex; flex-flow: row;
+  position: sticky; top: 0; left: 0;
+  width: 100vw; height: 50px;
+  margin-left: -12.5vw;
+  justify-content: space-between;
+  align-items: center;
+  
+  color: gainsboro;
+  z-index: 100000;
+}
 .Intro {
   position: relative;
   width: 100%; height: 100px;
-  background: rgb(103, 116, 116);
+  background: rgb(98, 106, 114);
 }
   .Intro .introNav {
-    display: flex; flex-flow: row;
-    position: sticky; top: 0; left: 0;
-    margin-left: -12.5vw;
-    width: 100vw; height: 50px;
-    justify-content: space-between;
-    align-items: center;
-
-    background: rgb(107, 114, 124);
-    z-index: 100000;
+    background: rgb(79, 85, 92);
   }
     .Intro .introNav .title {
       width: 100%;
@@ -97,23 +100,13 @@ a {all: unset; cursor: pointer;}
       font-family: helvetica;
     }
 .project {
-  /* display: flex; flex-flow: row; */
   position: relative;
   justify-content: space-between;
   width: 75vw;
   margin: 0 auto;
-  /* height: 100vh; height: 600px; */
 }
   .ProjectNav {
-    display: flex; flex-flow: row;
-    position: sticky; top: 0; left: 0;
-    margin-left: -12.5vw;
-    width: 100vw; height: 50px;
-    justify-content: space-between;
-    align-items: center;
-
-    background: rgb(107, 114, 124);
-    z-index: 100000;
+    background: rgb(70, 75, 80);
   }
     .ProjectNav .home {
       margin-left: 10px;
@@ -164,12 +157,10 @@ a {all: unset; cursor: pointer;}
     display: flex; flex-flow: row;
     justify-content: center;
     color: rgb(234, 240, 243);
-    /* margin: 10px; */
-    /* padding: 10px; */
-    /* background: rgba(164, 185, 226, 0.637); */
   }
     .ProjectStack .group {
-      margin: 5px 10px;
+      margin: 20px;
+      margin-top: 0;
       border-radius: 10px;
       box-shadow: .05em -.05em .3em rgb(44, 48, 56);
       background: rgb(72, 89, 122);
@@ -220,7 +211,7 @@ a {all: unset; cursor: pointer;}
 /* ############################################################################################################################ */
 /* ########################################################## Diffuse ######################################################### */
 .Diffuse {
-  background: rgb(98, 101, 112);
+  background: rgb(98, 109, 114);
 }
 /* ########################################################## Diffuse ######################################################### */
 /* ############################################################################################################################ */
@@ -228,7 +219,8 @@ a {all: unset; cursor: pointer;}
 /* ############################################################################################################################ */
 /* ######################################################### BikeStar ######################################################### */
 .BikeStar {
-  background: rgb(98, 105, 112);
+  /* background: rgb(98, 105, 112); */
+  background: rgb(98, 105, 114);
 }
 /* ######################################################### BikeStar ######################################################### */
 /* ############################################################################################################################ */
@@ -236,7 +228,8 @@ a {all: unset; cursor: pointer;}
 /* ############################################################################################################################ */
 /* ########################################################### Cofi ########################################################### */
 .Cofi {
-  background: rgb(98, 112, 111);
+  /* background: rgb(98, 108, 112); */
+  background: rgb(98, 102, 114);
 }
 /* ########################################################### Cofi ########################################################### */
 /* ############################################################################################################################ */
@@ -244,7 +237,9 @@ a {all: unset; cursor: pointer;}
 /* ############################################################################################################################ */
 /* ########################################################### Cofi ########################################################### */
 .BDA {
-  background: rgb(99, 104, 104);
+  /* background: rgb(99, 102, 104); */
+  /* background: rgb(98, 104, 114); */
+  background: rgb(98, 98, 114);
 }
 /* ########################################################### Cofi ########################################################### */
 /* ############################################################################################################################ */
