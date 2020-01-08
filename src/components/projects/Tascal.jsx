@@ -4,9 +4,10 @@
 import React from 'react';
 
 // projects
-import ProjectIntro       from '../display/ProjectIntro';
+import ProjectNav         from '../display/ProjectNav';
 import ProjectPreview     from '../display/ProjectPreview';
-// import ProjectDescription from '../display/ProjectDescription';
+import ProjectStack       from '../display/ProjectStack';
+import ProjectDescription from '../display/ProjectDescription';
 
 export default function Tascal(){
     const projectObj = {
@@ -14,21 +15,20 @@ export default function Tascal(){
         repoURL: "https://github.com/mattrlucciola/Tascal.git",
         siteURL: "https://tascal.dev",
         description: `\
-            Project management, note taking app.
+            Project management, scheduling, productivity-tracking, and note taking app.
         `,
         stackObj: {
-            frontend: ['React.js'],
-            backend: ['MongoDB, Node.js, Django'],
+            frontend: ['React.js', 'Redux.js'],
+            backend: ['MongoDB, Node.js, Django, Python'],
         },
         imgURL: "/assets/images/Tascal-preview.png",
     }
     return(
         <div className="Tascal project">
-            <div className="intro-continer right"><ProjectIntro projectObj={projectObj} /></div>
-            {/* <div className="pd-container flexcol left"> */}
-                <ProjectPreview imgURL={projectObj['imgURL']} siteURL={projectObj['siteURL']} />
-                {/* <ProjectDescription projectObj={projectObj} /> */}
-            {/* </div> */}
+            <ProjectNav projectObj={projectObj} />
+            <ProjectPreview projectObj={projectObj} />
+            <ProjectDescription projectObj={projectObj} />
+            <ProjectStack projectObj={projectObj} />
         </div>
     )
 }
