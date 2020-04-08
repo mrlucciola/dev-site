@@ -1,13 +1,8 @@
+// react
 import React from 'react';
 
-// components
-import ProjectNav from '../../display/ProjectNav';
-
+// main
 export default function Intro(){
-    const introText = 
-        <div className="introText">
-            
-        </div>
     return(
         <div className='Intro' id="Intro" >
             <div className="introNav">

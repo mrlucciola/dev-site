@@ -1,8 +1,11 @@
-// App.jsx > Body.jsx > Nav.jsx
+// App.jsx > Main.jsx > Nav.jsx
 
 // react
 import React from 'react';
+// style
+import './Nav.css';
 
+// main
 export default function Nav(){
     return(
         <div className="Nav">

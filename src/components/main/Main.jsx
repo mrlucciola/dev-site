@@ -5,7 +5,7 @@ import React from 'react';
 
 // projects
 import Body from './body/Body';
-import Nav from './body/Nav';
+import Nav from './nav/Nav';
 
 export default function Main(){
     
