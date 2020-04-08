@@ -1,6 +1,11 @@
 // react
 import React, {useState} from 'react';
+// redux
+// import {}
+// style
+import './Progress.css';
 
+// updateCurrentProject
 // main
 export default function Progress(){
     // component state

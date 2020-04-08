@@ -2,7 +2,7 @@
 import React from 'react';
 // components
 import Project from './project/Project';
-import Progress from './Progress';
+import Progress from './progress/Progress';
 import Intro from './Intro';
 import BDA from './project/BDA';
 import Diffuse from './project/Diffuse';
