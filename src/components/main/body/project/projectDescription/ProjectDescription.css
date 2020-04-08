@@ -1,0 +1,12 @@
+.ProjectDescription {
+    /* position */
+    position: relative;
+    margin: 20px auto;
+    /* size */
+    width: 80%; max-width: 800px;
+    padding: 20px;
+    /* background */
+    border: 1px solid rgba(245, 245, 245, 0.192);
+    /* text */
+    color: rgb(234, 240, 243);
+}

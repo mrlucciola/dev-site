@@ -6,7 +6,7 @@ import React from 'react';
 // projects
 import ProjectNav         from './projectNav/ProjectNav';
 import ProjectPreview     from './ProjectPreview';
-import ProjectDescription from './ProjectDescription';
+import ProjectDescription from './projectDescription/ProjectDescription';
 import ProjectStack       from './ProjectStack';
 
 export default function BDA(){

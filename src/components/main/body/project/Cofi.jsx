@@ -7,7 +7,7 @@ import React from 'react';
 import ProjectNav         from './projectNav/ProjectNav';
 import ProjectPreview     from './ProjectPreview';
 import ProjectStack       from './ProjectStack';
-import ProjectDescription from './ProjectDescription';
+import ProjectDescription from './projectDescription/ProjectDescription';
 
 export default function Cofi(){
     const projectObj = {

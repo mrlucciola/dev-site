@@ -1,3 +1,24 @@
+.Project {
+    /* display */
+    justify-content: space-between;
+    /* position */
+    position: relative;
+    /* background */
+    box-shadow: none;
+}
+.Project.active {
+    /* background */
+    box-shadow: 0 0 7px -1px rgb(188, 188, 218);
+}
+
+
+
+
+
+
+
+
+
 
 .project {
     position: relative;
@@ -16,15 +37,7 @@
       justify-content: center;
     }
       .ProjectPreview a img {}
-  .ProjectDescription {
-    position: relative;
-    width: 80%;
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    border: 1px solid rgba(245, 245, 245, 0.192);
-    color: rgb(234, 240, 243);
-  }
+  
   .ProjectStack {
     display: flex; flex-flow: row;
     justify-content: center;
