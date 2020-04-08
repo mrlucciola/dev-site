@@ -4,10 +4,10 @@
 import React from 'react';
 
 // projects
-import ProjectNav         from '../display/ProjectNav';
-import ProjectPreview     from '../display/ProjectPreview';
-import ProjectStack       from '../display/ProjectStack';
-import ProjectDescription from '../display/ProjectDescription';
+import ProjectNav         from './ProjectNav';
+import ProjectPreview     from './ProjectPreview';
+import ProjectStack       from './ProjectStack';
+import ProjectDescription from './ProjectDescription';
 
 export default function Diffuse(){
     const projectObj = {

@@ -1,4 +1,4 @@
-// App.jsx > Body.jsx > Main.jsx > _project-name_.jsx > ProjectDescription.jsx
+// App > Main > Body > Project > Description
 
 // react
 import React from 'react';

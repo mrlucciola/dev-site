@@ -4,10 +4,10 @@
 import React from 'react';
 
 // projects
-import ProjectNav         from '../display/ProjectNav';
-import ProjectPreview     from '../display/ProjectPreview';
-import ProjectDescription from '../display/ProjectDescription';
-import ProjectStack       from '../display/ProjectStack';
+import ProjectNav         from './ProjectNav';
+import ProjectPreview     from './ProjectPreview';
+import ProjectDescription from './ProjectDescription';
+import ProjectStack       from './ProjectStack';
 
 export default function BDA(){
     const projectObj = {
