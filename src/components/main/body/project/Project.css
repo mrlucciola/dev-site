@@ -1,108 +1,200 @@
-.Project {
+.ProjectNav {
+    /* display */
+    display: flex; flex-flow: row;
+    justify-content: space-between;
+    align-items: center;
+    /* position */
+    position: sticky;
+    top: 0; left: 0;
+    margin-left: -12.5vw;
+    /* size */
+    width: 100vw; height: 50px;
+    /* background */
+    background: rgb(79, 85, 92);
+    z-index: 100000;
+    /* text */
+    color: gainsboro;
+}
+.project {
     position: relative;
     justify-content: space-between;
     width: 75vw;
     margin: 0 auto;
 }
-    .Project > .ProjectNav {
-      background: rgb(70, 75, 80);
+  .ProjectNav {
+    background: rgb(70, 75, 80);
+  }
+    .ProjectNav .home {
+      margin-left: 10px;
+      padding: 10px 20px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.068);
     }
-    .Project > .ProjectNav .home {
-        margin-left: 10px;
-        padding: 10px 20px;
-        border-radius: 10px;
-        background: rgba(255, 255, 255, 0.068);
+    .ProjectNav .title {
+      width: 50%;
+      margin-left: 20px;
+      text-align: center;
+      font-weight: 500;
+      font-size: 30px;
+      font-family: helvetica;
     }
-    .Project > .ProjectNav .title {
-        width: 50%;
-        margin-left: 20px;
-        text-align: center;
-        font-weight: 500;
-        font-size: 30px;
-        font-family: helvetica;
-    }
-    .Project > .ProjectNav .urls {
-        display: flex; flex-flow: row;
-        margin-right: 10px;
-    }
-        .ProjectNav .urls a {
-          padding: 10px 5px;
-          margin: 0 5px;
-          height: 90%;
-          border-radius: 5px;
-          background: rgba(17, 17, 17, 0.137);
-        }
-    .ProjectPreview {
-      position: relative;
-      width: 90%;
-      margin: 0 auto;
-    }
-      .ProjectPreview a {
-        display: flex;
-        flex-flow: row;
-        justify-content: center;
-      }
-        .ProjectPreview a img {}
-    .ProjectDescription {
-      position: relative;
-      width: 80%;
-      max-width: 800px;
-      margin: 20px auto;
-      padding: 20px;
-      border: 1px solid rgba(245, 245, 245, 0.192);
-      color: rgb(234, 240, 243);
-    }
-    .ProjectStack {
+    .ProjectNav .urls {
       display: flex; flex-flow: row;
+      margin-right: 10px;
+    }
+      .ProjectNav .urls a {
+        padding: 10px 5px;
+        margin: 0 5px;
+        height: 90%;
+        border-radius: 5px;
+        background: rgba(17, 17, 17, 0.137);
+      }
+  .ProjectPreview {
+    position: relative;
+    width: 90%;
+    margin: 0 auto;
+  }
+    .ProjectPreview a {
+      display: flex;
+      flex-flow: row;
       justify-content: center;
+    }
+      .ProjectPreview a img {}
+  .ProjectDescription {
+    position: relative;
+    width: 80%;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid rgba(245, 245, 245, 0.192);
+    color: rgb(234, 240, 243);
+  }
+  .ProjectStack {
+    display: flex; flex-flow: row;
+    justify-content: center;
+    color: rgb(234, 240, 243);
+  }
+    .ProjectStack .group {
+      margin: 20px;
+      margin-top: 0;
+      border-radius: 10px;
+      box-shadow: .05em -.05em .3em rgb(44, 48, 56);
+      background: rgb(72, 89, 122);
       color: rgb(234, 240, 243);
     }
-      .ProjectStack .group {
-        margin: 20px;
-        margin-top: 0;
-        border-radius: 10px;
-        box-shadow: .05em -.05em .3em rgb(44, 48, 56);
+      .ProjectStack .group .group-title {
+        margin: 5px;
+        padding: 0 20px;
+        text-align: center;
+        border-bottom: 1px solid white;
+      }
+      .ProjectStack .group .group-list {
+        margin: 10px 20px;
+      }
+        .ProjectStack .group .group-list .tool {
+          margin: 10px 0;
+        }
+  @media screen and (max-width: 1000px) {
+    .project {
+      width: 90vw;
+      height: unset;
+      padding-bottom: 25px;
+      margin-bottom: 25px;
+    }
+    
+    /* .ProjectStack {
+      display: flex; flex-flow: row;
+      margin: 10px;
+      padding: 10px;
+      background: rgba(164, 185, 226, 0.637);
+    } */
+      /* .ProjectStack .group {
+        margin: 5px 10px;
         background: rgb(72, 89, 122);
         color: rgb(234, 240, 243);
-      }
-        .ProjectStack .group .group-title {
+      } */
+        /* .ProjectStack .group .group-title {
           margin: 5px;
           padding: 0 20px;
           text-align: center;
           border-bottom: 1px solid white;
-        }
-        .ProjectStack .group .group-list {
-          margin: 10px 20px;
-        }
-          .ProjectStack .group .group-list .tool {
-            margin: 10px 0;
-          }
-    @media screen and (max-width: 1000px) {
-      .project {
-        width: 90vw;
-        height: unset;
-        padding-bottom: 25px;
-        margin-bottom: 25px;
-      }
-      
-      /* .ProjectStack {
-        display: flex; flex-flow: row;
-        margin: 10px;
-        padding: 10px;
-        background: rgba(164, 185, 226, 0.637);
-      } */
-        /* .ProjectStack .group {
-          margin: 5px 10px;
-          background: rgb(72, 89, 122);
-          color: rgb(234, 240, 243);
         } */
-          /* .ProjectStack .group .group-title {
-            margin: 5px;
-            padding: 0 20px;
-            text-align: center;
-            border-bottom: 1px solid white;
-          } */
-          /* .ProjectStack .group .group-list .tool {
-            margin: 5px;
-          } */
+        /* .ProjectStack .group .group-list .tool {
+          margin: 5px;
+        } */
+  }
+    
+/* ############################################################################################################################ */
+/* ########################################################## Diffuse ######################################################### */
+.Diffuse {
+  background: rgb(98, 109, 114);
+}
+/* ########################################################## Diffuse ######################################################### */
+/* ############################################################################################################################ */
+
+/* ############################################################################################################################ */
+/* ######################################################### BikeStar ######################################################### */
+.BikeStar {
+  /* background: rgb(98, 105, 112); */
+  background: rgb(98, 105, 114);
+}
+/* ######################################################### BikeStar ######################################################### */
+/* ############################################################################################################################ */
+
+/* ############################################################################################################################ */
+/* ########################################################### Cofi ########################################################### */
+.Cofi {
+  /* background: rgb(98, 108, 112); */
+  background: rgb(98, 102, 114);
+}
+/* ########################################################### Cofi ########################################################### */
+/* ############################################################################################################################ */
+
+/* ############################################################################################################################ */
+/* ########################################################### Cofi ########################################################### */
+.BDA {
+  /* background: rgb(99, 102, 104); */
+  /* background: rgb(98, 104, 114); */
+  background: rgb(98, 98, 114);
+}
+/* ########################################################### Cofi ########################################################### */
+/* ############################################################################################################################ */
+
+/* ########################################################### PROJECTS ########################################################### */
+/* ################################################################################################################################ */
+
+@media screen and (max-width: 1500px) {
+  .Main .project {
+    display: flex;
+    flex-flow: column;
+    /* justify-content: space-between; */
+    /* align-items: center; */
+    /* width: unset; height: unset; */
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .ProjectNav {
+    width: 100vw;
+  }
+    .ProjectNav .title {
+      width: 100%;
     }
+    .ProjectNav .urls {
+      margin-right: 2px;
+    }
+      .ProjectNav .urls a {
+        margin: auto 2px;
+        padding: 5px auto;
+      }
+  .ProjectPreview {}
+    .ProjectPreview a {
+      display: unset;
+      flex-flow: unset;
+      justify-content: unset;
+    }
+    .ProjectPreview a img {
+      width: 80vw;
+      margin: 0 auto;
+    }
+}
