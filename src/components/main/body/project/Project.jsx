@@ -1,6 +1,6 @@
 // App > Main > Body > Project
 // react
-import React, {useState} from 'react';
+import React from 'react';
 // redux
 import {useDispatch, useSelector} from 'react-redux';
 import {updateCurrentProject} from '../../../../redux/actions/projectActions';
@@ -11,6 +11,7 @@ import ProjectDescription from './projectDescription/ProjectDescription';
 import ProjectStack from './projectStack/ProjectStack';
 // style
 import './Project.css';
+import { slugify } from '../../../../util/slugify';
 // event handlers
 const onMouseMoveActivateProject = ({projectObj, isActive, dispatch, updateCurrentProject}) => {
     if (!isActive) {
@@ -20,7 +21,7 @@ const onMouseMoveActivateProject = ({projectObj, isActive, dispatch, updateCurre
 // main
 export default function Project({projectObj}){
     // destructure
-    const {title, repoURL, siteURL, description, stackObj, imgURL} = projectObj;
+    const {title, siteURL, description, stackObj, imgURL} = projectObj;
     // redux state
     let dispatch = useDispatch();
     const {currentProject} = useSelector(state => state['project']);
@@ -29,6 +30,7 @@ export default function Project({projectObj}){
     console.log('current', title, currentProjectTitle, currentProjectTitle === title)
     return(
         <div
+            id={slugify(title)}
             className={`Project${isActive ? ' active' : ''} w100`}
             onMouseMove={() => {onMouseMoveActivateProject({projectObj, currentProjectTitle, dispatch, updateCurrentProject, isActive})}}
         >
