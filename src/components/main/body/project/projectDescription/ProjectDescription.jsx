@@ -5,10 +5,7 @@ import React from 'react';
 import './ProjectDescription.css'
 
 // main
-export default function ProjectDescription({projectObj}){
-    // destructuring
-    let {description} = projectObj;
-
+export default function ProjectDescription({description}){
     return(
         <div className="ProjectDescription">
             {description && description}

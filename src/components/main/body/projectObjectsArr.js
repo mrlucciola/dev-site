@@ -16,6 +16,21 @@ export const projectObjectsArr = [
     //     imgURL: "/assets/images/Tascal-preview.png",
     // },
     {
+        title: "Diffuse",
+        repoURL: "https://github.com/mattrlucciola/diffuse.git",
+        siteURL: "https://diffuse.dev",
+        description: `\
+            Collaborative songwriting software.\
+            Register, sign in, create and save projects to your profile.\
+            Add others to contribute to your songs and track the history of the songs progression!\
+        `,
+        stackObj: {
+            frontend: ['React.js', 'D3.js', "Redux.js"],
+            backend: ['MongoDB, Node.js, Django'],
+        },
+        imgURL: "/assets/images/diffuse-preview.png",
+    },
+    {
         title: "BDA",
         repoURL: "https://github.com/mattrlucciola/bpm-detection-algorithm.git",
         siteURL: "https://mattrlucciola.github.io/bpm-detection-algorithm/",
@@ -52,20 +67,5 @@ export const projectObjectsArr = [
             frontend: ['React.js', 'Web Audio API', "Redux.js"],
         },
         imgURL: "/assets/images/cofi-preview.png",
-    },
-    {
-        title: "Diffuse",
-        repoURL: "https://github.com/mattrlucciola/diffuse.git",
-        siteURL: "https://diffuse.dev",
-        description: `\
-            Collaborative songwriting software.\
-            Register, sign in, create and save projects to your profile.\
-            Add others to contribute to your songs and track the history of the songs progression!\
-        `,
-        stackObj: {
-            frontend: ['React.js', 'D3.js', "Redux.js"],
-            backend: ['MongoDB, Node.js, Django'],
-        },
-        imgURL: "/assets/images/diffuse-preview.png",
     },
 ]
