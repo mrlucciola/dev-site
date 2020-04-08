@@ -12,7 +12,7 @@
     height: 60px;
     /* background */
     background: linear-gradient( rgba(107, 121, 150, 1), rgba(107, 121, 150, .99), rgba(107, 121, 150, .99), rgba(107, 121, 150, .99), rgba(107, 121, 150, .99), rgba(107, 121, 150, 0)) ;
-    /* z-index: 10000000; */
+    z-index: 10;
     /* text */
     color: whitesmoke;
 }
