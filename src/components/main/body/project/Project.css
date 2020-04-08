@@ -26,17 +26,6 @@
     width: 75vw;
     margin: 0 auto;
 }
-  .ProjectPreview {
-    position: relative;
-    width: 90%;
-    margin: 0 auto;
-  }
-    .ProjectPreview a {
-      display: flex;
-      flex-flow: row;
-      justify-content: center;
-    }
-      .ProjectPreview a img {}
   
   .ProjectStack {
     display: flex; flex-flow: row;
@@ -140,16 +129,4 @@
     /* align-items: center; */
     /* width: unset; height: unset; */
   }
-}
-@media screen and (max-width: 1000px) {
-    .ProjectPreview {}
-        .ProjectPreview a {
-            display: unset;
-            flex-flow: unset;
-            justify-content: unset;
-        }
-        .ProjectPreview a img {
-            width: 80vw;
-            margin: 0 auto;
-        }
 }

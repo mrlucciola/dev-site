@@ -1,0 +1,27 @@
+.ProjectPreview {
+    /* position */
+    position: relative;
+    margin: 0 auto;
+    /* size */
+    width: 90%;
+}
+    .ProjectPreview a {
+        /* display */
+        display: flex; flex-flow: row;
+        justify-content: center;
+    }
+        .ProjectPreview a img {}
+@media screen and (max-width: 1000px) {
+    .ProjectPreview {}
+        .ProjectPreview a {
+            /* display */
+            display: unset; flex-flow: unset;
+            justify-content: unset;
+        }
+        .ProjectPreview a img {
+            /* position */
+            margin: 0 auto;
+            /* size */
+            width: 80vw;
+        }
+}
