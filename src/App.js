@@ -2,7 +2,7 @@
 // react
 import React from 'react';
 // components
-import Main from './components/body/Main';
+import Main from './components/main/Main';
 // styling
 import './App.css';
 

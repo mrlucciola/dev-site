@@ -4,8 +4,8 @@
 import React from 'react';
 
 // projects
-import Body from './Body';
-import Nav from './Nav';
+import Body from './body/Body';
+import Nav from './body/Nav';
 
 export default function Main(){
     
