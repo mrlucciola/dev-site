@@ -27,6 +27,7 @@ export default function Nav(){
                         let newLocation = `${window.location.origin}#${slugify(title)}`;
                         window.location = newLocation;
                     }}
+                    key={`n-p-${idx}`}
                 >
                     {title}
                 </div>
@@ -35,6 +36,15 @@ export default function Nav(){
     }
     return(
         <div className="Nav">
+            <div
+                className="home"
+                onClick={() => {
+                    window.scroll(0, 0);
+                    window.location = `${window.location.origin}#`;
+                }}
+            >
+                Home
+            </div>
             {buildProjectElemList(projectObjectsArr)}
             <div className="contact">Contact</div>
             <div className="about">About</div>
