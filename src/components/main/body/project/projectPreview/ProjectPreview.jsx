@@ -1,8 +1,10 @@
-// App.jsx > Body.jsx > Main.jsx > _project-name_.jsx > ProjectPreview.jsx
-
+// App > Main > Body > Project > ProjectPreview
 // react
 import React from 'react';
+// style
+import './ProjectPreview.css';
 
+// main
 export default function ProjectPreview({projectObj}){
     // destructuring
     const {imgURL, siteURL} = projectObj;

@@ -1,12 +1,14 @@
-// App.jsx > Body.jsx > Main.jsx > _project-name_.jsx > ProjectIntro.jsx
-
+// App > Main > Body > Project > ProjectStack
 // react
 import React from 'react';
+// style
+import './ProjectStack.css'
 
-export default function ProjectStack({projectObj}){
+// main
+export default function ProjectStack({stackObj}){
     // destructuring
-    let {stackObj} = projectObj;
-
+    // let {} = stackObj;
+    // build fxns
     const buildStackElem = () => {
         // holds our whole stack
         let stackElemArr = []

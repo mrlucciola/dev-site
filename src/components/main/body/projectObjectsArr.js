@@ -1,20 +1,20 @@
 export const projectObjectsArr = [
-    {
-        title: "Custom Admin",
-    },
-    {
-        title: "Tascal",
-        repoURL: "https://github.com/mattrlucciola/Tascal.git",
-        siteURL: "https://tascal.dev",
-        description: `\
-            Project management, scheduling, productivity-tracking, and note taking app.
-        `,
-        stackObj: {
-            frontend: ['React.js', 'Redux.js'],
-            backend: ['MongoDB, Node.js, Django, Python'],
-        },
-        imgURL: "/assets/images/Tascal-preview.png",
-    },
+    // {
+        // title: "Custom Admin",
+    // },
+    // {
+    //     title: "Tascal",
+    //     repoURL: "https://github.com/mattrlucciola/Tascal.git",
+    //     siteURL: "https://tascal.dev",
+    //     description: `\
+    //         Project management, scheduling, productivity-tracking, and note taking app.
+    //     `,
+    //     stackObj: {
+    //         frontend: ['React.js', 'Redux.js'],
+    //         backend: ['MongoDB, Node.js, Django, Python'],
+    //     },
+    //     imgURL: "/assets/images/Tascal-preview.png",
+    // },
     {
         title: "BDA",
         repoURL: "https://github.com/mattrlucciola/bpm-detection-algorithm.git",

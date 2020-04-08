@@ -1,5 +1,4 @@
 // App > Main > Body > Project > ProjectDescription
-
 // react
 import React from 'react';
 // style

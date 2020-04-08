@@ -35,7 +35,7 @@ export default function Project({projectObj}){
             <ProjectNav projectObj={projectObj} />
             <ProjectPreview projectObj={projectObj} />
             <ProjectDescription projectObj={projectObj} />
-            <ProjectStack projectObj={projectObj} />
+            <ProjectStack stackObj={stackObj} />
         </div>
     )
 }

@@ -1,8 +1,10 @@
-// App > Main > Body > Project > ProjectNav.jsx
+// App > Main > Body > Project > ProjectNav
 // react
 import React from 'react';
 // style
 import './ProjectNav.css';
+
+// main
 export default function ProjectNav({projectObj}){
     // destructuring
     let {title, repoURL, siteURL} = projectObj;
