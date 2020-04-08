@@ -29,7 +29,7 @@ export default function Project({projectObj}){
     console.log('current', title, currentProjectTitle, currentProjectTitle === title)
     return(
         <div
-            className={`Project${isActive ? ' active' : ''}`}
+            className={`Project${isActive ? ' active' : ''} w100`}
             onMouseMove={() => {onMouseMoveActivateProject({projectObj, currentProjectTitle, dispatch, updateCurrentProject, isActive})}}
         >
             <ProjectNav projectObj={projectObj} />
