@@ -1,3 +1,4 @@
+// react
 import React from 'react';
 
 // components
@@ -5,11 +6,12 @@ import Main from './Main';
 import Nav from './Nav';
 import Progress from './Progress';
 import Intro from './Intro';
-import BDA from '../projects/BDA';
-import Diffuse from '../projects/Diffuse';
-import BikeStar from '../projects/BikeStar';
-import Cofi from '../projects/Cofi';
+import BDA from '../project/BDA';
+import Diffuse from '../project/Diffuse';
+import BikeStar from '../project/BikeStar';
+import Cofi from '../project/Cofi';
 
+// main
 export default function Body(){
     return(
         <div className="Body">

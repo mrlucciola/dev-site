@@ -5,10 +5,10 @@ import React from 'react';
 
 // projects
 import Progress from './Progress';
-import BDA from '../projects/BDA';
-import Diffuse from '../projects/Diffuse';
-import BikeStar from '../projects/BikeStar';
-import Cofi from '../projects/Cofi';
+import BDA from '../project/BDA';
+import Diffuse from '../project/Diffuse';
+import BikeStar from '../project/BikeStar';
+import Cofi from '../project/Cofi';
 
 export default function Main(){
     return(
