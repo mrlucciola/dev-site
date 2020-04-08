@@ -1,7 +1,5 @@
 // react
 import React, {useState} from 'react';
-// redux
-// import {}
 // style
 import './Progress.css';
 

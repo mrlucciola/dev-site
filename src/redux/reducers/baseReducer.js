@@ -1,7 +1,7 @@
 // modules
 import {combineReducers} from 'redux';
 // redux
-// import WindowReducer from './WindowReducer';
+import ProjectReducer from './projectReducer';
 
 // main
 const BaseReducer = (state = {}, action) => {
@@ -13,5 +13,5 @@ const BaseReducer = (state = {}, action) => {
 // main
 export default combineReducers({
     base: BaseReducer,
-    // window: WindowReducer,
+    project: ProjectReducer,
 })

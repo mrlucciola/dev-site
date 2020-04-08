@@ -5,8 +5,8 @@ const initialState = {currentProject: {}}
 // main
 export default function ProjectReducer(state=initialState, action) {
     switch(action['type']) {
-        case TYPE:
-            return {...state, update: action['payload']}
+        case CURRENT_PROJECT:
+            return {...state, currentProject: action['payload']}
         default: return {...state}
     }
 }
