@@ -1,0 +1,58 @@
+.ProjectStack {
+    /* display */
+    display: flex; flex-flow: row;
+    justify-content: center;
+    /* text */
+    color: rgb(234, 240, 243);
+}
+    .ProjectStack .group {
+        /* position */
+        margin: 20px;
+        margin-top: 0;
+        /* background */
+        background: rgb(72, 89, 122);
+        border-radius: 10px;
+        box-shadow: .05em -.05em .3em rgb(44, 48, 56);
+        /* text */
+        color: rgb(234, 240, 243);
+    }
+        .ProjectStack .group .group-title {
+            /* position */
+            margin: 5px;
+            /* size */
+            padding: 0 20px;
+            /* background */
+            border-bottom: 1px solid white;
+            /* text */
+            text-align: center;
+        }
+        .ProjectStack .group .group-list {
+            /* position */
+            margin: 10px 20px;
+        }
+            .ProjectStack .group .group-list .tool {
+                /* position */
+                margin: 10px 0;
+            }
+
+/* .ProjectStack {
+    display: flex; flex-flow: row;
+    margin: 10px;
+    padding: 10px;
+    background: rgba(164, 185, 226, 0.637);
+} */
+    /* .ProjectStack .group {
+    margin: 5px 10px;
+    background: rgb(72, 89, 122);
+    color: rgb(234, 240, 243);
+    } */
+    /* .ProjectStack .group .group-title {
+        margin: 5px;
+        padding: 0 20px;
+        text-align: center;
+        border-bottom: 1px solid white;
+    } */
+    /* .ProjectStack .group .group-list .tool {
+        margin: 5px;
+    } */
+  

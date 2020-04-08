@@ -27,31 +27,7 @@
     margin: 0 auto;
 }
   
-  .ProjectStack {
-    display: flex; flex-flow: row;
-    justify-content: center;
-    color: rgb(234, 240, 243);
-  }
-    .ProjectStack .group {
-      margin: 20px;
-      margin-top: 0;
-      border-radius: 10px;
-      box-shadow: .05em -.05em .3em rgb(44, 48, 56);
-      background: rgb(72, 89, 122);
-      color: rgb(234, 240, 243);
-    }
-      .ProjectStack .group .group-title {
-        margin: 5px;
-        padding: 0 20px;
-        text-align: center;
-        border-bottom: 1px solid white;
-      }
-      .ProjectStack .group .group-list {
-        margin: 10px 20px;
-      }
-        .ProjectStack .group .group-list .tool {
-          margin: 10px 0;
-        }
+  
   @media screen and (max-width: 1000px) {
     .project {
       width: 90vw;
@@ -59,27 +35,6 @@
       padding-bottom: 25px;
       margin-bottom: 25px;
     }
-    
-    /* .ProjectStack {
-      display: flex; flex-flow: row;
-      margin: 10px;
-      padding: 10px;
-      background: rgba(164, 185, 226, 0.637);
-    } */
-      /* .ProjectStack .group {
-        margin: 5px 10px;
-        background: rgb(72, 89, 122);
-        color: rgb(234, 240, 243);
-      } */
-        /* .ProjectStack .group .group-title {
-          margin: 5px;
-          padding: 0 20px;
-          text-align: center;
-          border-bottom: 1px solid white;
-        } */
-        /* .ProjectStack .group .group-list .tool {
-          margin: 5px;
-        } */
   }
     
 /* ############################################################################################################################ */

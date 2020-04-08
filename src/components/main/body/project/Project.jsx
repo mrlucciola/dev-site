@@ -8,6 +8,7 @@ import {updateCurrentProject} from '../../../../redux/actions/projectActions';
 import ProjectNav from './projectNav/ProjectNav';
 import ProjectPreview from './projectPreview/ProjectPreview';
 import ProjectDescription from './projectDescription/ProjectDescription';
+import ProjectStack from './projectStack/ProjectStack';
 // style
 import './Project.css';
 // event handlers
@@ -34,6 +35,7 @@ export default function Project({projectObj}){
             <ProjectNav projectObj={projectObj} />
             <ProjectPreview projectObj={projectObj} />
             <ProjectDescription projectObj={projectObj} />
+            <ProjectStack projectObj={projectObj} />
         </div>
     )
 }

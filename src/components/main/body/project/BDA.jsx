@@ -7,7 +7,7 @@ import React from 'react';
 import ProjectNav         from './projectNav/ProjectNav';
 import ProjectPreview     from './projectPreview/ProjectPreview';
 import ProjectDescription from './projectDescription/ProjectDescription';
-import ProjectStack       from './ProjectStack';
+import ProjectStack       from './projectStack/ProjectStack';
 
 export default function BDA(){
     const projectObj = {

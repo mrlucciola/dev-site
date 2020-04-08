@@ -6,7 +6,7 @@ import React from 'react';
 // projects
 import ProjectNav         from './projectNav/ProjectNav';
 import ProjectPreview     from './projectPreview/ProjectPreview';
-import ProjectStack       from './ProjectStack';
+import ProjectStack       from './projectStack/ProjectStack';
 import ProjectDescription from './projectDescription/ProjectDescription';
 
 export default function Tascal(){
