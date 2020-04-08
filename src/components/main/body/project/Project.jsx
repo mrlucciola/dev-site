@@ -33,7 +33,7 @@ export default function Project({projectObj}){
             onMouseMove={() => {onMouseMoveActivateProject({projectObj, currentProjectTitle, dispatch, updateCurrentProject, isActive})}}
         >
             <ProjectNav projectObj={projectObj} />
-            <ProjectPreview projectObj={projectObj} />
+            <ProjectPreview imgURL={imgURL} siteURL={siteURL} />
             <ProjectDescription description={description} />
             <ProjectStack stackObj={stackObj} />
         </div>

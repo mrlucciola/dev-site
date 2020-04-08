@@ -5,9 +5,7 @@ import React from 'react';
 import './ProjectPreview.css';
 
 // main
-export default function ProjectPreview({projectObj}){
-    // destructuring
-    const {imgURL, siteURL} = projectObj;
+export default function ProjectPreview({imgURL, siteURL}){
     const buildImgElem = () => {
 
         return (
