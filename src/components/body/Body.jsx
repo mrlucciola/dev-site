@@ -1,19 +1,27 @@
-// App.jsx > Body.jsx > Main.jsx
-
 // react
 import React from 'react';
 
-// projects
+// components
+
+// import Project from './project/Project';
 import Progress from './Progress';
+import Intro from './Intro';
 import BDA from '../project/BDA';
 import Diffuse from '../project/Diffuse';
 import BikeStar from '../project/BikeStar';
 import Cofi from '../project/Cofi';
+import {projectObjectsArr} from './projectObjectsArr'
 
-export default function Main(){
+// main
+export default function Body(){
+    const buildProjectElems = (projectObjectsArr) => {
+
+    }
     return(
-        <div className="Main" onScroll={(e) => {}} >
+        <div className="Body">
             <Progress />
+            <Intro />
+            {buildProjectElems(projectObjectsArr)}
             <BDA />
             <Diffuse />
             <BikeStar />

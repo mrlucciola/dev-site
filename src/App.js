@@ -2,7 +2,7 @@
 // react
 import React from 'react';
 // components
-import Body from './components/main/Body';
+import Main from './components/body/Main';
 // styling
 import './App.css';
 
@@ -10,7 +10,7 @@ import './App.css';
 export default function App() {
     return (
         <div className="App">
-            <Body />
+            <Main />
         </div>
     );
 }
