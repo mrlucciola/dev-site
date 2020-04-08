@@ -2,14 +2,15 @@
 
 // react
 import React from 'react';
-
+// style
+import './ProjectNav.css';
 export default function ProjectNav({projectObj}){
     // destructuring
     let {title, repoURL, siteURL} = projectObj;
 
     return(
         <div className="ProjectNav">
-            {title !== "Matt Rocco Lucciola" && <a href="#Intro" className="home">Home</a>}
+            <a href="#Intro" className="home">Home</a>
             <div className="title">{title}</div>
             <div className="urls">
                 {repoURL && <a className="repoURL" href={repoURL}>GitHub</a>}

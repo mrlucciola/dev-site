@@ -1,54 +1,10 @@
-.ProjectNav {
-    /* display */
-    display: flex; flex-flow: row;
-    justify-content: space-between;
-    align-items: center;
-    /* position */
-    position: sticky;
-    top: 0; left: 0;
-    margin-left: -12.5vw;
-    /* size */
-    width: 100vw; height: 50px;
-    /* background */
-    background: rgb(79, 85, 92);
-    z-index: 100000;
-    /* text */
-    color: gainsboro;
-}
+
 .project {
     position: relative;
     justify-content: space-between;
     width: 75vw;
     margin: 0 auto;
 }
-  .ProjectNav {
-    background: rgb(70, 75, 80);
-  }
-    .ProjectNav .home {
-      margin-left: 10px;
-      padding: 10px 20px;
-      border-radius: 10px;
-      background: rgba(255, 255, 255, 0.068);
-    }
-    .ProjectNav .title {
-      width: 50%;
-      margin-left: 20px;
-      text-align: center;
-      font-weight: 500;
-      font-size: 30px;
-      font-family: helvetica;
-    }
-    .ProjectNav .urls {
-      display: flex; flex-flow: row;
-      margin-right: 10px;
-    }
-      .ProjectNav .urls a {
-        padding: 10px 5px;
-        margin: 0 5px;
-        height: 90%;
-        border-radius: 5px;
-        background: rgba(17, 17, 17, 0.137);
-      }
   .ProjectPreview {
     position: relative;
     width: 90%;
@@ -172,29 +128,15 @@
     /* width: unset; height: unset; */
   }
 }
-
 @media screen and (max-width: 1000px) {
-  .ProjectNav {
-    width: 100vw;
-  }
-    .ProjectNav .title {
-      width: 100%;
-    }
-    .ProjectNav .urls {
-      margin-right: 2px;
-    }
-      .ProjectNav .urls a {
-        margin: auto 2px;
-        padding: 5px auto;
-      }
-  .ProjectPreview {}
-    .ProjectPreview a {
-      display: unset;
-      flex-flow: unset;
-      justify-content: unset;
-    }
-    .ProjectPreview a img {
-      width: 80vw;
-      margin: 0 auto;
-    }
+    .ProjectPreview {}
+        .ProjectPreview a {
+            display: unset;
+            flex-flow: unset;
+            justify-content: unset;
+        }
+        .ProjectPreview a img {
+            width: 80vw;
+            margin: 0 auto;
+        }
 }

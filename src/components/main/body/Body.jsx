@@ -1,7 +1,7 @@
 // react
 import React from 'react';
 // components
-// import Project from './project/Project';
+import Project from './project/Project';
 import Progress from './Progress';
 import Intro from './Intro';
 import BDA from './project/BDA';
@@ -15,7 +15,10 @@ import './Body.css';
 // main
 export default function Body(){
     const buildProjectElems = (projectObjectsArr) => {
-
+        return projectObjectsArr.map((projectObj, idx) => {
+            return <Project projectObj={projectObj} key={`p-o-${idx}`} />
+        })[2]
+        
     }
     return(
         <div className="Body">
