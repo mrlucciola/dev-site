@@ -5,7 +5,7 @@ import React from 'react';
 
 // projects
 import ProjectNav         from './projectNav/ProjectNav';
-import ProjectPreview     from './ProjectPreview';
+import ProjectPreview     from './projectPreview/ProjectPreview';
 import ProjectStack       from './ProjectStack';
 import ProjectDescription from './projectDescription/ProjectDescription';
 // import ProjectDescription from './ProjectDescription';

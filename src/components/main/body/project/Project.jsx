@@ -6,6 +6,8 @@ import {useDispatch, useSelector} from 'react-redux';
 import {updateCurrentProject} from '../../../../redux/actions/projectActions';
 // components
 import ProjectNav from './projectNav/ProjectNav';
+import ProjectPreview from './projectPreview/ProjectPreview';
+import ProjectDescription from './projectDescription/ProjectDescription';
 // style
 import './Project.css';
 // event handlers
@@ -30,6 +32,8 @@ export default function Project({projectObj}){
             onMouseMove={() => {onMouseMoveActivateProject({projectObj, currentProjectTitle, dispatch, updateCurrentProject, isActive})}}
         >
             <ProjectNav projectObj={projectObj} />
+            <ProjectPreview projectObj={projectObj} />
+            <ProjectDescription projectObj={projectObj} />
         </div>
     )
 }
