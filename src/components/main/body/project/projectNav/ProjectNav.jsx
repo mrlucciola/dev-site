@@ -1,5 +1,4 @@
-// App.jsx > Body.jsx > Main.jsx > _project-name_.jsx > ProjectNav.jsx
-
+// App > Main > Body > Project > ProjectNav.jsx
 // react
 import React from 'react';
 // style

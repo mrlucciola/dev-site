@@ -18,7 +18,6 @@ export default function Body(){
         return projectObjectsArr.map((projectObj, idx) => {
             return <Project projectObj={projectObj} key={`p-o-${idx}`} />
         })[2]
-        
     }
     return(
         <div className="Body">
