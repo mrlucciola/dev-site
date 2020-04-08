@@ -17,44 +17,59 @@
 }
 
     .ProjectNav .home {
-        
+        /* position */
         margin-left: 10px;
+        /* size */
         padding: 10px 20px;
-        border-radius: 10px;
+        /* background */
         background: rgba(255, 255, 255, 0.068);
+        border-radius: 10px;
     }
     .ProjectNav .title {
-        width: 50%;
+        /* position */
         margin-left: 20px;
+        /* size */
+        width: 50%;
+        /* text */
         text-align: center;
         font-weight: 500;
         font-size: 30px;
         font-family: helvetica;
     }
     .ProjectNav .urls {
+        /* display */
         display: flex; flex-flow: row;
+        /* position */
         margin-right: 10px;
     }
         .ProjectNav .urls a {
-            padding: 10px 5px;
+            /* position */
             margin: 0 5px;
+            /* size */
             height: 90%;
-            border-radius: 5px;
+            padding: 10px 5px;
+            /* background */
             background: rgba(17, 17, 17, 0.137);
+            border-radius: 5px;
         }
 
 @media screen and (max-width: 1000px) {
     .ProjectNav {
+        /* size */
         width: 100vw;
     }
         .ProjectNav .title {
+            /* size */
             width: 100%;
         }
         .ProjectNav .urls {
+            /* position */
             margin-right: 2px;
         }
             .ProjectNav .urls a {
+                /* position */
                 margin: auto 2px;
+                /* size */
                 padding: 5px auto;
             }
 }
