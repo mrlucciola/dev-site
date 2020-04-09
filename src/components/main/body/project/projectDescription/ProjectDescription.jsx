@@ -8,7 +8,9 @@ import './ProjectDescription.css'
 export default function ProjectDescription({description}){
     return(
         <div className="ProjectDescription">
-            {description && description}
+            <div className="text">
+                {description && description}
+            </div>
         </div>
     )
 }
