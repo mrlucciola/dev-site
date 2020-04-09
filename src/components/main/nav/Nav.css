@@ -1,22 +1,70 @@
 .Nav {
     /* display */
     display: flex; flex-flow: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-content: center;
     /* position */
-    position: fixed;
+    position: relative;
     top: 0;
     margin: auto;
     /* size */
     width: 100%; min-width: 100%; max-width: 100%;
-    height: 60px;
+    height: 10vh; min-height: 30px; max-height: 50px;
     /* background */
-    background: linear-gradient( rgba(107, 121, 150, 1), rgba(107, 121, 150, .99), rgba(107, 121, 150, .99), rgba(107, 121, 150, .99), rgba(107, 121, 150, .99), rgba(107, 121, 150, 0)) ;
+    background: rgb(27, 27, 27);
+    border-bottom: 1px solid rgba(128, 128, 128, 0.664);
+    box-sizing: border-box;
     z-index: 10;
     /* text */
     color: whitesmoke;
 }
     .Nav div {
         /* position */
-        margin-top: 15px;
+        /* position: relative; */
+        /* margin-top: 15px; */
     }
+    .Nav > .home {
+        /* display */
+        display: flex; flex-flow: row;
+        justify-content: center;
+        align-items: center;
+        /* size */
+        width: 10%; max-width: 10%;
+        /* background */
+        background: transparent;
+        border: 1px solid rgb(75, 75, 75);
+        box-sizing: border-box;
+        /* text */
+        font-size: 20px;
+        font-weight: 800;
+    }
+    .Nav > .projectElemList {
+        /* display */
+        display: flex; flex-flow: row;
+        justify-content: space-between;
+        align-items: center;
+        flex: 1;
+        /* background */
+        box-sizing: border-box;
+        background: green;
+        overflow-x: scroll;
+        overflow-y: hidden;
+    }
+        .Nav > .projectElemList > .navProject {
+            /* display */
+            display: flex; flex-flow: row;
+            justify-content: center;
+            align-items: center;
+            flex: 1;
+            /* position */
+            position: relative;
+            /* size */
+            min-width: 50px;
+            height: 100%;
+            /* backgroundq */
+            background: green;
+            box-sizing: border-box;
+            border: 1px solid red;
+            /* text */
+            text-overflow: ellipsis;
+        }

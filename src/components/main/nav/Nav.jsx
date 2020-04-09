@@ -45,9 +45,11 @@ export default function Nav(){
             >
                 Home
             </div>
-            {buildProjectElemList(projectObjectsArr)}
-            <div className="contact">Contact</div>
-            <div className="about">About</div>
+            <div className="projectElemList">
+                {buildProjectElemList(projectObjectsArr)}
+            </div>
+            {/* <div className="contact">Contact</div> */}
+            {/* <div className="about">About</div> */}
         </div>
     )
 }
