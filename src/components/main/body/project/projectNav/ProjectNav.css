@@ -48,26 +48,29 @@
             font-size: 22px;
         }
 
-@media screen and (max-width: 1000px) {
-    .ProjectNav {
-        /* size */
-        width: 100vw;
-    }
+@media screen and (max-width: 700px) {
+    .ProjectNav {}
         .ProjectNav .title {
             /* size */
-            width: 100%;
+            /* width: 100%; */
         }
         .ProjectNav .urls {
             /* position */
-            margin-right: 2px;
+            /* margin-right: 2px; */
         }
             .ProjectNav .urls a {
                 /* position */
-                margin: auto 2px;
+                /* margin: auto 2px; */
                 /* size */
-                padding: 5px auto;
+                /* padding: 5px auto; */
             }
 }
 @media screen and (max-width: 500px) {
-
+    .ProjectNav .urls a {
+        /* size */
+        padding: 0px 5px;
+        /* text */
+        /* font-weight: 100; */
+        font-size: 20px;
+    }
 }
