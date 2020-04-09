@@ -12,7 +12,7 @@ export default function Main(){
     return(
         <div className="Main" >
             <Nav />
-            {/* <Body /> */}
+            <Body />
         </div>
     )
 }

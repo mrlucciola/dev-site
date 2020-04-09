@@ -16,7 +16,6 @@ export default function Nav(){
     // redux state
     let dispatch = useDispatch();
     let {currentProject} = useSelector(state => state['project'])
-    console.log(currentProject)
     // build fxns
     const buildProjectElemList = (projectObjectsArr, dispatch, updateCurrentProject) => {
         return projectObjectsArr.map((projectObj, idx) => {
@@ -25,7 +24,6 @@ export default function Nav(){
                 <div
                     className={`navProject${currentProject['title'] === title ? ' active' : ''}`}
                     onClick={() => {
-                        console.log(window.location)
                         let newLocation = `${window.location.origin}#${slugify(title)}`;
                         window.location = newLocation;
                         dispatch(updateCurrentProject(projectObj))

@@ -11,9 +11,9 @@ import './Body.css';
 export default function Body(){
     return(
         <div className="Body">
-            <Progress />
-            <Intro />
-            <ProjectList />
+            {/* <Progress /> */}
+            {/* <Intro /> */}
+            {/* <ProjectList /> */}
         </div>
     )
 }

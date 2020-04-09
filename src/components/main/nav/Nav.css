@@ -61,7 +61,7 @@
             /* size */
             min-width: 50px;
             height: 100%;
-            /* backgroundq */
+            /* background */
             box-sizing: border-box;
             border-width: 1px;
             border-style: solid;
@@ -74,6 +74,15 @@
                 ) 1 100%;
             /* text */
             text-overflow: ellipsis;
+        }
+        .Nav > .projectElemList > .navProject.active {
+            /* background */
+            background: rgba(136, 236, 253, 0.048);
+            border: 1px solid rgb(66, 74, 77);
+            border-radius: 5px;
+            /* text */
+            font-weight: 500;
+            color: rgb(222, 246, 252);
         }
 
 /* media queries */
