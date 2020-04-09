@@ -13,11 +13,13 @@ import ProjectStack from './projectStack/ProjectStack';
 import './Project.css';
 import { slugify } from '../../../../util/slugify';
 // event handlers
-const onMouseMoveActivateProject = ({projectObj, isActive, dispatch, updateCurrentProject}) => {
+const onEventActivateProject = ({e, projectObj, isActive, dispatch, updateCurrentProject}) => {
     if (!isActive) {
         dispatch(updateCurrentProject(projectObj));
+        window.history.replaceState(null, null, `${window.location.origin}#${slugify(projectObj['title'])}`)
     }
 }
+
 // main
 export default function Project({projectObj}){
     // destructure
@@ -32,7 +34,8 @@ export default function Project({projectObj}){
         <div
             id={slugify(title)}
             className={`Project${isActive ? ' active' : ''} w100`}
-            onMouseMove={() => {onMouseMoveActivateProject({projectObj, currentProjectTitle, dispatch, updateCurrentProject, isActive})}}
+            onScroll={(e) => {onEventActivateProject({projectObj, currentProjectTitle, dispatch, updateCurrentProject, isActive})}}
+            onMouseOver={(e) => {onEventActivateProject({projectObj, currentProjectTitle, dispatch, updateCurrentProject, isActive})}}
         >
             <ProjectNav projectObj={projectObj} />
             <ProjectPreview imgURL={imgURL} siteURL={siteURL} />
