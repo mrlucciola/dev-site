@@ -11,7 +11,6 @@ export default function ProjectNav({projectObj}){
 
     return(
         <div className="ProjectNav">
-            <a href="#Intro" className="home">Home</a>
             <div className="title">{title}</div>
             <div className="urls">
                 {repoURL && <a className="repoURL" href={repoURL}>GitHub</a>}

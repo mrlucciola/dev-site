@@ -39,8 +39,10 @@ export default function Project({projectObj}){
         >
             <ProjectNav projectObj={projectObj} />
             <ProjectPreview imgURL={imgURL} siteURL={siteURL} />
-            <ProjectDescription description={description} />
-            <ProjectStack stackObj={stackObj} />
+            <div className="bottom">
+                <ProjectDescription description={description} />
+                <ProjectStack stackObj={stackObj} />
+            </div>
         </div>
     )
 }

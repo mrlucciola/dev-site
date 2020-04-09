@@ -1,19 +1,26 @@
 .Project {
     /* display */
+    display: flex; flex-flow: column;
     justify-content: space-between;
     /* position */
     position: relative;
     margin: 0 auto;
-    /* size */
-    /* width: 75vw; */
     /* background */
+    background: rgb(19, 19, 19);
     box-shadow: none;
+    box-shadow: 0px 0px 20px 1px rgba(105, 105, 105, 0.226);
 }
 .Project.active {
     /* background */
-    box-shadow: 0 0 7px -1px rgb(188, 188, 218);
+    background: rgba(2, 26, 31, 0.288);
+    box-shadow: 0 0 10px -3px rgba(188, 188, 218, 0.486);
 }
-
+    .Project > div {
+        margin: 10px;
+    }
+    .Project > .bottom {
+        display: flex; flex-flow: row;
+    }
 @media screen and (max-width: 1000px) {
     .Project {
         /* position */
@@ -30,11 +37,11 @@
     }
 }
 .Diffuse {
-  background: rgb(98, 109, 114);
+    background: rgb(98, 109, 114);
 }.BikeStar {
-  background: rgb(98, 105, 114);
+    background: rgb(98, 105, 114);
 }.Cofi {
-  background: rgb(98, 102, 114);
+    background: rgb(98, 102, 114);
 }.BDA {
-  background: rgb(98, 98, 114);
+    background: rgb(98, 98, 114);
 }
