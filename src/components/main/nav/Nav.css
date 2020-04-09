@@ -47,7 +47,6 @@
         flex: 1;
         /* background */
         box-sizing: border-box;
-        background: green;
         overflow-x: scroll;
         overflow-y: hidden;
     }
@@ -63,9 +62,16 @@
             min-width: 50px;
             height: 100%;
             /* backgroundq */
-            background: green;
             box-sizing: border-box;
-            border: 1px solid red;
+            border-width: 1px;
+            border-style: solid;
+            border-image: 
+                linear-gradient(
+                    to top, 
+                    rgba(91, 143, 192, 0.089) .1%, 
+                    rgba(0, 0, 0, 0) 100%,
+                    rgba(0, 0, 0, 0) 1%
+                ) 1 100%;
             /* text */
             text-overflow: ellipsis;
         }
