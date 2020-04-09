@@ -7,8 +7,10 @@
 }
     .ProjectStack .group {
         /* position */
-        margin: 20px;
+        margin: 10px;
         margin-top: 0;
+        /* size */
+        min-width: 200px; max-width: 300px;
         /* background */
         background: rgb(72, 89, 122);
         border-radius: 5px;
@@ -20,7 +22,7 @@
             /* position */
             margin: 5px;
             /* size */
-            padding: 0 20px;
+            padding: 0 10px;
             /* background */
             border-bottom: 1px solid white;
             /* text */
@@ -28,7 +30,7 @@
         }
         .ProjectStack .group .group-list {
             /* position */
-            margin: 10px 20px;
+            margin: 7px 12px;
         }
             .ProjectStack .group .group-list .tool {
                 /* position */
@@ -41,10 +43,26 @@
         display: flex; flex-flow: row;
         justify-content: center;
     }
-        .ProjectStack .group .group-list .tool {
+        .ProjectStack .group {
             /* position */
-            margin: 5px 0;
-            /* text */
-            font-size: 13px;
+            margin: 5px;
+            margin-top: 0;
+            /* size */
+            min-width: 40vw; max-width: 45vw;
         }
+            .ProjectStack .group .group-title {
+                /* position */
+                margin: 4px;
+            }
+            .ProjectStack .group .group-list {
+                /* position */
+                margin: 7px;
+            }
+                .ProjectStack .group .group-list .tool {
+                    /* position */
+                    margin: 7px 0;
+                    /* text */
+                    font-size: 13px;
+                    line-height: 1;
+                }
 }

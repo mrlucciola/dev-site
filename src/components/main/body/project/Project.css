@@ -16,10 +16,16 @@
     box-shadow: 0 0 10px -3px rgba(188, 188, 218, 0.486);
 }
     .Project > div {
+        /* position */
         margin: 10px;
     }
     .Project > .bottom {
+        /* display */
         display: flex; flex-flow: row;
+        justify-content: space-between;
+        align-items: center;
+        /* position */
+        margin: 5px 20px;
     }
 @media screen and (max-width: 1000px) {
     .Project {
@@ -39,6 +45,10 @@
         .Project > .bottom {
             /* display */
             display: flex; flex-flow: column;
+            /* position */
+            margin: 2px;
+            /* size */
+            padding-bottom: 5px;
         }
 }
 .Diffuse {
