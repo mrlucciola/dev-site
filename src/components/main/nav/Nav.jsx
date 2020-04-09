@@ -2,7 +2,8 @@
 // react
 import React from 'react';
 // redux
-import {useSelector} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
+import {updateCurrentProject} from '../../../redux/actions/projectActions';
 // style
 import './Nav.css';
 // util
@@ -13,19 +14,21 @@ import {projectObjectsArr} from '../body/projectObjectsArr';
 // main
 export default function Nav(){
     // redux state
+    let dispatch = useDispatch();
     let {currentProject} = useSelector(state => state['project'])
     console.log(currentProject)
     // build fxns
-    const buildProjectElemList = (projectObjectsArr) => {
+    const buildProjectElemList = (projectObjectsArr, dispatch, updateCurrentProject) => {
         return projectObjectsArr.map((projectObj, idx) => {
             const {title} = projectObj;
             return (
                 <div
-                    className="navProject"
+                    className={`navProject${currentProject['title'] === title ? ' active' : ''}`}
                     onClick={() => {
                         console.log(window.location)
                         let newLocation = `${window.location.origin}#${slugify(title)}`;
                         window.location = newLocation;
+                        dispatch(updateCurrentProject(projectObj))
                     }}
                     key={`n-p-${idx}`}
                 >
@@ -46,10 +49,8 @@ export default function Nav(){
                 Home
             </div>
             <div className="projectElemList">
-                {buildProjectElemList(projectObjectsArr)}
+                {buildProjectElemList(projectObjectsArr, dispatch, updateCurrentProject)}
             </div>
-            {/* <div className="contact">Contact</div> */}
-            {/* <div className="about">About</div> */}
         </div>
     )
 }
