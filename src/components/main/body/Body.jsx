@@ -13,7 +13,7 @@ export default function Body(){
         <div className="Body">
             {/* <Progress /> */}
             {/* <Intro /> */}
-            {/* <ProjectList /> */}
+            <ProjectList />
         </div>
     )
 }
