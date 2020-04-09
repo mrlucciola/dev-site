@@ -29,13 +29,14 @@
         justify-content: center;
         align-items: center;
         /* size */
-        width: 10%; max-width: 10%;
+        width: 10%; max-width: 10%; min-width: 50px;
         /* background */
         background: transparent;
         border: 1px solid rgb(75, 75, 75);
         box-sizing: border-box;
         /* text */
-        font-size: 20px;
+        font-size: 1em;
+        /* font-size: 20px; */
         font-weight: 800;
     }
     .Nav > .projectElemList {
@@ -68,3 +69,22 @@
             /* text */
             text-overflow: ellipsis;
         }
+
+/* media queries */
+@media screen and (max-width: 700px) {
+    .Nav div {
+        font-size: 20px;
+    }
+}
+@media screen and (max-width: 500px) {
+    .Nav {
+        height: 10vh; min-height: 30px; max-height: 40px;
+    }
+    .Nav div {
+        font-size: 13px;
+    }
+    .Nav > .home {
+        min-width: 20%;
+        font-size: 13px;
+    }
+}
