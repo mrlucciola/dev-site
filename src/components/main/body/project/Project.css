@@ -31,10 +31,15 @@
         padding-bottom: 25px;
     }
 }
-@media screen and (max-width: 1500px) {
+@media screen and (max-width: 500px) {
     .Project {
+        /* display */
         display: flex; flex-flow: column;
     }
+        .Project > .bottom {
+            /* display */
+            display: flex; flex-flow: column;
+        }
 }
 .Diffuse {
     background: rgb(98, 109, 114);

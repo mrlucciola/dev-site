@@ -26,7 +26,7 @@ export const projectObjectsArr = [
         `,
         stackObj: {
             frontend: ['React.js', 'D3.js', "Redux.js"],
-            backend: ['MongoDB, Node.js, Django'],
+            backend: ['MongoDB', 'Node.js', 'Django', 'Django Rest Framework'],
         },
         imgURL: "/assets/images/diffuse-preview.png",
     },
