@@ -1,15 +1,19 @@
 // react
 import React from "react";
 // components
-import Main from "./components/main/Main";
+// import Body from './components/Body';
+import Nav from './components/Nav';
 
 /**
  * main
  */
-export default function App() {
+const App = () => {
   return (
     <div className="App">
-      <Main />
+      <Nav />
+      {/* <Body /> */}
     </div>
   );
 }
+
+export default App;
