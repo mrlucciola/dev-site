@@ -1,19 +1,20 @@
 // react
-import React from 'react';
+import React from "react";
 // components
-import ProjectList from './project/ProjectList';
-import Progress from './progress/Progress';
-import Intro from './Intro';
+import ProjectList from "../projects/ProjectList";
+// import Progress from './progress/Progress';
+// import Intro from './Intro';
 // style
-import './Body.css';
+import "./Body.css";
 
 // main
-export default function Body(){
-    return(
-        <div className="Body">
-            {/* <Progress /> */}
-            {/* <Intro /> */}
-            <ProjectList />
-        </div>
-    )
-}
+const Body = () => {
+  return (
+    <div className="Body">
+      {/* <Progress /> */}
+      {/* <Intro /> */}
+      <ProjectList />
+    </div>
+  );
+};
+export default Body;

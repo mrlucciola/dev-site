@@ -8,7 +8,7 @@ import { slugify } from "../util/slugify";
 // style
 import "./Nav.css";
 // constants
-import { projectObjectsArr } from "./body/projectObjectsArr";
+import { projectObjectsArr } from "../projectObjectsArr";
 
 const NavProject = ({ currentProject, idx, projectObj }) => {
   // init hooks

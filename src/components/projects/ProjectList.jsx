@@ -1,21 +1,27 @@
 // react
 import React from "react";
+import { useSelector } from "react-redux";
 // components
 import Project from "./Project";
-import { projectObjectsArr } from "../projectObjectsArr";
+// constants
 
 /**
  * main
  */
 const ProjectList = () => {
-  const buildProjectElems = (projectObjectsArr) => {
-    return projectObjectsArr.map((projectObj, idx) => {
+  // state
+  const projectObjArr = useSelector(s => s.project.projectObjArr);
+  console.log(projectObjArr)
+  // build
+  const buildProjectElems = () => {
+    return projectObjArr.map((projectObj, idx) => {
       return <Project projectObj={projectObj} key={`p-o-${idx}`} />;
     });
   };
-  return (
-    <div className="ProjectList">{buildProjectElems(projectObjectsArr)}</div>
-  );
+
+  return projectObjArr.length > 0 ? (
+    <div className="ProjectList">{buildProjectElems()}</div>
+  ) : (<div />);
 }
 
 export default ProjectList;
