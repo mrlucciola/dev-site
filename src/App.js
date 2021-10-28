@@ -1,16 +1,15 @@
-// App
 // react
-import React from 'react';
+import React from "react";
 // components
-import Main from './components/main/Main';
-// styling
-import './App.css';
+import Main from "./components/main/Main";
 
-// main
+/**
+ * main
+ */
 export default function App() {
-    return (
-        <div className="App">
-            <Main />
-        </div>
-    );
+  return (
+    <div className="App">
+      <Main />
+    </div>
+  );
 }
