@@ -4,7 +4,7 @@ export const projectObjectsArr = [
   // },
   // {
   //     title: "Tascal",
-  //     repoURL: "https://github.com/mattrlucciola/Tascal.git",
+  //     repoURL: "https://github.com/0xseagull/Tascal.git",
   //     siteURL: "https://tascal.dev",
   //     description: `\
   //         Project management, scheduling, productivity-tracking, and note taking app.
@@ -32,7 +32,7 @@ export const projectObjectsArr = [
   },
   {
     title: "Diffuse",
-    repoURL: "https://github.com/mattrlucciola/diffuse.git",
+    repoURL: "https://github.com/0xseagull/diffuse.git",
     siteURL: "https://diffuse.dev",
     description: `\
             Collaborative songwriting software.\
@@ -47,8 +47,8 @@ export const projectObjectsArr = [
   },
   {
     title: "BDA",
-    repoURL: "https://github.com/mattrlucciola/bpm-detection-algorithm.git",
-    siteURL: "https://mattrlucciola.github.io/bpm-detection-algorithm/",
+    repoURL: "https://github.com/0xseagull/bpm-detection-algorithm.git",
+    siteURL: "https://0xseagull.github.io/bpm-detection-algorithm/",
     description: `
             Detects BPM and displays track information from user-added songs using a simple peak-detection algorithm
         `,
@@ -59,8 +59,8 @@ export const projectObjectsArr = [
   },
   {
     title: "Cofi",
-    repoURL: "https://github.com/mattrlucciola/cofi.git",
-    siteURL: "https://mattrlucciola.github.io/cofi/",
+    repoURL: "https://github.com/0xseagull/cofi.git",
+    siteURL: "https://0xseagull.github.io/cofi/",
     description: `\
             A digital interface for synthesizing musical sequences in a step-wise manner.\
             Simply point and click on the note you want to activate, and the time at which to activate.\
