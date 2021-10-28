@@ -28,7 +28,7 @@
     "type": "git",
     "url": "git+https://github.com/0xseagull/dev-site.git"
   },
-  "author": "Matt Lucciola",
+  "author": "Matt Rocco Lucciola",
   "license": "MIT",
   "eslintConfig": {
     "extends": "react-app"

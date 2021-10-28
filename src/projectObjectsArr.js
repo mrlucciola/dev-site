@@ -26,9 +26,7 @@ export const projectObjectsArr = [
       frontend: ["React.js", "D3.js", "Redux.js"],
       backend: ["MongoDB", "Node.js", "Express.js"],
     },
-    // imgURL: require("./assets/images/envest-preview.png"),
     imgURL: require("./images/envest-preview.png"),
-    // /Users/matthias/projects/dev-site/assets/images/envest-preview.png
   },
   {
     title: "Diffuse",
@@ -43,7 +41,7 @@ export const projectObjectsArr = [
       frontend: ["React.js", "D3.js", "Redux.js"],
       backend: ["MongoDB", "Node.js", "Django", "Django Rest Framework"],
     },
-    imgURL: "/assets/images/diffuse-preview.png",
+    imgURL: require("./images/diffuse-preview.png"),
   },
   {
     title: "BDA",
@@ -55,7 +53,7 @@ export const projectObjectsArr = [
     stackObj: {
       frontend: ["JavaScript (ES6)", "Web Audio API", "React", "Redux"],
     },
-    imgURL: "/assets/images/bda-preview.png",
+    imgURL: require("./images/bda-preview.png"),
   },
   {
     title: "Cofi",
@@ -68,6 +66,6 @@ export const projectObjectsArr = [
     stackObj: {
       frontend: ["React.js", "Web Audio API", "Redux.js"],
     },
-    imgURL: "/assets/images/cofi-preview.png",
+    imgURL: require("./images/cofi-preview.png"),
   },
 ];
