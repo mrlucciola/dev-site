@@ -1,11 +1,15 @@
-// App > Main > Body > Project > ProjectNav
 // react
+import { FC } from "react";
 // style
 import "./ProjectNav.css";
 
+interface Props {
+  title: any;
+  repoURL: any;
+  siteURL: any;
+}
 // main
-const ProjectNav = ({ title, repoURL, siteURL }) => {
-
+const ProjectNav: FC<Props> = ({ title, repoURL, siteURL }) => {
   return (
     <div className="ProjectNav">
       <div className="title">{title}</div>
@@ -23,6 +27,6 @@ const ProjectNav = ({ title, repoURL, siteURL }) => {
       </div>
     </div>
   );
-}
+};
 
 export default ProjectNav;

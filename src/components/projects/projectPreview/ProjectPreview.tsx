@@ -1,10 +1,15 @@
 // react
+import { FC } from "react";
 // style
 import "./ProjectPreview.css";
 
+interface Props {
+  imgURL: any;
+  siteURL: any;
+}
 // main
-const ProjectPreview = ({ imgURL, siteURL }) => {
-  const buildImgElem = (_imgURL, siteURL) => {
+const ProjectPreview: FC<Props> = ({ imgURL, siteURL }) => {
+  const buildImgElem = (_imgURL: any, siteURL: any) => {
     if (typeof _imgURL !== typeof "") {
       return (
         <div className="imgContainer">
@@ -25,6 +30,6 @@ const ProjectPreview = ({ imgURL, siteURL }) => {
       {imgURL && buildImgElem(imgURL, siteURL)}
     </div>
   );
-}
+};
 
 export default ProjectPreview;

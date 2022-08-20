@@ -1,9 +1,9 @@
 // react
-import { useEffect } from "react";
+import { FC, useEffect } from "react";
 // redux
 import { updateProjectObjArr } from "./redux/actions/projectActions";
 // components
-import Body from "./components/body/Body";
+import Body from "./components/body";
 import Nav from "./components/Nav";
 // constants
 import { projectObjectsArr } from "./projectObjectsArr";
@@ -12,14 +12,14 @@ import { useAppDispatch } from "./redux/reducers/baseReducer";
 /**
  * main
  */
-const App = () => {
+const App: FC = () => {
   // init hooks
   const dispatch = useAppDispatch();
   // effects
   useEffect(() => {
     // update
     console.log("projectObjectsArr", projectObjectsArr);
-    dispatch(updateProjectObjArr(projectObjectsArr));
+    // dispatch(updateProjectObjArr(projectObjectsArr));
   }, []);
   return (
     <div className="App">

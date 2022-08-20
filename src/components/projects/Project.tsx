@@ -14,22 +14,33 @@ import {
   useAppDispatch,
   useAppSelector,
 } from "../../redux/reducers/baseReducer";
+// @ts-ignore
+import { FC } from "react";
+
 // event handlers
-const onEventActivateProject = ({ projectObj, isActive, dispatch }) => {
+type OEAProps = (_: { projectObj: any; isActive: any; dispatch: any }) => void;
+const onEventActivateProject: OEAProps = ({
+  projectObj,
+  isActive,
+  dispatch,
+}) => {
   if (!isActive) {
-    dispatch(updateCurrentProject(projectObj));
-    window.history.replaceState(
-      null,
-      null,
-      `${window.location.origin}#${slugify(projectObj["title"])}`
-    );
+    // dispatch(updateCurrentProject(projectObj));
+    // window.history.replaceState(
+    //   null,
+    //   null,
+    //   `${window.location.origin}#${slugify(projectObj["title"])}`
+    // );
   }
 };
 
+interface Props {
+  projectObj: any;
+}
 /**
  * main
  */
-const Project = ({ projectObj }) => {
+const Project: FC<Props> = ({ projectObj }) => {
   // init hooks
   let dispatch = useAppDispatch();
   // destructure

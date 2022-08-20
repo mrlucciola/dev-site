@@ -1,19 +1,21 @@
 // react
+import { FC } from "react";
+// style
+// state
 import { useAppSelector } from "../../redux/reducers/baseReducer";
 // components
 import Project from "./Project";
-// constants
 
 /**
  * main
  */
-const ProjectList = () => {
+const ProjectList: FC = () => {
   // state
   const projectObjArr = useAppSelector((s) => s.project.projectObjArr);
   console.log(projectObjArr);
   // build
   const buildProjectElems = () => {
-    return projectObjArr.map((projectObj, idx) => {
+    return projectObjArr.map((projectObj: any, idx: number) => {
       return <Project projectObj={projectObj} key={`p-o-${idx}`} />;
     });
   };

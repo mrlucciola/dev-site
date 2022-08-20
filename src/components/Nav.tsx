@@ -1,14 +1,14 @@
 // react
 import { FC } from "react";
-// redux
-import { updateCurrentProject } from "../redux/actions/projectActions";
-// utils
-import { slugify } from "../util/slugify";
 // style
-import "./Nav.css";
+// state
+import { updateCurrentProject } from "../redux/actions/projectActions";
 // constants
 import { projectObjectsArr } from "../projectObjectsArr";
 import { useAppDispatch, useAppSelector } from "../redux/reducers/baseReducer";
+// utils
+import { slugify } from "../util/slugify";
+import "./Nav.css";
 
 interface Props {
   currentProject: {
@@ -33,7 +33,7 @@ const NavProject: FC<Props> = ({ currentProject, idx, projectObj }) => {
         window.location.assign(newLocationStr);
         // let newLocation = new Location().assign(newLocationStr);
         // window.location = newLocation;
-        dispatch(updateCurrentProject(projectObj));
+        // dispatch(updateCurrentProject(projectObj));
       }}
       key={`n-p-${idx}`}
     >
