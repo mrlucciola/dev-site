@@ -1,7 +1,5 @@
 // react
-import React from "react";
 // redux
-import { useDispatch, useSelector } from "react-redux";
 import { updateCurrentProject } from "../../redux/actions/projectActions";
 // utils
 import { slugify } from "../../util/slugify";
@@ -12,12 +10,12 @@ import ProjectDescription from "./projectDescription/ProjectDescription";
 import ProjectStack from "./projectStack/ProjectStack";
 // style
 import "./Project.css";
+import {
+  useAppDispatch,
+  useAppSelector,
+} from "../../redux/reducers/baseReducer";
 // event handlers
-const onEventActivateProject = ({
-  projectObj,
-  isActive,
-  dispatch,
-}) => {
+const onEventActivateProject = ({ projectObj, isActive, dispatch }) => {
   if (!isActive) {
     dispatch(updateCurrentProject(projectObj));
     window.history.replaceState(
@@ -28,16 +26,18 @@ const onEventActivateProject = ({
   }
 };
 
-/** 
+/**
  * main
-*/
+ */
 const Project = ({ projectObj }) => {
   // init hooks
-  let dispatch = useDispatch();
+  let dispatch = useAppDispatch();
   // destructure
   const { title, siteURL, description, stackObj, imgURL, repoURL } = projectObj;
   // state
-  const currentProjectTitle = useSelector(state => state.project.currentProject.title);
+  const currentProjectTitle = useAppSelector(
+    (state) => state.project.currentProject.title
+  );
 
   const isActive = title === currentProjectTitle;
 
@@ -60,6 +60,6 @@ const Project = ({ projectObj }) => {
       </div>
     </div>
   );
-}
+};
 
 export default Project;

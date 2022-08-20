@@ -1,5 +1,4 @@
 // react
-import React from "react";
 // components
 import ProjectList from "../projects/ProjectList";
 // import Progress from './progress/Progress';

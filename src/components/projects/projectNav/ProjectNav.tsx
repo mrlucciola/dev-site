@@ -1,6 +1,5 @@
 // App > Main > Body > Project > ProjectNav
 // react
-import React from "react";
 // style
 import "./ProjectNav.css";
 

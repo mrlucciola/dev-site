@@ -1,6 +1,5 @@
 // react
-import React from "react";
-import { useSelector } from "react-redux";
+import { useAppSelector } from "../../redux/reducers/baseReducer";
 // components
 import Project from "./Project";
 // constants
@@ -10,8 +9,8 @@ import Project from "./Project";
  */
 const ProjectList = () => {
   // state
-  const projectObjArr = useSelector(s => s.project.projectObjArr);
-  console.log(projectObjArr)
+  const projectObjArr = useAppSelector((s) => s.project.projectObjArr);
+  console.log(projectObjArr);
   // build
   const buildProjectElems = () => {
     return projectObjArr.map((projectObj, idx) => {
@@ -21,7 +20,9 @@ const ProjectList = () => {
 
   return projectObjArr.length > 0 ? (
     <div className="ProjectList">{buildProjectElems()}</div>
-  ) : (<div />);
-}
+  ) : (
+    <div />
+  );
+};
 
 export default ProjectList;

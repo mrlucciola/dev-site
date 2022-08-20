@@ -1,5 +1,4 @@
 // react
-import React from "react";
 // style
 import "./ProjectPreview.css";
 
