@@ -1,26 +1,29 @@
 // react
 import { FC, useEffect } from "react";
-// redux
-import { updateProjectObjArr } from "./redux/actions/projectActions";
+// style
+// state
 // components
 import Body from "./components/body";
 import Nav from "./components/Nav";
-// constants
-import { projectObjectsArr } from "./projectObjectsArr";
-import { useAppDispatch } from "./redux/reducers/baseReducer";
+import { useAppContext } from "./mobx/context";
+import { MainStore } from "./mobx/stores/main";
+// seed
+import { projectsArr } from "./seed/projectsArr";
 
 /**
  * main
  */
 const App: FC = () => {
-  // init hooks
-  const dispatch = useAppDispatch();
+  // state
+  const setProjects: MainStore["setProjects"] = useAppContext(
+    (s) => s.main.setProjects
+  );
+
   // effects
   useEffect(() => {
-    // update
-    console.log("projectObjectsArr", projectObjectsArr);
-    // dispatch(updateProjectObjArr(projectObjectsArr));
+    setProjects(projectsArr);
   }, []);
+
   return (
     <div className="App">
       <Nav />

@@ -1,30 +1,31 @@
 // react
 import { FC } from "react";
 // style
+import { Grid } from "@mui/material";
 // state
-import { useAppSelector } from "../../redux/reducers/baseReducer";
+import { useAppContext } from "../../mobx/context";
+import { Project } from "../../mobx/types";
 // components
-import Project from "./Project";
+import ProjectCard from "./ProjectCard";
+import { observer } from "mobx-react-lite";
 
 /**
  * main
  */
 const ProjectList: FC = () => {
   // state
-  const projectObjArr = useAppSelector((s) => s.project.projectObjArr);
-  console.log(projectObjArr);
-  // build
-  const buildProjectElems = () => {
-    return projectObjArr.map((projectObj: any, idx: number) => {
-      return <Project projectObj={projectObj} key={`p-o-${idx}`} />;
-    });
-  };
+  const projectArr: Project[] = useAppContext((s) => s.main.projects);
 
-  return projectObjArr.length > 0 ? (
-    <div className="ProjectList">{buildProjectElems()}</div>
-  ) : (
-    <div />
+  // build the array of elements
+  const projectElems = projectArr.map((_, idx) => {
+    return <ProjectCard projectIdx={idx} key={idx} />;
+  });
+
+  return (
+    <Grid item container className="ProjectList">
+      {projectElems}
+    </Grid>
   );
 };
 
-export default ProjectList;
+export default observer(ProjectList);

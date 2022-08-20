@@ -1,84 +1,70 @@
 // react
 import { FC } from "react";
-// style
+import { Link } from "react-router-dom";
 // state
-import { updateCurrentProject } from "../redux/actions/projectActions";
-// constants
-import { projectObjectsArr } from "../projectObjectsArr";
-import { useAppDispatch, useAppSelector } from "../redux/reducers/baseReducer";
+import { observer } from "mobx-react-lite";
+import { useAppContext } from "../mobx/context";
+// style
 // utils
 import { slugify } from "../util/slugify";
+// types
+import { Project } from "../mobx/types";
 import "./Nav.css";
 
 interface Props {
-  currentProject: {
-    title: string;
-  };
-  idx: number;
-  projectObj: {
-    title: string;
-  };
+  projectIdx: number;
 }
-const NavProject: FC<Props> = ({ currentProject, idx, projectObj }) => {
-  // init hooks
-  let dispatch = useAppDispatch();
-
-  const { title } = projectObj;
+const NavProject: FC<Props> = ({ projectIdx }) => {
+  // state
+  const activeProjectId: number = useAppContext((s) => s.main.activeProjectId);
+  const projectTitle: string = useAppContext(
+    (s) => s.main.projects[projectIdx].title
+  );
+  // adjust styling
+  const isActive = activeProjectId === projectIdx;
 
   return (
-    <div
-      className={`navProject ${currentProject.title === title ? "active" : ""}`}
-      onClick={() => {
-        const newLocationStr = `${window.location.origin}#${slugify(title)}`;
-        window.location.assign(newLocationStr);
-        // let newLocation = new Location().assign(newLocationStr);
-        // window.location = newLocation;
-        // dispatch(updateCurrentProject(projectObj));
-      }}
-      key={`n-p-${idx}`}
+    <Link
+      to={`/${slugify(projectTitle)}`}
+      className={`navProject ${isActive ? "active" : ""}`}
+      // key={`n-p-${projectIdx}`}
     >
-      {title}
-    </div>
+      {projectTitle}
+    </Link>
   );
 };
 
 /**
  * main
  */
-const Nav = () => {
+const Nav: FC = () => {
   // state
-  let currentProject = useAppSelector((state) => state.project.currentProject);
-  // build fxns
-  const buildProjectElemList = (_projectObjectsArr: any) => {
-    return _projectObjectsArr.map((projectObj: any, idx: number) => {
-      return (
-        <NavProject
-          currentProject={currentProject}
-          projectObj={projectObj}
-          idx={idx}
-        />
-      );
-    });
-  };
+  const projects: Project[] = useAppContext((s) => s.main.projects);
+  // create the element array
+  const projectElems = projects.map((_, idx) => {
+    return <NavProject projectIdx={idx} key={idx} />;
+  });
 
   return (
     <div className="Nav">
-      <div
+      <Link
+        // TODO: Add MuiLink style
         className="home"
-        onClick={() => {
-          window.scroll(0, 0);
-          // window.location = `${window.location.origin}#`;
-          const newLocationStr = `${window.location.origin}#`;
-          window.location.assign(newLocationStr);
-        }}
+        // TODO: incorporate <HashRouter>
+        to={`/#`}
+        // onClick={() => {
+        // window.scroll(0, 0);
+        // window.location = `${window.location.origin}#`;
+        // const newLocationStr = `${window.location.origin}#`;
+        // window.location.assign(newLocationStr);
+        // }}
+        key="nav"
       >
         Home
-      </div>
-      <div className="projectElemList">
-        {buildProjectElemList(projectObjectsArr)}
-      </div>
+      </Link>
+      <div className="projectElemList">{projectElems}</div>
     </div>
   );
 };
 
-export default Nav;
+export default observer(Nav);
