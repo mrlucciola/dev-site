@@ -1,25 +1,30 @@
 // react
-import { observer } from "mobx-react-lite";
 import { FC } from "react";
 // style
+import { Grid, GridProps } from "@mui/material";
 // state
+import { observer } from "mobx-react-lite";
 import { useAppContext } from "../../../mobx/context";
 import "./ProjectDescription.css";
 
-interface Props {
+interface Props extends GridProps {
   projectIdx: number;
 }
 // main
 const ProjectDescription: FC<Props> = ({ projectIdx }) => {
-  const description: string = useAppContext(
-    (s) => s.main.projects[projectIdx].description
-  );
-  // TODO: add mui
+  const description: string =
+    useAppContext((s) => s.main.projects[projectIdx]).description || "";
 
   return (
-    <div className="ProjectDescription">
-      <div className="text">{description && description}</div>
-    </div>
+    <Grid
+    // className="ProjectDescription"
+    >
+      <Grid
+      //className="text"
+      >
+        {description}
+      </Grid>
+    </Grid>
   );
 };
 export default observer(ProjectDescription);

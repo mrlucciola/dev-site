@@ -14,6 +14,7 @@ import ProjectStack from "./projectStack/ProjectStack";
 // utils
 import { slugify } from "../../util/slugify";
 import "./Project.css";
+import { Grid } from "@mui/material";
 
 // event handlers
 type OEAProps = (_: {
@@ -21,19 +22,20 @@ type OEAProps = (_: {
   isActive: boolean;
   setter: MainStore["setActiveProjectId"];
 }) => () => void;
-const onEventActivateProject: OEAProps =
-  ({ projectIdx, isActive, setter }) =>
-  () => {
-    if (!isActive) {
-      // window.history.replaceState(
-      //   null,
-      //   null,
-      //   `${window.location.origin}#${slugify(title)}`
-      // );
-      setter(projectIdx);
-      // TODO: add react router
-    }
-  };
+// const onEventActivateProject: OEAProps =
+// ({ projectIdx, isActive, setter }) =>
+// () => {
+//   if (!isActive) {
+//     // window.history.replaceState(
+//     //   null,
+//     //   null,
+//     //   `${window.location.origin}#${slugify(title)}`
+//     // );
+//     setter(projectIdx);
+//     // TODO: add react router
+//   }
+// };
+type OEAProps_ = () => void;
 
 interface Props {
   projectIdx: number;
@@ -42,12 +44,8 @@ interface Props {
  * main
  */
 const ProjectCard: FC<Props> = ({ projectIdx }) => {
-  // TODO: replace wherever projectObjArr is
-
   // state
-  const { title, site, repo, stack, img, description }: Project = useAppContext(
-    (s) => s.main.projects[projectIdx]
-  );
+  const title: string = useAppContext((s) => s.main.projects[projectIdx]).title;
   const setActiveProjectIdx: MainStore["setActiveProjectId"] = useAppContext(
     (s) => s.main.setActiveProjectId
   );
@@ -55,29 +53,32 @@ const ProjectCard: FC<Props> = ({ projectIdx }) => {
   // logic
   const isActive = projectIdx === activeProjectIdx;
 
-  // TODO: add mui
+  const onEventActivateProject: OEAProps_ = () => {
+    if (!isActive) {
+      setActiveProjectIdx(projectIdx);
+    }
+  };
+
   return (
-    <div
+    <Grid
+      item
+      container
       id={slugify(title)}
-      className={`ProjectCard ${isActive ? "active" : ""} w100`}
-      onScroll={onEventActivateProject({
-        projectIdx,
-        isActive,
-        setter: setActiveProjectIdx,
-      })}
-      onMouseOver={onEventActivateProject({
-        projectIdx,
-        isActive,
-        setter: setActiveProjectIdx,
-      })}
+      onScroll={onEventActivateProject}
+      onMouseOver={onEventActivateProject}
+      // className={`ProjectCard ${isActive ? "active" : ""} w100`}
     >
       <ProjectNav projectIdx={projectIdx} />
       <ProjectPreview projectIdx={projectIdx} />
-      <div className="bottom">
+      <Grid
+        item
+        container
+        // className="bottom"
+      >
         <ProjectDescription projectIdx={projectIdx} />
         <ProjectStack projectIdx={projectIdx} />
-      </div>
-    </div>
+      </Grid>
+    </Grid>
   );
 };
 

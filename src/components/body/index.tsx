@@ -8,9 +8,11 @@ import "./Body.css";
 
 // main
 const Body: FC = () => {
-  // TODO: add mui grid elements
   return (
-    <Grid container className="Body">
+    <Grid
+      container
+      // className="Body"
+    >
       <ProjectList />
     </Grid>
   );

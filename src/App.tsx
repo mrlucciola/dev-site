@@ -2,13 +2,15 @@
 import { FC, useEffect } from "react";
 // style
 // state
+import { useAppContext } from "./mobx/context";
+import { MainStore } from "./mobx/stores/main";
 // components
 import Body from "./components/body";
 import Nav from "./components/Nav";
-import { useAppContext } from "./mobx/context";
-import { MainStore } from "./mobx/stores/main";
 // seed
 import { projectsArr } from "./seed/projectsArr";
+import { Grid } from "@mui/material";
+import { observer } from "mobx-react-lite";
 
 /**
  * main
@@ -25,11 +27,11 @@ const App: FC = () => {
   }, []);
 
   return (
-    <div className="App">
+    <Grid container direction="column" className="App">
       <Nav />
       <Body />
-    </div>
+    </Grid>
   );
 };
 
-export default App;
+export default observer(App);

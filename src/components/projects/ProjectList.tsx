@@ -4,7 +4,6 @@ import { FC } from "react";
 import { Grid } from "@mui/material";
 // state
 import { useAppContext } from "../../mobx/context";
-import { Project } from "../../mobx/types";
 // components
 import ProjectCard from "./ProjectCard";
 import { observer } from "mobx-react-lite";
@@ -14,15 +13,20 @@ import { observer } from "mobx-react-lite";
  */
 const ProjectList: FC = () => {
   // state
-  const projectArr: Project[] = useAppContext((s) => s.main.projects);
+  const projectArrLen: number = useAppContext((s) => s.main.projects).length;
 
   // build the array of elements
-  const projectElems = projectArr.map((_, idx) => {
+  // Array.from(Array(projectLen).keys())
+  const projectElems = Array.from(Array(projectArrLen).keys()).map((idx) => {
     return <ProjectCard projectIdx={idx} key={idx} />;
   });
 
   return (
-    <Grid item container className="ProjectList">
+    <Grid
+      item
+      container
+      // className="ProjectList"
+    >
       {projectElems}
     </Grid>
   );
