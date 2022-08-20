@@ -2,7 +2,7 @@
 import { Grid } from "@mui/material";
 import { FC, UIEvent, useState, WheelEvent } from "react";
 // style
-import "./Progress.css";
+// import "./Progress.css";
 
 // main
 const Progress: FC = () => {
@@ -31,8 +31,21 @@ const Progress: FC = () => {
   };
 
   return (
-    <Grid className="Progress noselect" component="div" onScroll={() => {}}>
-      <Grid className="prog-amt noselect" style={scrollProgressStyle}></Grid>
+    <Grid
+      item
+      container
+      // className="Progress noselect"
+      className="noselect"
+      component="div"
+      onScroll={() => {}}
+    >
+      <Grid
+        item
+        container
+        // className="prog-amt noselect"
+        className="noselect"
+        style={scrollProgressStyle}
+      ></Grid>
       <div></div>
     </Grid>
   );

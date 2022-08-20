@@ -1,6 +1,7 @@
 // react
-import { FC } from "react";
+import { FC, RefObject, useEffect, useRef } from "react";
 // style
+import { Grid, GridProps } from "@mui/material";
 // state
 import { observer } from "mobx-react-lite";
 import { MainStore } from "../../mobx/stores/main";
@@ -13,7 +14,7 @@ import ProjectDescription from "./projectDescription/ProjectDescription";
 import ProjectStack from "./projectStack/ProjectStack";
 // utils
 import { slugify } from "../../util/slugify";
-import "./Project.css";
+// import "./Project.css";
 
 // event handlers
 type OEAProps = (_: {
@@ -21,63 +22,74 @@ type OEAProps = (_: {
   isActive: boolean;
   setter: MainStore["setActiveProjectId"];
 }) => () => void;
-const onEventActivateProject: OEAProps =
-  ({ projectIdx, isActive, setter }) =>
-  () => {
-    if (!isActive) {
-      // window.history.replaceState(
-      //   null,
-      //   null,
-      //   `${window.location.origin}#${slugify(title)}`
-      // );
-      setter(projectIdx);
-      // TODO: add react router
-    }
-  };
+// const onEventActivateProject: OEAProps =
+// ({ projectIdx, isActive, setter }) =>
+// () => {
+//   if (!isActive) {
+//     // window.history.replaceState(
+//     //   null,
+//     //   null,
+//     //   `${window.location.origin}#${slugify(title)}`
+//     // );
+//     setter(projectIdx);
+//     // TODO: add react router
+//   }
+// };
+type OEAProps_ = () => void;
 
-interface Props {
+interface Props extends GridProps {
   projectIdx: number;
 }
 /**
  * main
  */
 const ProjectCard: FC<Props> = ({ projectIdx }) => {
-  // TODO: replace wherever projectObjArr is
-
   // state
-  const { title, site, repo, stack, img, description }: Project = useAppContext(
-    (s) => s.main.projects[projectIdx]
-  );
+  const title: string = useAppContext((s) => s.main.projects[projectIdx]).title;
   const setActiveProjectIdx: MainStore["setActiveProjectId"] = useAppContext(
     (s) => s.main.setActiveProjectId
   );
+  const setProjectRef: MainStore["setProjectRef"] = useAppContext(
+    (s) => s.main.setProjectRef
+  );
   const activeProjectIdx: number = useAppContext((s) => s.main.activeProjectId);
+  // ref
+  const refPc: RefObject<HTMLDivElement> = useRef<HTMLDivElement>(null);
+
   // logic
   const isActive = projectIdx === activeProjectIdx;
 
-  // TODO: add mui
+  const onEventActivateProject: OEAProps_ = () => {
+    if (!isActive) {
+      setActiveProjectIdx(projectIdx);
+    }
+  };
+  // effects
+  useEffect(() => {
+    refPc.current && setProjectRef(projectIdx, refPc);
+  }, [refPc]);
+
   return (
-    <div
+    <Grid
+      item
+      container
       id={slugify(title)}
-      className={`ProjectCard ${isActive ? "active" : ""} w100`}
-      onScroll={onEventActivateProject({
-        projectIdx,
-        isActive,
-        setter: setActiveProjectIdx,
-      })}
-      onMouseOver={onEventActivateProject({
-        projectIdx,
-        isActive,
-        setter: setActiveProjectIdx,
-      })}
+      onScroll={onEventActivateProject}
+      onMouseOver={onEventActivateProject}
+      // className={`ProjectCard ${isActive ? "active" : ""} w100`}
+      ref={refPc}
     >
       <ProjectNav projectIdx={projectIdx} />
       <ProjectPreview projectIdx={projectIdx} />
-      <div className="bottom">
+      <Grid
+        item
+        container
+        // className="bottom"
+      >
         <ProjectDescription projectIdx={projectIdx} />
         <ProjectStack projectIdx={projectIdx} />
-      </div>
-    </div>
+      </Grid>
+    </Grid>
   );
 };
 

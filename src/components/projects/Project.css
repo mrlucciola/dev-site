@@ -1,7 +1,6 @@
 .Project {
     /* display */
-    display: flex; flex-flow: column;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     /* position */
     position: relative;
     margin: 0 auto;

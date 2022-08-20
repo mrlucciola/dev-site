@@ -2,37 +2,59 @@
 import { FC } from "react";
 import { Link } from "react-router-dom";
 // style
+import MuiLink from "@mui/material/Link";
+import { Grid, Typography } from "@mui/material";
 // state
 import { useAppContext } from "../../../mobx/context";
 // utils
-import "./ProjectNav.css";
+// import "./ProjectNav.css";
 
 interface Props {
   projectIdx: number;
 }
 // main
 const ProjectNav: FC<Props> = ({ projectIdx }) => {
-  const { title, repo, site } = useAppContext(
-    (s) => s.main.projects[projectIdx]
-  );
-  // TODO: add mui
+  const project = useAppContext((s) => s.main.projects[projectIdx]);
+  const { title, repo, site } = project;
 
   return (
-    <div className="ProjectNav">
-      <div className="title">{title}</div>
-      <div className="urls">
+    <Grid
+      item
+      container
+      // className="ProjectNav"
+    >
+      <Grid
+        item
+        component={Typography}
+        // className="title"
+      >
+        {title}
+      </Grid>
+      <Grid
+        item
+        container
+        // className="urls"
+      >
         {repo && (
-          <Link className="Repo" to={repo}>
-            GitHub
-          </Link>
+          <MuiLink
+            to={repo}
+            component={Link}
+            // className="Repo"
+          >
+            <Typography>GitHub</Typography>
+          </MuiLink>
         )}
         {site && (
-          <Link className="Site" to={site}>
-            Website
-          </Link>
+          <MuiLink
+            to={site}
+            component={Link}
+            // className="Site"
+          >
+            <Typography>Website</Typography>
+          </MuiLink>
         )}
-      </div>
-    </div>
+      </Grid>
+    </Grid>
   );
 };
 

@@ -1,43 +1,54 @@
 // react
-import { observer } from "mobx-react-lite";
 import { FC } from "react";
-import { Link } from "react-router-dom";
-import { useAppContext } from "../../../mobx/context";
-import { Img, Project, Url } from "../../../mobx/types";
+// import { Link } from "react-router-dom";
 // style
-import "./ProjectPreview.css";
+import { Avatar, Grid, GridProps, ImageListItem } from "@mui/material";
+// state
+import { observer } from "mobx-react-lite";
+import { useAppContext } from "../../../mobx/context";
+// types
+import { Project } from "../../../mobx/types";
+// style
+// import "./ProjectPreview.css";
 
-interface Props {
-  // imgURL: any;
-  // siteURL: any;
+interface Props extends GridProps {
   projectIdx: number;
 }
 // main
 const ProjectPreview: FC<Props> = ({ projectIdx }) => {
-  const { img, site }: Project = useAppContext(
-    (s) => s.main.projects[projectIdx]
-  );
-  const buildImgElem = (img: Img, site?: Url) => {
-    if (typeof img !== typeof "") {
-      return (
-        <div className="imgContainer">
-          {/* <img src={_imgURL.default} alt="" className="preview-img" /> */}
-        </div>
-      );
-    }
-    return (
-      <div className="imgContainer">
-        {/* <a target="imgLink" rel="noopener noreferrer" href={site}> */}
-        {/* <img src={img} alt="" className="preview-img" /> */}
-        {/* </a> */}
-      </div>
-    );
-  };
-  // TODO: add mui
+  // state
+  const project: Project = useAppContext((s) => s.main.projects[projectIdx]);
+  const { img, site } = project;
+  // @ts-ignore
+  const link = site ? { pathname: site } : "";
 
-  return <div className="ProjectPreview">
-    {/* add image avatar here */}
-  </div>;
+  return (
+    <Grid
+
+    // className="ProjectPreview"
+    // className="imgContainer"
+    >
+      {/* // @ts-ignore */}
+      <ImageListItem
+        // component={() => {
+        //   return site ? <Link to={site as string} /> : <></>;
+        // }}
+        // component={Link}
+        // to={{ pathname: site as string }}
+        // target="_blank"
+        // window.location.replace('https://www.google.com')
+      >
+        <img
+          src={`${img}?w=164&h=164&fit=crop&auto=format`}
+          srcSet={`${img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+          alt={project.title}
+          loading="lazy"
+        />
+      </ImageListItem>
+      {/* add image avatar here */}
+      <Avatar />
+    </Grid>
+  );
 };
 
 export default observer(ProjectPreview);
