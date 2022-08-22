@@ -27,7 +27,19 @@ const App: FC = () => {
   }, []);
 
   return (
-    <Grid container direction="column" className="App">
+    <Grid
+      container
+      direction="column"
+      className="App"
+      sx={{
+        height: "100vh",
+        minHeight: "100vh",
+        maxHeight: "100vh",
+        width: "100vw",
+        maxWidth: "100vw",
+        minWidth: "100vw",
+      }}
+    >
       <Nav />
       <Body />
     </Grid>

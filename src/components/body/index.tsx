@@ -4,13 +4,14 @@ import { FC } from "react";
 import { Grid } from "@mui/material";
 // components
 import ProjectList from "../projects/ProjectList";
-import "./Body.css";
+// import "./Body.css";
 
 // main
 const Body: FC = () => {
   return (
     <Grid
       container
+      sx={{ flex: 1, overflow: "scroll" }}
       // className="Body"
     >
       <ProjectList />

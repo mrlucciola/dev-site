@@ -1,3 +1,5 @@
+import { MutableRefObject, RefObject } from "react";
+
 export type Url = `${"https://" | "http://"}${string}` | url;
 enum url {}
 
@@ -19,6 +21,7 @@ export class Project {
   img: Img;
   repo: Url;
   site?: Url;
+  ref?: RefObject<HTMLDivElement>;
 
   constructor(
     title: string,

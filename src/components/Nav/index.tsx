@@ -9,7 +9,7 @@ import { observer } from "mobx-react-lite";
 // components
 import NavProjects from "./NavProjects";
 // utils
-import "./Nav.css";
+// import "./Nav.css";
 
 // event handlers
 // const onClickHomeHandler = () => {
@@ -28,16 +28,19 @@ const Nav: FC = () => {
       item
       container
       direction="row"
+      sx={{ background: `rgb(27, 27, 27)` }}
       // className="Nav"
     >
-      <MuiLink
-        to={`/#`}
-        key="nav"
-        component={Link}
-        // className="home"
-      >
+      <Grid item xs={2}>
+        {/* <MuiLink
+          to={`/#`}
+          key="nav"
+          component={Link}
+          // className="home"
+        > */}
         Home
-      </MuiLink>
+        {/* </MuiLink> */}
+      </Grid>
       <NavProjects />
     </Grid>
   );

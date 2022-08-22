@@ -1,16 +1,15 @@
 // react
-import { FC } from "react";
-import { Link } from "react-router-dom";
+import React, { FC, useCallback } from "react";
 // style
 import MuiLink from "@mui/material/Link";
+import Tab from "@mui/material/Tab";
 // state
 import { observer } from "mobx-react-lite";
 import { useAppContext } from "../../mobx/context";
 // types
 import { Project } from "../../mobx/types";
 // utils
-import { slugify } from "../../util/slugify";
-import { Grid } from "@mui/material";
+import { MainStore } from "../../mobx/stores/main";
 
 interface Props {
   projectIdx: number;
@@ -20,22 +19,31 @@ interface Props {
  */
 const NavProject: FC<Props> = ({ projectIdx }) => {
   // state
-  const activeProjectId: number = useAppContext((s) => s.main.activeProjectId);
+  // const activeProjectId: number = useAppContext((s) => s.main.activeProjectId);
   const project: Project = useAppContext((s) => s.main.projects[projectIdx]);
-  const projectTitle = project.title;
-  // adjust styling
-  const isActive = activeProjectId === projectIdx;
+  const setActiveProjectIdx: MainStore["setActiveProjectId"] = useAppContext(
+    (s) => s.main.setActiveProjectId
+  );
+  // event handler
+  const onClickNavToCard = useCallback(
+    (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+      e.preventDefault();
+      setActiveProjectIdx(projectIdx);
+      project.ref!.current!.scrollIntoView();
+    },
+    [project.ref]
+  );
 
+  // adjust styling
+  // const isActive = activeProjectId === projectIdx;
+
+  // return <LinkTab projectIdx={projectIdx} />;
   return (
-    <Grid item>
-      <MuiLink
-        to={`/${slugify(projectTitle)}`}
-        component={Link}
-        // className={`navProject ${isActive ? "active" : ""}`}
-      >
-        {projectTitle}
-      </MuiLink>
-    </Grid>
+    <Tab
+      onClick={onClickNavToCard}
+      component={MuiLink}
+      sx={{ color: "pink" }}
+    />
   );
 };
 

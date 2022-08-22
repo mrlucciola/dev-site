@@ -7,7 +7,7 @@ import { observer } from "mobx-react-lite";
 import { useAppContext } from "../../../mobx/context";
 import { ObjKey, Stack } from "../../../mobx/types";
 // utils
-import "./ProjectStack.css";
+// import "./ProjectStack.css";
 
 interface ToolProp extends GridProps {
   idx: number;
@@ -79,7 +79,7 @@ const ProjectStack: FC<Props> = ({ projectIdx }) => {
     <Grid
       item
       container
-      //className="ProjectStack"
+      // className="ProjectStack"
     >
       {stackElemArr}
     </Grid>

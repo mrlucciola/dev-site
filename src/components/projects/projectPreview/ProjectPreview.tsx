@@ -9,7 +9,7 @@ import { useAppContext } from "../../../mobx/context";
 // types
 import { Project } from "../../../mobx/types";
 // style
-import "./ProjectPreview.css";
+// import "./ProjectPreview.css";
 
 interface Props extends GridProps {
   projectIdx: number;

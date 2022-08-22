@@ -1,6 +1,7 @@
 // react
-import { FC } from "react";
+import { FC, RefObject, useEffect, useRef } from "react";
 // style
+import { Grid, GridProps } from "@mui/material";
 // state
 import { observer } from "mobx-react-lite";
 import { MainStore } from "../../mobx/stores/main";
@@ -13,8 +14,7 @@ import ProjectDescription from "./projectDescription/ProjectDescription";
 import ProjectStack from "./projectStack/ProjectStack";
 // utils
 import { slugify } from "../../util/slugify";
-import "./Project.css";
-import { Grid } from "@mui/material";
+// import "./Project.css";
 
 // event handlers
 type OEAProps = (_: {
@@ -37,7 +37,7 @@ type OEAProps = (_: {
 // };
 type OEAProps_ = () => void;
 
-interface Props {
+interface Props extends GridProps {
   projectIdx: number;
 }
 /**
@@ -49,7 +49,13 @@ const ProjectCard: FC<Props> = ({ projectIdx }) => {
   const setActiveProjectIdx: MainStore["setActiveProjectId"] = useAppContext(
     (s) => s.main.setActiveProjectId
   );
+  const setProjectRef: MainStore["setProjectRef"] = useAppContext(
+    (s) => s.main.setProjectRef
+  );
   const activeProjectIdx: number = useAppContext((s) => s.main.activeProjectId);
+  // ref
+  const refPc: RefObject<HTMLDivElement> = useRef<HTMLDivElement>(null);
+
   // logic
   const isActive = projectIdx === activeProjectIdx;
 
@@ -58,6 +64,10 @@ const ProjectCard: FC<Props> = ({ projectIdx }) => {
       setActiveProjectIdx(projectIdx);
     }
   };
+  // effects
+  useEffect(() => {
+    refPc.current && setProjectRef(projectIdx, refPc);
+  }, [refPc]);
 
   return (
     <Grid
@@ -67,6 +77,7 @@ const ProjectCard: FC<Props> = ({ projectIdx }) => {
       onScroll={onEventActivateProject}
       onMouseOver={onEventActivateProject}
       // className={`ProjectCard ${isActive ? "active" : ""} w100`}
+      ref={refPc}
     >
       <ProjectNav projectIdx={projectIdx} />
       <ProjectPreview projectIdx={projectIdx} />

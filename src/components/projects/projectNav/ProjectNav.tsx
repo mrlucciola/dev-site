@@ -7,7 +7,7 @@ import { Grid, Typography } from "@mui/material";
 // state
 import { useAppContext } from "../../../mobx/context";
 // utils
-import "./ProjectNav.css";
+// import "./ProjectNav.css";
 
 interface Props {
   projectIdx: number;

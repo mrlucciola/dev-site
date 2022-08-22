@@ -5,7 +5,7 @@ import { Grid, GridProps } from "@mui/material";
 // state
 import { observer } from "mobx-react-lite";
 import { useAppContext } from "../../../mobx/context";
-import "./ProjectDescription.css";
+// import "./ProjectDescription.css";
 
 interface Props extends GridProps {
   projectIdx: number;
