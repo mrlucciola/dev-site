@@ -14,7 +14,7 @@ interface Props {
   projectIdx: number;
 }
 /**
- * main
+ * A single tab button which navigates user to a given project on click
  */
 const NavProject: FC<Props> = ({ projectIdx }) => {
   // state

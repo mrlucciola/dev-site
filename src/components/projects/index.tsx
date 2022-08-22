@@ -9,7 +9,8 @@ import { useAppContext } from "../../mobx/context";
 import ProjectCard from "./ProjectCard";
 
 /**
- * main
+ * Displays list of projects.
+ * Queries the state for array of projects.
  */
 const ProjectList: FC = () => {
   // state

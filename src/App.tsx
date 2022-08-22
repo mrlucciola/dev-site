@@ -1,20 +1,19 @@
 // react
 import { FC, useEffect } from "react";
 // style
+import { Grid } from "@mui/material";
 // state
+import { observer } from "mobx-react-lite";
 import { useAppContext } from "./mobx/context";
 import { MainStore } from "./mobx/stores/main";
 // components
-import Body from "./components/body";
+import Body from "./components/Body";
 import Nav from "./components/Nav";
 import { Project } from "./mobx/types";
 const projectsArr: Project[] = [];
-// seed
-import { Grid } from "@mui/material";
-import { observer } from "mobx-react-lite";
 
 /**
- * main
+ * Sets the state on first render with seed data and displays the entire page view
  */
 const App: FC = () => {
   // state
