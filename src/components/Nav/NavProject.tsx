@@ -1,7 +1,6 @@
 // react
 import React, { FC, useCallback } from "react";
 // style
-import MuiLink from "@mui/material/Link";
 import Tab from "@mui/material/Tab";
 // state
 import { observer } from "mobx-react-lite";
@@ -19,14 +18,13 @@ interface Props {
  */
 const NavProject: FC<Props> = ({ projectIdx }) => {
   // state
-  // const activeProjectId: number = useAppContext((s) => s.main.activeProjectId);
   const project: Project = useAppContext((s) => s.main.projects[projectIdx]);
   const setActiveProjectIdx: MainStore["setActiveProjectId"] = useAppContext(
     (s) => s.main.setActiveProjectId
   );
   // event handler
   const onClickNavToCard = useCallback(
-    (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
       e.preventDefault();
       setActiveProjectIdx(projectIdx);
       project.ref!.current!.scrollIntoView();
@@ -34,17 +32,7 @@ const NavProject: FC<Props> = ({ projectIdx }) => {
     [project.ref]
   );
 
-  // adjust styling
-  // const isActive = activeProjectId === projectIdx;
-
-  // return <LinkTab projectIdx={projectIdx} />;
-  return (
-    <Tab
-      onClick={onClickNavToCard}
-      component={MuiLink}
-      sx={{ color: "pink" }}
-    />
-  );
+  return <Tab onClick={onClickNavToCard} label={project.title} />;
 };
 
 export default observer(NavProject);

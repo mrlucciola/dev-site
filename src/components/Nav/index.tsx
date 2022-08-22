@@ -1,47 +1,66 @@
 // react
 import { FC } from "react";
-import { Link } from "react-router-dom";
 // style
-import MuiLink from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
+import Tabs from "@mui/material/Tabs";
 // state
 import { observer } from "mobx-react-lite";
+import { useAppContext } from "../../mobx/context";
 // components
-import NavProjects from "./NavProjects";
-// utils
-// import "./Nav.css";
-
-// event handlers
-// const onClickHomeHandler = () => {
-// window.scroll(0, 0);
-// window.location = `${window.location.origin}#`;
-// const newLocationStr = `${window.location.origin}#`;
-// window.location.assign(newLocationStr);
-// }
+import NavProject from "./NavProject";
+import { Typography } from "@mui/material";
 
 /**
  * main
  */
 const Nav: FC = () => {
+  // state
+  const activeProjectId: number = useAppContext((s) => s.main.activeProjectId);
+  const projectLen: number = useAppContext((s) => s.main.projects).length;
+  // create the element array
+  const projectElems = Array.from(Array(projectLen).keys()).map((idx) => {
+    return <NavProject projectIdx={idx} key={`nproj-${idx}`} />;
+  });
+
   return (
     <Grid
       item
       container
       direction="row"
       sx={{ background: `rgb(27, 27, 27)` }}
-      // className="Nav"
+      justifyContent="space-between"
+      alignItems="center"
+      flexWrap={"nowrap"}
     >
-      <Grid item xs={2}>
-        {/* <MuiLink
-          to={`/#`}
-          key="nav"
-          component={Link}
-          // className="home"
-        > */}
-        Home
-        {/* </MuiLink> */}
+      <Grid
+        item
+        container
+        alignSelf="center"
+        flexDirection={"row"}
+        justifyContent={"center"}
+        md={2}
+        // sm={3}
+        px={2}
+      >
+        <Typography color="aliceblue" textAlign="center" noWrap>
+          Rocco Lucciola's
+        </Typography>
+        <Typography color="aliceblue" textAlign="center" pl={1}>
+          Portfolio
+        </Typography>
       </Grid>
-      <NavProjects />
+      <Grid item md={true} sm={9} xs={8}>
+        <Tabs
+          value={activeProjectId}
+          variant="scrollable"
+          scrollButtons="auto"
+          aria-label="scrollable auto tabs example"
+          textColor="primary"
+          sx={{ color: "aliceblue", flex: 1 }}
+        >
+          {projectElems}
+        </Tabs>
+      </Grid>
     </Grid>
   );
 };

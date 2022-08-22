@@ -18,8 +18,8 @@ export class Project {
   title: string;
   description: string;
   stack: Stack;
-  img: Img;
   repo: Url;
+  img?: Img;
   site?: Url;
   ref?: RefObject<HTMLDivElement>;
 
@@ -27,8 +27,8 @@ export class Project {
     title: string,
     description: string,
     stack: Stack,
-    img: Img,
     repo: Url,
+    img?: Img,
     site?: Url
   ) {
     this.title = title;

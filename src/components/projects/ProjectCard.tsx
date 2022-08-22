@@ -1,41 +1,28 @@
 // react
 import { FC, RefObject, useEffect, useRef } from "react";
 // style
-import { Grid, GridProps } from "@mui/material";
+import Grid, { GridProps } from "@mui/material/Grid";
+import Stack from "@mui/material/Stack";
+import Typography from "@mui/material/Typography";
+import CardContent from "@mui/material/CardContent";
+import CardHeader from "@mui/material/CardHeader";
+import CardMedia from "@mui/material/CardMedia";
+import Card from "@mui/material/Card";
+import MuiLink from "@mui/material/Link";
+import ListItem from "@mui/material/ListItem";
+import ListSubheader from "@mui/material/ListSubheader";
+import Skeleton from "@mui/material/Skeleton";
+import IconButton from "@mui/material/IconButton";
+import GitHubIcon from "@mui/icons-material/GitHub";
 // state
 import { observer } from "mobx-react-lite";
 import { MainStore } from "../../mobx/stores/main";
 import { Project } from "../../mobx/types";
 import { useAppContext } from "../../mobx/context";
 // components
-import ProjectNav from "./projectNav/ProjectNav";
-import ProjectPreview from "./projectPreview/ProjectPreview";
-import ProjectDescription from "./projectDescription/ProjectDescription";
-import ProjectStack from "./projectStack/ProjectStack";
+import ProjectStack from "./ProjectStack";
 // utils
 import { slugify } from "../../util/slugify";
-// import "./Project.css";
-
-// event handlers
-type OEAProps = (_: {
-  projectIdx: number;
-  isActive: boolean;
-  setter: MainStore["setActiveProjectId"];
-}) => () => void;
-// const onEventActivateProject: OEAProps =
-// ({ projectIdx, isActive, setter }) =>
-// () => {
-//   if (!isActive) {
-//     // window.history.replaceState(
-//     //   null,
-//     //   null,
-//     //   `${window.location.origin}#${slugify(title)}`
-//     // );
-//     setter(projectIdx);
-//     // TODO: add react router
-//   }
-// };
-type OEAProps_ = () => void;
 
 interface Props extends GridProps {
   projectIdx: number;
@@ -43,9 +30,11 @@ interface Props extends GridProps {
 /**
  * main
  */
-const ProjectCard: FC<Props> = ({ projectIdx }) => {
+const ProjectCard: FC<Props> = ({ ...props }) => {
+  const projectIdx = props.projectIdx;
   // state
-  const title: string = useAppContext((s) => s.main.projects[projectIdx]).title;
+  const project: Project = useAppContext((s) => s.main.projects[projectIdx]);
+  const { title, repo, site, img } = project;
   const setActiveProjectIdx: MainStore["setActiveProjectId"] = useAppContext(
     (s) => s.main.setActiveProjectId
   );
@@ -59,7 +48,8 @@ const ProjectCard: FC<Props> = ({ projectIdx }) => {
   // logic
   const isActive = projectIdx === activeProjectIdx;
 
-  const onEventActivateProject: OEAProps_ = () => {
+  // event handlers
+  const onEventActivateProject = () => {
     if (!isActive) {
       setActiveProjectIdx(projectIdx);
     }
@@ -70,26 +60,79 @@ const ProjectCard: FC<Props> = ({ projectIdx }) => {
   }, [refPc]);
 
   return (
-    <Grid
-      item
-      container
+    <ListItem
       id={slugify(title)}
       onScroll={onEventActivateProject}
       onMouseOver={onEventActivateProject}
-      // className={`ProjectCard ${isActive ? "active" : ""} w100`}
-      ref={refPc}
+      sx={{ mh: 5, minWidth: "100%", flex: 1 }}
+      component={Stack}
+      direction="column"
     >
-      <ProjectNav projectIdx={projectIdx} />
-      <ProjectPreview projectIdx={projectIdx} />
-      <Grid
-        item
-        container
-        // className="bottom"
+      <ListSubheader
+        title={title}
+        sx={{ width: `100%` }}
+        component={CardHeader}
+        ref={refPc}
+        action={
+          <Grid container direction="row" spacing={2} alignSelf={"center"}>
+            <Grid item alignSelf={"center"}>
+              {site && (
+                <MuiLink href={site as string} component="a">
+                  <Typography>Website</Typography>
+                </MuiLink>
+              )}
+            </Grid>
+            <Grid item alignSelf={"center"}>
+              {repo && (
+                <MuiLink
+                  href={repo as string}
+                  component={IconButton}
+                  aria-label="settings"
+                >
+                  <GitHubIcon />
+                </MuiLink>
+              )}
+            </Grid>
+          </Grid>
+        }
       >
-        <ProjectDescription projectIdx={projectIdx} />
-        <ProjectStack projectIdx={projectIdx} />
-      </Grid>
-    </Grid>
+        {title}
+      </ListSubheader>
+      <ListItem disableGutters disablePadding divider>
+        <Card sx={{ borderRadius: "0", flex: 1 }}>
+          {img ? (
+            <CardMedia
+              component="img"
+              image={`${img}?w=164&h=164&fit=crop&auto=format`}
+              srcSet={`${img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+              alt={`img: ${project.title}`}
+              loading="lazy"
+            />
+          ) : (
+            <CardContent>
+              <Skeleton
+                sx={{ bgcolor: "grey.500" }}
+                height={100}
+                variant="rounded"
+                animation="wave"
+              />
+            </CardContent>
+          )}
+
+          <CardContent>
+            {project.description.split("\n\n").map((i, key) => {
+              return (
+                <Typography gutterBottom key={key}>
+                  {i.trim()}
+                </Typography>
+              );
+            })}
+          </CardContent>
+
+          <ProjectStack {...props} />
+        </Card>
+      </ListItem>
+    </ListItem>
   );
 };
 

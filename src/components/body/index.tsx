@@ -1,9 +1,9 @@
 // react
 import { FC } from "react";
 // style
-import { Grid } from "@mui/material";
+import { Container, Grid } from "@mui/material";
 // components
-import ProjectList from "../projects/ProjectList";
+import ProjectList from "../projects";
 // import "./Body.css";
 
 // main
@@ -13,6 +13,7 @@ const Body: FC = () => {
       container
       sx={{ flex: 1, overflow: "scroll" }}
       // className="Body"
+      component={Container}
     >
       <ProjectList />
     </Grid>
