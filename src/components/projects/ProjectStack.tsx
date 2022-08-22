@@ -20,6 +20,9 @@ interface ToolProp extends GridProps {
   toolStr: string;
   toolIcon: JSX.Element;
 }
+/**
+ * Display component which Holds the name of a tool/library, with icon
+ */
 const Tool: FC<ToolProp> = ({ toolStr, toolIcon }) => {
   return (
     <ListItem component="div">
@@ -32,6 +35,9 @@ interface PSEProps {
   projectKey: string;
   toolsArr: string[];
 }
+/**
+ * Element which holds the list of tools/libraries used, as well as the stack title
+ */
 const ProjStackElem: FC<PSEProps> = ({ projectKey, toolsArr }) => {
   // list each tool in array form
   const toolsElemArr = toolsArr.map((tool: string, idx: number) => {
@@ -56,12 +62,15 @@ const ProjStackElem: FC<PSEProps> = ({ projectKey, toolsArr }) => {
 interface Props {
   projectIdx: number;
 }
-// main
+/**
+ * Display component which holds an array of 'stack' items.
+ * A stack item has 1) a title; and 2) a list of tools;
+ */
 const ProjectStack: FC<Props> = ({ projectIdx }) => {
   const stack: Stack = useAppContext((s) => s.main.projects[projectIdx]).stack;
-  // build fxns
-  const stackElemArr = [];
 
+  // build the array of elements by stack
+  const stackElemArr = [];
   for (const [_key, toolsArr] of stack) {
     const projectKey = String(_key);
 

@@ -3,15 +3,15 @@ import { FC } from "react";
 // style
 import Grid from "@mui/material/Grid";
 import Tabs from "@mui/material/Tabs";
+import Typography from "@mui/material/Typography";
 // state
 import { observer } from "mobx-react-lite";
 import { useAppContext } from "../../mobx/context";
 // components
 import NavProject from "./NavProject";
-import { Typography } from "@mui/material";
 
 /**
- * main
+ * Displays the navbar
  */
 const Nav: FC = () => {
   // state

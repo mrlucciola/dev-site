@@ -28,7 +28,11 @@ interface Props extends GridProps {
   projectIdx: number;
 }
 /**
- * main
+ * Display component for a single project.
+ * Consists of a header, image, description, and stack
+ * 
+ * Sets a ref in order to call "scrollTo..." within NavProjects.
+ * This ref is stored in MobX state.
  */
 const ProjectCard: FC<Props> = ({ ...props }) => {
   const projectIdx = props.projectIdx;
