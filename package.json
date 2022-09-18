@@ -1,35 +1,43 @@
 {
-  "homepage": "https://m-r-l.dev",
+  "homepage": "https://mrlucciola.com",
   "name": "portfolio-page",
   "version": "1.1.1",
   "private": true,
   "dependencies": {
-    "@emotion/react": "^11.10.0",
-    "@emotion/styled": "^11.10.0",
-    "@mui/icons-material": "^5.8.4",
-    "@mui/material": "^5.10.1",
+    "@emotion/react": "^11.10.4",
+    "@emotion/styled": "^11.10.4",
+    "@mui/icons-material": "^5.10.3",
+    "@mui/material": "^5.10.5",
     "mobx": "^6.6.1",
     "mobx-react-lite": "^3.4.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.4.0",
-    "react-redux": "^7.2.0",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
-    "redux": "^4.0.5",
-    "redux-thunk": "^2.3.0",
     "web-vitals": "^2.1.4"
+  },
+  "devDependencies": {
+    "@types/jest": "^28.1.7",
+    "@types/node": "^16.11.47",
+    "@types/react": "^18.0.17",
+    "@types/react-dom": "^18.0.6",
+    "typescript": "^4.7.4"
   },
   "description": "Portfolio page for Rocco Lucciola",
   "scripts": {
+    "move-bak": "rm -rf ./static ./assets ./images ; mv -f ./build/* ./ && rm -rf ./build ; cp -r ./assets/* ./",
     "start": "react-scripts start",
-    "build": "react-scripts build",
-    "move": "rm -rf ./static ./assets ./images ; mv -f ./build/* ./ && rm -rf ./build ; cp -r ./assets/* ./",
     "git-add": "git add .",
     "git-commit": "git commit -m '(re)building and deploying'",
     "git-push": "git push origin gh-pages",
     "git-deploy": "yarn git-add && yarn git-commit && yarn git-push",
-    "deploy": "yarn build && yarn move && yarn git-deploy"
+    "mb-move-assets": "cp -r ./assets/* ./",
+    "mb-move-new-build": "mv -f ./build/* ./ && rm -rf ./build",
+    "mb-remove-old-build": "rm -rf ./static ./assets ./images",
+    "mb-manage-new-build": "yarn mb-remove-old-build && yarn mb-move-new-build && yarn mb-move-assets",
+    "build": "react-scripts build",
+    "deploy": "yarn build && yarn mb-manage-new-build && yarn git-deploy"
   },
   "repository": {
     "type": "git",
@@ -51,12 +59,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "@types/jest": "^28.1.7",
-    "@types/node": "^16.11.47",
-    "@types/react": "^18.0.17",
-    "@types/react-dom": "^18.0.6",
-    "typescript": "^4.7.4"
   }
 }

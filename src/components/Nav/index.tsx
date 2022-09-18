@@ -1,22 +1,20 @@
-// react
-import { FC } from "react";
 // style
-import Grid from "@mui/material/Grid";
+import Grid from "@mui/material/Unstable_Grid2";
 import Tabs from "@mui/material/Tabs";
 import Typography from "@mui/material/Typography";
 // state
 import { observer } from "mobx-react-lite";
-import { useAppContext } from "../../mobx/context";
+import { useCtx } from "../../mobx/context";
 // components
 import NavProject from "./NavProject";
 
-/**
- * Displays the navbar
+/** Navigation bar display component
  */
-const Nav: FC = () => {
-  // state
-  const activeProjectId: number = useAppContext((s) => s.main.activeProjectId);
-  const projectLen: number = useAppContext((s) => s.main.projects).length;
+const Nav: React.FC = () => {
+  // state: observables
+  const activeProjectId: number = useCtx((s) => s.main.activeProjectId);
+  const projectLen: number = useCtx((s) => s.main.projects).length;
+
   // create the element array
   const projectElems = Array.from(Array(projectLen).keys()).map((idx) => {
     return <NavProject projectIdx={idx} key={`nproj-${idx}`} />;
@@ -24,22 +22,19 @@ const Nav: FC = () => {
 
   return (
     <Grid
-      item
       container
       direction="row"
       sx={{ background: `rgb(27, 27, 27)` }}
       justifyContent="space-between"
       alignItems="center"
-      flexWrap={"nowrap"}
+      flexWrap="nowrap"
     >
       <Grid
-        item
         container
         alignSelf="center"
         flexDirection={"row"}
         justifyContent={"center"}
         md={2}
-        // sm={3}
         px={2}
       >
         <Typography color="aliceblue" textAlign="center" noWrap>
@@ -49,7 +44,7 @@ const Nav: FC = () => {
           Portfolio
         </Typography>
       </Grid>
-      <Grid item md={true} sm={9} xs={8}>
+      <Grid md={true} sm={9} xs={8}>
         <Tabs
           value={activeProjectId}
           variant="scrollable"
