@@ -1,7 +1,7 @@
 // react
 import { createContext, useContext } from "react";
 // state
-import { MainStore } from "./stores/main";
+import { MainStore } from "./stores/MainStore";
 
 export class RootStore {
   main: MainStore;
@@ -15,7 +15,7 @@ export class RootStore {
 const AppContext = createContext<RootStore>(new RootStore());
 
 // hook
-export const useAppContext: (callerFxn: (stores: RootStore) => {}) => any = (
+export const useCtx: (callerFxn: (stores: RootStore) => {}) => any = (
   callerFxn: (stores: RootStore) => any
 ) => {
   const context = useContext(AppContext) as RootStore;

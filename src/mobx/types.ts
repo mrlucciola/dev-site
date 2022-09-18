@@ -1,11 +1,8 @@
-import { MutableRefObject, RefObject } from "react";
+import { RefObject } from "react";
 
 export type Url = `${"https://" | "http://"}${string}` | url;
 enum url {}
 
-// export type Stack = {
-//   [Key in string | number | symbol]: string[];
-// };
 export type Stack = Map<ObjKey, string[]>;
 
 export type ObjKey = string | number | symbol | objKey;

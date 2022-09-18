@@ -1,7 +1,7 @@
 // react
-import { FC, RefObject, useEffect, useRef } from "react";
+import React, { RefObject, useEffect, useRef } from "react";
 // style
-import Grid, { GridProps } from "@mui/material/Grid";
+import Grid, { Grid2Props as GridProps } from "@mui/material/Unstable_Grid2";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import CardContent from "@mui/material/CardContent";
@@ -16,36 +16,39 @@ import IconButton from "@mui/material/IconButton";
 import GitHubIcon from "@mui/icons-material/GitHub";
 // state
 import { observer } from "mobx-react-lite";
-import { MainStore } from "../../mobx/stores/main";
+import { MainStore } from "../../mobx/stores/MainStore";
 import { Project } from "../../mobx/types";
-import { useAppContext } from "../../mobx/context";
+import { useCtx } from "../../mobx/context";
 // components
 import ProjectStack from "./ProjectStack";
 // utils
 import { slugify } from "../../util/slugify";
 
-interface Props extends GridProps {
-  projectIdx: number;
-}
-/**
- * Display component for a single project.
+type Props = React.FC<
+  GridProps & {
+    projectIdx: number;
+  }
+>;
+/** Display component for a single project.
  * Consists of a header, image, description, and stack
- * 
+ *
  * Sets a ref in order to call "scrollTo..." within NavProjects.
  * This ref is stored in MobX state.
  */
-const ProjectCard: FC<Props> = ({ ...props }) => {
+const ProjectCard: Props = ({ ...props }) => {
   const projectIdx = props.projectIdx;
-  // state
-  const project: Project = useAppContext((s) => s.main.projects[projectIdx]);
+  // state: observables
+  const activeProjectIdx: number = useCtx((s) => s.main.activeProjectId);
+  const project: Project = useCtx((s) => s.main.projects[projectIdx]);
   const { title, repo, site, img } = project;
-  const setActiveProjectIdx: MainStore["setActiveProjectId"] = useAppContext(
+  // state: actions
+  const setActiveProjectIdx: MainStore["setActiveProjectId"] = useCtx(
     (s) => s.main.setActiveProjectId
   );
-  const setProjectRef: MainStore["setProjectRef"] = useAppContext(
+  const setProjectRef: MainStore["setProjectRef"] = useCtx(
     (s) => s.main.setProjectRef
   );
-  const activeProjectIdx: number = useAppContext((s) => s.main.activeProjectId);
+
   // ref
   const refPc: RefObject<HTMLDivElement> = useRef<HTMLDivElement>(null);
 
@@ -79,14 +82,14 @@ const ProjectCard: FC<Props> = ({ ...props }) => {
         ref={refPc}
         action={
           <Grid container direction="row" spacing={2} alignSelf={"center"}>
-            <Grid item alignSelf={"center"}>
+            <Grid alignSelf={"center"}>
               {site && (
                 <MuiLink href={site as string} component="a">
                   <Typography>Website</Typography>
                 </MuiLink>
               )}
             </Grid>
-            <Grid item alignSelf={"center"}>
+            <Grid alignSelf={"center"}>
               {repo && (
                 <MuiLink
                   href={repo as string}

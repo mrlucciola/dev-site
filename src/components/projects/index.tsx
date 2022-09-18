@@ -4,7 +4,7 @@ import { FC } from "react";
 import { List } from "@mui/material";
 // state
 import { observer } from "mobx-react-lite";
-import { useAppContext } from "../../mobx/context";
+import { useCtx } from "../../mobx/context";
 // components
 import ProjectCard from "./ProjectCard";
 
@@ -14,7 +14,7 @@ import ProjectCard from "./ProjectCard";
  */
 const ProjectList: FC = () => {
   // state
-  const projectArrLen: number = useAppContext((s) => s.main.projects).length;
+  const projectArrLen: number = useCtx((s) => s.main.projects).length;
 
   // build the array of elements
   const projectElems = Array.from(Array(projectArrLen).keys()).map((idx) => {

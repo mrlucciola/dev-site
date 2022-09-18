@@ -4,11 +4,11 @@ import React, { FC, useCallback } from "react";
 import Tab from "@mui/material/Tab";
 // state
 import { observer } from "mobx-react-lite";
-import { useAppContext } from "../../mobx/context";
+import { useCtx } from "../../mobx/context";
 // types
 import { Project } from "../../mobx/types";
 // utils
-import { MainStore } from "../../mobx/stores/main";
+import { MainStore } from "../../mobx/stores/MainStore";
 
 interface Props {
   projectIdx: number;
@@ -18,8 +18,8 @@ interface Props {
  */
 const NavProject: FC<Props> = ({ projectIdx }) => {
   // state
-  const project: Project = useAppContext((s) => s.main.projects[projectIdx]);
-  const setActiveProjectIdx: MainStore["setActiveProjectId"] = useAppContext(
+  const project: Project = useCtx((s) => s.main.projects[projectIdx]);
+  const setActiveProjectIdx: MainStore["setActiveProjectId"] = useCtx(
     (s) => s.main.setActiveProjectId
   );
   // event handler
