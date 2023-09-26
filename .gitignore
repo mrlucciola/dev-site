@@ -11,8 +11,28 @@ node_modules/
 # production
 /build
 
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# yarn
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+# Keep uncommented for yarn `zero-install`
+!.yarn/cache
+# Uncomment if NOT using yarn `zero-install` - Documentation here: https://yarnpkg.com/features/zero-installs
+#.pnp.*
+yarn.lock
+
 # misc
-**/.DS_Store
+**/*DS_Store
+**/*hidden*
+**/*dist*/
+**/*tsconfig.tsbuildinfo
 .env.local
 .env.development.local
 .env.test.local
@@ -21,4 +41,3 @@ node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-**/*hidden*
