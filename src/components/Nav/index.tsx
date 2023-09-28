@@ -10,7 +10,7 @@ import { useMainStore } from "../../mobx/stores";
 
 /** Navigation bar display component
  */
-const Nav: React.FC = () => {
+const Nav: FC = () => {
   // state: observables
   const activeProjectIdx: number = useMainStore((s) => s.activeProjectIdx);
   const projectLen: number = useMainStore((s) => s.projects).length;

@@ -22,7 +22,7 @@ import ProjectStack from "./ProjectStack";
 import { slugify } from "../util/slugify";
 import { useMainStore } from "../mobx/stores";
 
-type Props = React.FC<
+type Props = FC<
   GridProps & {
     projectIdx: number;
     projectId?: string;
