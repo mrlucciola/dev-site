@@ -1,22 +1,19 @@
-// react
 import ReactDOM from "react-dom/client";
 // state
-import AppContext, { RootStore } from "./mobx/context";
+import { StoreProvider } from "./mobx/provider";
 // components
 import App from "./App";
-// utils
-import "./App.css";
+// style
+import "./index.css";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 
 root.render(
-  <>
-    {/* <React.StrictMode> */}
-    <AppContext.Provider value={new RootStore()}>
-      <App />
-    </AppContext.Provider>
-    {/* </React.StrictMode> */}
-  </>
+  // {/* <React.StrictMode> */}
+  <StoreProvider>
+    <App />
+  </StoreProvider>
+  // {/* </React.StrictMode> */}
 );

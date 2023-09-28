@@ -4,29 +4,25 @@ import React, { FC, useCallback } from "react";
 import Tab from "@mui/material/Tab";
 // state
 import { observer } from "mobx-react-lite";
-import { useCtx } from "../../mobx/context";
-// types
-import { Project } from "../../mobx/types";
-// utils
-import { MainStore } from "../../mobx/stores/MainStore";
+import { useMainStore } from "../../mobx/stores";
+// interfaces
+import { Project } from "../../mobx/interfaces/project";
 
 interface Props {
   projectIdx: number;
 }
 /**
- * A single tab button which navigates user to a given project on click
+ * A single tab button which navigates user to a given project on click.
  */
 const NavProject: FC<Props> = ({ projectIdx }) => {
   // state
-  const project: Project = useCtx((s) => s.main.projects[projectIdx]);
-  const setActiveProjectIdx: MainStore["setActiveProjectId"] = useCtx(
-    (s) => s.main.setActiveProjectId
-  );
+  const project: Project = useMainStore((s) => s.projects[projectIdx]);
+  const setActiveProjectIdx = useMainStore((s) => s.setActiveProject);
   // event handler
   const onClickNavToCard = useCallback(
     (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
       e.preventDefault();
-      setActiveProjectIdx(projectIdx);
+      setActiveProjectIdx(projectIdx, "");
       project.ref!.current!.scrollIntoView();
     },
     [project.ref]

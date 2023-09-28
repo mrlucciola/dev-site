@@ -1,19 +1,23 @@
-// react
 import { FC } from "react";
-// style
-import Grid from "@mui/material/Grid";
-import Container from "@mui/material/Container";
+// mui
+import List from "@mui/material/List";
+// state
+import { observer } from "mobx-react-lite";
+import { useMainStore } from "../mobx/stores";
+import ProjectCard from "./ProjectCard";
 // components
-import ProjectList from "./projects";
 
-/**
- * Displays all content for page
- */
 const Body: FC = () => {
-  return (
-    <Grid container sx={{ flex: 1, overflow: "scroll" }} component={Container}>
-      <ProjectList />
-    </Grid>
-  );
+  // state
+  const projectsLen = useMainStore((s) => s.projects.length);
+
+  // build
+  const projectElems = [];
+  for (let projectIdx = 0; projectIdx < projectsLen; projectIdx++) {
+    projectElems.push(<ProjectCard projectIdx={projectIdx} key={projectIdx} />);
+  }
+
+  return <List>{projectElems}</List>;
 };
-export default Body;
+
+export default observer(Body);
