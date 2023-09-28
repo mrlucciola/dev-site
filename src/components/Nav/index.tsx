@@ -4,16 +4,16 @@ import Tabs from "@mui/material/Tabs";
 import Typography from "@mui/material/Typography";
 // state
 import { observer } from "mobx-react-lite";
-import { useCtx } from "../../mobx/context";
 // components
 import NavProject from "./NavProject";
+import { useMainStore } from "../../mobx/stores";
 
 /** Navigation bar display component
  */
 const Nav: React.FC = () => {
   // state: observables
-  const activeProjectId: number = useCtx((s) => s.main.activeProjectId);
-  const projectLen: number = useCtx((s) => s.main.projects).length;
+  const activeProjectIdx: number = useMainStore((s) => s.activeProjectIdx);
+  const projectLen: number = useMainStore((s) => s.projects).length;
 
   // create the element array
   const projectElems = Array.from(Array(projectLen).keys()).map((idx) => {
@@ -46,7 +46,7 @@ const Nav: React.FC = () => {
       </Grid>
       <Grid md={true} sm={9} xs={8}>
         <Tabs
-          value={activeProjectId}
+          value={activeProjectIdx}
           variant="scrollable"
           scrollButtons="auto"
           aria-label="scrollable auto tabs example"

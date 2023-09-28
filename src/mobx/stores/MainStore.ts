@@ -2,9 +2,10 @@
 import { RefObject } from "react";
 // state
 import { makeAutoObservable } from "mobx";
-import { Project, ObjKey } from "../types";
 // stores
-import { RootStore } from "../context";
+import { RootStore } from ".";
+import { Project } from "../interfaces/project";
+import { projectsArr } from "../data/projectsArr";
 
 /** Main store
  */
@@ -24,8 +25,9 @@ export class MainStore {
 
   /////////////////////////////////////////////////////////
   ////////////////////// OBSERVABLES //////////////////////
-  private _projects: Project[] = [];
-  private _activeProjectId: ObjKey = 0;
+  private _projects: Project[] = projectsArr;
+  private _activeProjectId: string = "";
+  private _activeProjectIdx: number = 0;
   ////////////////////// OBSERVABLES //////////////////////
   /////////////////////////////////////////////////////////
 
@@ -34,21 +36,25 @@ export class MainStore {
   get projects(): Project[] {
     return this._projects;
   }
-  get activeProjectId(): ObjKey {
+  get activeProjectId(): string {
     return this._activeProjectId;
+  }
+  get activeProjectIdx(): number {
+    return this._activeProjectIdx;
+  }
+  get activeProject(): Project {
+    return this._projects[this.activeProjectIdx];
   }
   /////////////////////// COMPUTEDS ///////////////////////
   /////////////////////////////////////////////////////////
 
   /////////////////////////////////////////////////////////
   //////////////////////// ACTIONS ////////////////////////
-  setProjects(newProjectsArr: Project[]) {
-    this._projects = newProjectsArr;
-  }
   setProjectRef(projectId: number, projectRef: RefObject<HTMLDivElement>) {
     this._projects[projectId].ref = projectRef;
   }
-  setActiveProjectId(id: ObjKey) {
+  setActiveProject(idx: number, id: string) {
+    this._activeProjectIdx = idx;
     this._activeProjectId = id;
   }
   //////////////////////// ACTIONS ////////////////////////

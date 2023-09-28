@@ -1,23 +1,16 @@
 // react
-import { useEffect } from "react";
 // style
 import { Grid } from "@mui/material";
 // state
 import { observer } from "mobx-react-lite";
-import { useCtx } from "./mobx/context";
-import { MainStore } from "./mobx/stores/MainStore";
 // components
 import Body from "./components/Body";
 import Nav from "./components/Nav";
-import { Project } from "./mobx/types";
-const projectsArr: Project[] = [];
 
 /**
  * Sets the state on first render with seed data and displays the entire page view
  */
 const App: React.FC = () => {
-  useInitAppState();
-
   return (
     <Grid
       container
@@ -39,15 +32,3 @@ const App: React.FC = () => {
 };
 
 export default observer(App);
-
-function useInitAppState() {
-  // state: actions
-  const setProjects: MainStore["setProjects"] = useCtx(
-    (s) => s.main.setProjects
-  );
-
-  // effects
-  useEffect(() => {
-    setProjects(projectsArr);
-  }, []);
-}
