@@ -5,7 +5,7 @@ import { makeAutoObservable } from "mobx";
 // stores
 import { RootStore } from ".";
 import { Project } from "../interfaces/project";
-import { projectsArr } from "../data/projectsArr";
+import { projectsArr, toolsIconMap } from "../data/projectsArr";
 
 /** Main store
  */
@@ -28,6 +28,7 @@ export class MainStore {
   private _projects: Project[] = projectsArr;
   private _activeProjectId: string = "";
   private _activeProjectIdx: number = 0;
+  private _toolsIconMap = toolsIconMap;
   ////////////////////// OBSERVABLES //////////////////////
   /////////////////////////////////////////////////////////
 
@@ -44,6 +45,9 @@ export class MainStore {
   }
   get activeProject(): Project {
     return this._projects[this.activeProjectIdx];
+  }
+  get toolsIconMap(): { [key: string]: JSX.Element } {
+    return this._toolsIconMap;
   }
   /////////////////////// COMPUTEDS ///////////////////////
   /////////////////////////////////////////////////////////
