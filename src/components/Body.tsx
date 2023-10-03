@@ -4,8 +4,8 @@ import List from "@mui/material/List";
 // state
 import { observer } from "mobx-react-lite";
 import { useMainStore } from "../mobx/stores";
-import ProjectCard from "./ProjectCard";
 // components
+import ProjectCard from "./ProjectCard";
 
 const Body: FC = () => {
   // state

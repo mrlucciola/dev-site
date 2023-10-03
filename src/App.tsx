@@ -1,4 +1,4 @@
-// react
+import { FC } from "react";
 // style
 import { Grid } from "@mui/material";
 // state
@@ -10,7 +10,7 @@ import Nav from "./components/Nav";
 /**
  * Sets the state on first render with seed data and displays the entire page view
  */
-const App: React.FC = () => {
+const App: FC = () => {
   return (
     <Grid
       container

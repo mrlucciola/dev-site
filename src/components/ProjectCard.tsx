@@ -1,7 +1,7 @@
-// react
 import { FC, RefObject, useEffect, useRef } from "react";
-// style
-import Grid, { Grid2Props as GridProps } from "@mui/material/Unstable_Grid2";
+// mui
+import Grid from "@mui/material/Unstable_Grid2";
+import GridProps from "@mui/material/Unstable_Grid2/Grid2Props";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import CardContent from "@mui/material/CardContent";
@@ -16,25 +16,24 @@ import IconButton from "@mui/material/IconButton";
 import GitHubIcon from "@mui/icons-material/GitHub";
 // state
 import { observer } from "mobx-react-lite";
+import { useMainStore } from "../mobx/stores";
 // components
 import ProjectStack from "./ProjectStack";
 // utils
 import { slugify } from "../util/slugify";
-import { useMainStore } from "../mobx/stores";
 
-type Props = FC<
-  GridProps & {
-    projectIdx: number;
-    projectId?: string;
-  }
->;
 /** Display component for a single project.
  * Consists of a header, image, description, and stack
  *
  * Sets a ref in order to call "scrollTo..." within NavProjects.
  * This ref is stored in MobX state.
  */
-const ProjectCard: Props = ({ ...props }) => {
+const ProjectCard: FC<
+  GridProps.Grid2Props & {
+    projectIdx: number;
+    projectId?: string;
+  }
+> = ({ ...props }) => {
   const projectIdx = props.projectIdx;
   // state: observables
   const activeProjectIdx: number = useMainStore((s) => s.activeProjectIdx);
