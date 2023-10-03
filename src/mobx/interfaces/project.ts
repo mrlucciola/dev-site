@@ -9,27 +9,13 @@ export type Img = `/images/${string}${`.png`}` | imgType;
 enum imgType {}
 
 export class Project {
-  title: string;
-  description: string;
-  stack: IProjectStack;
-  repo: Url;
-  img?: Img;
-  site?: Url;
-  ref?: RefObject<HTMLDivElement>;
-
   constructor(
-    title: string,
-    description: string,
-    stack: IProjectStack,
-    repo: Url,
-    img?: Img,
-    site?: Url
-  ) {
-    this.title = title;
-    this.description = description;
-    this.stack = stack;
-    this.img = img;
-    this.repo = repo;
-    this.site = site;
-  }
+    public title: string,
+    public description: string,
+    public stack: IProjectStack,
+    public repo: Url,
+    public img?: Img,
+    public site?: Url,
+    public ref?: RefObject<HTMLDivElement>
+  ) {}
 }
