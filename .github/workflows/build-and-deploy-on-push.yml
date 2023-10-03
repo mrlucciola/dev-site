@@ -1,0 +1,41 @@
+name: Build site and deploy to GH-Pages on push to main branch
+run-name: Build and deploy - Commit \# #${{ github.event.merge.number }} from branch ${{ github.event.pull_request.head.ref }}
+on:
+  push:
+    branches:
+      - "main"
+  pull_request:
+    types:
+      - closed
+permissions:
+  contents: write
+
+jobs:
+  if_merged:
+    if: github.event_name == 'push' || github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout to runner
+        id: checkout-main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Checkout to gh-pages branch
+        id: checkout-gh-pages
+        run: git checkout -B gh-pages
+
+      - name: Build from source
+        id: build-from-source
+        run: |
+          yarn install --immutable
+          yarn build
+
+      - name: Deploy webpage
+        id: deploy-webpage
+        run: |
+          mv -f ./build/* ./
+          rm -rf ./build
+          cp -r ./assets/* ./
+          git add .
+          git commit -m 'redeploying'
