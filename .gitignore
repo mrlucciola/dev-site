@@ -26,7 +26,6 @@ yarn-error.log*
 !.yarn/cache
 # Uncomment if NOT using yarn `zero-install` - Documentation here: https://yarnpkg.com/features/zero-installs
 #.pnp.*
-yarn.lock
 
 # misc
 **/*DS_Store
