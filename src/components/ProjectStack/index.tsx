@@ -8,10 +8,13 @@ import { useMainStore } from "../../mobx/stores";
 // components
 import ProjectStackElem from "./ProjectStackElem";
 
-/** Display component:
- * Holds an array of 'stack' items.
+/** ### Project tool-stack
  *
- * A stack item has 1) a title; and 2) a list of tools;
+ * Display component which shows the stack/list of tools used in the project.
+ *
+ * A stack element has:
+ * 1. A title;
+ * 2. A list of tools;
  */
 const ProjectStack: FC<{ projectIdx: number }> = ({ projectIdx }) => {
   // state

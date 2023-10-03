@@ -7,7 +7,7 @@ import { useMainStore } from "../../mobx/stores";
 // components
 import Tool from "./Tool";
 
-/** Holds the list of tools/libraries used, as well as the `stack` title.
+/** ### List of tools/libraries used in project
  * Display component.
  */
 const ProjectStackElem: FC<{
