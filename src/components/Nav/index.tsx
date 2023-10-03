@@ -9,7 +9,7 @@ import { useMainStore } from "../../mobx/stores";
 // components
 import NavProject from "./NavProject";
 
-/** Navigation bar display component
+/** ### Navbar display component
  */
 const Nav: FC = () => {
   // state: observables

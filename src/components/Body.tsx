@@ -7,6 +7,8 @@ import { useMainStore } from "../mobx/stores";
 // components
 import ProjectCard from "./ProjectCard";
 
+/** ### Page body
+ */
 const Body: FC = () => {
   // state
   const projectsLen = useMainStore((s) => s.projects.length);

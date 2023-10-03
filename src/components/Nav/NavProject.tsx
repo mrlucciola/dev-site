@@ -7,7 +7,7 @@ import { useMainStore } from "../../mobx/stores";
 // interfaces
 import { Project } from "../../mobx/interfaces/project";
 
-/**
+/** ### Navbar `Project` element
  * A single tab button which navigates user to a given project on click.
  */
 const NavProject: FC<{
