@@ -3,10 +3,7 @@ import { RefObject } from "react";
 export type Url = `${"https://" | "http://"}${string}` | url;
 enum url {}
 
-type IProjectStack = Map<ObjKey, string[]>;
-
-export type ObjKey = string | number | symbol | objKey;
-enum objKey {}
+type IProjectStack = Map<string, string[]>;
 
 export type Img = `/images/${string}${`.png`}` | imgType;
 enum imgType {}

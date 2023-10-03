@@ -18,7 +18,7 @@ import {
 import { Avatar } from "@mui/material";
 import { Project } from "../interfaces/project";
 
-export const toolsIconMap: any = {
+export const toolsIconMap: { [key: string]: JSX.Element } = {
   "React.js": <FaReact />,
   "D3.js": <SiD3Dotjs />,
   "Redux.js": <SiRedux />,
