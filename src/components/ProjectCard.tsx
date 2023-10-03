@@ -1,5 +1,5 @@
 // react
-import React, { RefObject, useEffect, useRef } from "react";
+import { FC, RefObject, useEffect, useRef } from "react";
 // style
 import Grid, { Grid2Props as GridProps } from "@mui/material/Unstable_Grid2";
 import Stack from "@mui/material/Stack";
@@ -22,7 +22,7 @@ import ProjectStack from "./ProjectStack";
 import { slugify } from "../util/slugify";
 import { useMainStore } from "../mobx/stores";
 
-type Props = React.FC<
+type Props = FC<
   GridProps & {
     projectIdx: number;
     projectId?: string;
