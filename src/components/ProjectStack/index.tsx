@@ -8,7 +8,7 @@ import { useMainStore } from "../../mobx/stores";
 // components
 import ProjectStackElem from "./ProjectStackElem";
 
-/** Display component:\
+/** Display component:
  * Holds an array of 'stack' items.
  *
  * A stack item has 1) a title; and 2) a list of tools;
@@ -19,14 +19,12 @@ const ProjectStack: FC<{ projectIdx: number }> = ({ projectIdx }) => {
 
   // build the array of elements by stack
   const stackElemArr = [];
-  for (const [_key, toolsArr] of projectStack) {
-    const projectKey = String(_key);
-
+  for (const [key, toolsArr] of projectStack) {
     stackElemArr.push(
       <ProjectStackElem
-        projectKey={projectKey}
+        projectKey={key}
         toolsArr={toolsArr}
-        key={`gridgroup-${projectKey}`}
+        key={`gridgroup-${key}`}
       />
     );
   }

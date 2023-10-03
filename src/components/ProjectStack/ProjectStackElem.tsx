@@ -6,8 +6,8 @@ import Grid from "@mui/material/Unstable_Grid2";
 import Tool from "./Tool";
 import { useMainStore } from "../../mobx/stores";
 
-/** Display component:
- * Holds the list of tools/libraries used, as well as the `stack` title.
+/** Holds the list of tools/libraries used, as well as the `stack` title.
+ * Display component.
  */
 const ProjectStackElem: FC<{
   projectKey: string;
