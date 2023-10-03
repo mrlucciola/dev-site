@@ -1,16 +1,17 @@
-// style
+import { FC } from "react";
+// mui
 import Grid from "@mui/material/Unstable_Grid2";
 import Tabs from "@mui/material/Tabs";
 import Typography from "@mui/material/Typography";
 // state
 import { observer } from "mobx-react-lite";
+import { useMainStore } from "../../mobx/stores";
 // components
 import NavProject from "./NavProject";
-import { useMainStore } from "../../mobx/stores";
 
 /** Navigation bar display component
  */
-const Nav: React.FC = () => {
+const Nav: FC = () => {
   // state: observables
   const activeProjectIdx: number = useMainStore((s) => s.activeProjectIdx);
   const projectLen: number = useMainStore((s) => s.projects).length;
