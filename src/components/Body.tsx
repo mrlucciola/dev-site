@@ -1,5 +1,6 @@
 import { FC } from "react";
 // mui
+import Grid from "@mui/material/Unstable_Grid2";
 import List from "@mui/material/List";
 // state
 import { observer } from "mobx-react-lite";
@@ -19,7 +20,11 @@ const Body: FC = () => {
     projectElems.push(<ProjectCard projectIdx={projectIdx} key={projectIdx} />);
   }
 
-  return <List>{projectElems}</List>;
+  return (
+    <Grid component={List} flexWrap="wrap" direction="column" overflow="scroll">
+      {projectElems}
+    </Grid>
+  );
 };
 
 export default observer(Body);
