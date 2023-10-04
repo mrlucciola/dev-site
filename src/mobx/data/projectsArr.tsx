@@ -15,7 +15,7 @@ import {
   SiPostgresql,
   SiRust,
 } from "react-icons/si";
-import { Avatar } from "@mui/material";
+import Avatar from "@mui/material/Avatar";
 import { Project } from "../interfaces/project";
 
 export const toolsIconMap: { [key: string]: JSX.Element } = {
