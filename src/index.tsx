@@ -1,4 +1,7 @@
 import ReactDOM from "react-dom/client";
+// mui
+import { CssBaseline, ThemeProvider } from "@mui/material";
+import { darkTheme } from "./mui/theme";
 // state
 import { StoreProvider } from "./mobx/provider";
 // components
@@ -13,7 +16,10 @@ const root = ReactDOM.createRoot(
 root.render(
   // {/* <React.StrictMode> */}
   <StoreProvider>
-    <App />
+    <ThemeProvider theme={darkTheme}>
+      <CssBaseline />
+      <App />
+    </ThemeProvider>
   </StoreProvider>
   // {/* </React.StrictMode> */}
 );
