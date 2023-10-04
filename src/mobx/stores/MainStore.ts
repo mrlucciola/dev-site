@@ -5,7 +5,9 @@ import { makeAutoObservable } from "mobx";
 // stores
 import { RootStore } from ".";
 import { Project } from "../interfaces/project";
-import { projectsArr, toolsIconMap } from "../data/projectsArr";
+// data
+import { projectsArr } from "../data/projects";
+import { toolsIconMap } from "../data/iconMap";
 
 /** Main store
  */
