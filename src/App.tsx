@@ -1,5 +1,5 @@
 import { FC } from "react";
-// style
+// mui
 import { Grid } from "@mui/material";
 // state
 import { observer } from "mobx-react-lite";
@@ -7,8 +7,7 @@ import { observer } from "mobx-react-lite";
 import Body from "./components/Body";
 import Nav from "./components/Nav";
 
-/**
- * Sets the state on first render with seed data and displays the entire page view
+/** ### App entrypoint
  */
 const App: FC = () => {
   return (

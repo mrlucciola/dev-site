@@ -2,22 +2,22 @@ import { FC } from "react";
 // mui
 import Grid from "@mui/material/Unstable_Grid2";
 import Tabs from "@mui/material/Tabs";
-import Typography from "@mui/material/Typography";
 // state
 import { observer } from "mobx-react-lite";
 import { useMainStore } from "../../mobx/stores";
 // components
 import NavProject from "./NavProject";
+import HomeButton from "./HomeButton";
 
 /** ### Navbar display component
  */
 const Nav: FC = () => {
   // state: observables
   const activeProjectIdx: number = useMainStore((s) => s.activeProjectIdx);
-  const projectLen: number = useMainStore((s) => s.projects).length;
+  const projectCt: number = useMainStore((s) => s.projects).length;
 
-  // create the element array
-  const projectElems = Array.from(Array(projectLen).keys()).map((idx) => {
+  // build
+  const projectElems = Array.from(Array(projectCt).keys()).map((idx) => {
     return <NavProject projectIdx={idx} key={`nproj-${idx}`} />;
   });
 
@@ -38,12 +38,14 @@ const Nav: FC = () => {
         md={2}
         px={2}
       >
-        <Typography color="aliceblue" textAlign="center" noWrap>
+        <HomeButton />
+
+        {/* <Typography color="aliceblue" textAlign="center" noWrap>
           Rocco Lucciola's
-        </Typography>
-        <Typography color="aliceblue" textAlign="center" pl={1}>
+        </Typography> */}
+        {/* <Typography color="aliceblue" textAlign="center" pl={1}>
           Portfolio
-        </Typography>
+        </Typography> */}
       </Grid>
       <Grid md={true} sm={9} xs={8}>
         <Tabs
