@@ -23,6 +23,7 @@ const App: FC = () => {
         maxWidth: "100vw",
         minWidth: "100vw",
       }}
+      wrap="nowrap"
     >
       <Nav />
       <Body />
