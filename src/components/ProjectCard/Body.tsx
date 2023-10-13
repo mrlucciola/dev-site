@@ -1,6 +1,8 @@
 import { FC } from "react";
+// markdown
+import Markdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 // mui
-import Typography from "@mui/material/Typography";
 import CardContent from "@mui/material/CardContent";
 import Card from "@mui/material/Card";
 import ListItem from "@mui/material/ListItem";
@@ -14,21 +16,15 @@ import ProjectDisplay from "./ProjectDisplay";
 const Body: FC<{ projectIdx: number }> = ({ projectIdx }) => {
   // state
   const project = useMainStore((s) => s.projects[projectIdx]);
-  // build
-  const descriptionLines = project.description.split("\n\n").map((i, key) => {
-    return (
-      <Typography gutterBottom key={key}>
-        {i.trim()}
-      </Typography>
-    );
-  });
 
   return (
     <ListItem disableGutters disablePadding divider>
       <Card sx={{ borderRadius: "0", flex: 1 }}>
         <ProjectDisplay project={project} />
 
-        <CardContent>{descriptionLines}</CardContent>
+        <CardContent>
+          <Markdown remarkPlugins={[remarkGfm]}>{project.description}</Markdown>
+        </CardContent>
 
         <ProjectStack projectIdx={projectIdx} />
       </Card>
