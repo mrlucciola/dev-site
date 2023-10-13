@@ -1,11 +1,11 @@
 import { RefObject } from "react";
 
-export type Url = `${"https://" | "http://"}${string}` | url;
+export type IUrl = `${"https://" | "http://"}${string}` | url;
 enum url {}
 
 type IProjectStack = Map<string, string[]>;
 
-export type Img = `/images/${string}${`.png`}` | imgType;
+export type IImg = `/images/${string}${`.png`}` | imgType;
 enum imgType {}
 
 export class Project {
@@ -13,9 +13,10 @@ export class Project {
     public title: string,
     public description: string,
     public stack: IProjectStack,
-    public repo: Url,
-    public img?: Img,
-    public site?: Url,
-    public ref?: RefObject<HTMLDivElement>
+    public repo: IUrl,
+    public img?: IImg,
+    public site?: IUrl,
+    public ref?: RefObject<HTMLDivElement>,
+    public diagram?: string
   ) {}
 }
