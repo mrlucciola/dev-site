@@ -18,7 +18,7 @@ import ProjectStackElem from "./ProjectStackElem";
  */
 const ProjectStack: FC<{ projectIdx: number }> = ({ projectIdx }) => {
   // state
-  const projectStack = useMainStore((s) => s.projects[projectIdx]).stack;
+  const projectStack = useMainStore((s) => s.projects[projectIdx].stack);
 
   // build the array of elements by stack
   const stackElemArr = [];
