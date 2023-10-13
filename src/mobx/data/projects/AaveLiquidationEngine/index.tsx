@@ -4,6 +4,7 @@ const diagramStr = `
 ---
 title: Liquidate Undercollateralized Debt Positions
 ---
+%%{init: {'theme':'dark'}}%%
 flowchart TD
     subgraph healthCheck ["(1) Check account health"]
       vault3[User 1's Vault]

@@ -2,8 +2,6 @@ import { FC } from "react";
 import mermaid from "mermaid";
 // mui
 import Grid from "@mui/material/Unstable_Grid2";
-// state
-import { observer } from "mobx-react-lite";
 // components
 import Body from "./components/Body";
 import Nav from "./components/Nav";
@@ -36,4 +34,4 @@ const App: FC = () => {
   );
 };
 
-export default observer(App);
+export default App;
