@@ -9,8 +9,6 @@ import { useMainStore } from "../../mobx/stores";
 // components
 import Header from "./Header";
 import Body from "./Body";
-// utils
-import { slugify } from "../../util/slugify";
 
 /** ### Project view
  * Display component showing information about a single project.
@@ -22,14 +20,13 @@ import { slugify } from "../../util/slugify";
 const ProjectCard: FC<
   GridProps.Grid2Props & {
     projectIdx: number;
-    projectId?: string;
   }
 > = ({ ...props }) => {
   const projectIdx = props.projectIdx;
   // state: observables
   const activeProjectIdx: number = useMainStore((s) => s.activeProjectIdx);
   const project = useMainStore((s) => s.projects[projectIdx]);
-  const { title } = project;
+  const { id } = project;
   // state: actions
   const setActiveProject = useMainStore((s) => s.setActiveProject);
 
@@ -45,7 +42,8 @@ const ProjectCard: FC<
 
   return (
     <ListItem
-      id={slugify(title)}
+      className={`#${id}`}
+      id={id}
       onScroll={onEventActivateProject}
       onMouseOver={onEventActivateProject}
       sx={{ mh: 5, minWidth: "100%", flex: 1 }}

@@ -24,7 +24,12 @@ const HomeButton: FC = () => {
           R.
         </Grid>
       </Grid>
-      <Grid component={Typography} fontWeight={800} color="white" fontSize="inherit">
+      <Grid
+        component={Typography}
+        fontWeight={800}
+        color="white"
+        fontSize="inherit"
+      >
         Lucciola
       </Grid>
     </Grid>

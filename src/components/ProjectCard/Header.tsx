@@ -12,9 +12,10 @@ import { observer } from "mobx-react-lite";
 import { useMainStore } from "../../mobx/stores";
 
 const Header: FC<{ projectIdx: number }> = ({ projectIdx }) => {
+  // state
   const setProjectRef = useMainStore((s) => s.setProjectRef);
   const project = useMainStore((s) => s.projects[projectIdx]);
-  const { title, ref, site, repo } = project;
+  const { title, site, repo } = project;
   // ref
   const refPc: RefObject<HTMLDivElement> = useRef<HTMLDivElement>(null);
   // effects

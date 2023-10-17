@@ -7,6 +7,7 @@ import {
   KeyboardEvent,
 } from "react";
 // mui
+import Link from "@mui/material/Link";
 import Button from "@mui/material/Button";
 import Popper from "@mui/material/Popper";
 import Paper from "@mui/material/Paper";
@@ -74,7 +75,9 @@ const NavProjectMenu: FC = () => {
 
   const menuItemElems = projects.map((p, idx) => (
     <MenuItem onClick={handleMenuClose} key={idx}>
-      {p.title}
+      <Link component="a" href={`#${p.id}`}>
+        {p.title}
+      </Link>
     </MenuItem>
   ));
 
