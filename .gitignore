@@ -31,7 +31,8 @@ lerna-debug.log*
 # Keep uncommented for yarn `zero-install`
 !.yarn/cache
 # Uncomment if NOT using yarn `zero-install` - Documentation here: https://yarnpkg.com/features/zero-installs
-#.pnp.*
+# .pnp.*
+# yarn.lock
 
 # misc
 **/*DS_Store
