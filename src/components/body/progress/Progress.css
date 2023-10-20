@@ -1,0 +1,16 @@
+.Progress {
+    /* position */
+    position: fixed;
+    top: 50px;
+    /* size */
+    width: 100vw; height: 10px;
+    /* background */
+    background: grey;
+    z-index: 10;
+}
+    .Progress .prog-amt {
+        /* background */
+        background: rgb(182, 197, 212);
+        border-radius: 5px;
+        z-index: 100;
+    }
