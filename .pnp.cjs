@@ -71,10 +71,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@adobe/css-tools", [\
-        ["npm:4.3.1", {\
-          "packageLocation": "./.yarn/cache/@adobe-css-tools-npm-4.3.1-8afe87e987-ad43456379.zip/node_modules/@adobe/css-tools/",\
+        ["npm:4.3.2", {\
+          "packageLocation": "./.yarn/cache/@adobe-css-tools-npm-4.3.2-779f6c743d-9667d61d55.zip/node_modules/@adobe/css-tools/",\
           "packageDependencies": [\
-            ["@adobe/css-tools", "npm:4.3.1"]\
+            ["@adobe/css-tools", "npm:4.3.2"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -1300,7 +1300,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/__virtual__/@testing-library-jest-dom-virtual-59e941fe4f/0/cache/@testing-library-jest-dom-npm-6.1.4-757806e7e1-c6bd946955.zip/node_modules/@testing-library/jest-dom/",\
           "packageDependencies": [\
             ["@testing-library/jest-dom", "virtual:6c4b1a0f2b268d0ce3ef815d6bfd702b2cb59e780ec40797219fdf85e3cbb3c37ae01ecd2a29ba28574784272d0ec9e16810841d9d9eddadb8721d315b73c19e#npm:6.1.4"],\
-            ["@adobe/css-tools", "npm:4.3.1"],\
+            ["@adobe/css-tools", "npm:4.3.2"],\
             ["@babel/runtime", "npm:7.23.2"],\
             ["@jest/globals", null],\
             ["@types/jest", "npm:29.5.8"],\
