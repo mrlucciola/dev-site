@@ -54,17 +54,3 @@ jobs:
                 ...updateFields,
               });
             }
-
-            // Apply project
-            const projectItems = await github.rest.projects.listForRepo({
-              owner: context.repo.owner,
-              repo: context.repo.repo
-            });
-            const projectItem = projectItems.data.find(p => p.name === issue.project);
-            if (projectItem) {
-              await github.rest.projects.createCard({
-                project_id: projectItem.id,
-                content_id: pr.id,
-                content_type: 'PullRequest'
-              });
-            }
