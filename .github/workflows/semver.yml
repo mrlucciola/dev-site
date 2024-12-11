@@ -17,4 +17,5 @@ jobs:
         with:
           create_tag: true
       - name: Use version
-        run: echo "New version: ${{ steps.calculate-version.outputs.version-string }}"
+        run: |
+          echo "New version: ${{ steps.calculate-version.outputs.version-string }}"
