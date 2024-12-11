@@ -11,9 +11,7 @@ Display of recent projects.
 export default new Project(
   "Portfolio Page", // title
   description, // description
-  new Map([
-    ["Frontend", ["React.js", "MobX.js", "Typescript", "Vite", "Yarn PnP"]],
-  ]), // stack
+  new Map([["Frontend", ["React.js", "MobX.js", "Typescript", "Vite", "Bun"]]]), // stack
   "https://github.com/mrlucciola/portfolio-page/", // repo
   undefined, // img
   "https://mrlucciola.com/", // site
