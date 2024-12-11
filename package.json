@@ -62,16 +62,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
+    "typecheck": "tsc --diagnostics --incremental --noEmit",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview",
-    "git-add": "git add .",
-    "git-commit": "git commit -m '(re)building and deploying'",
-    "git-push": "git push origin gh-pages",
-    "git-deploy": "bun run git-add && bun run git-commit && bun run git-push",
-    "mb-move-assets": "cp -r ./assets/* ./",
-    "mb-move-new-build": "mv -f ./build/* ./ && rm -rf ./build",
-    "mb-remove-old-build": "rm -rf ./static ./assets ./images",
-    "mb-manage-new-build": "bun run mb-remove-old-build && bun run mb-move-new-build && bun run mb-move-assets",
-    "deploy": "bun run build && bun run mb-manage-new-build && bun run git-deploy"
+    "preview": "vite preview"
   }
 }
