@@ -1,5 +1,4 @@
-import { FC, useEffect, useState } from "react";
-import mermaid, { RenderResult } from "mermaid";
+import { FC } from "react";
 // mui
 import CardContent from "@mui/material/CardContent";
 import Skeleton from "@mui/material/Skeleton";
@@ -31,12 +30,7 @@ const ProjectDisplay: FC<{ project: Project }> = ({ project }) => {
 
   return (
     <CardContent>
-      <Skeleton
-        sx={{ bgcolor: "grey.500" }}
-        height={100}
-        variant="rounded"
-        animation="wave"
-      />
+      <Skeleton sx={{ bgcolor: "grey.500" }} height={100} variant="rounded" animation="wave" />
     </CardContent>
   );
 };

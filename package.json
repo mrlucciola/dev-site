@@ -11,10 +11,8 @@
   },
   "private": true,
   "type": "module",
-  "packageManager": "yarn@3.6.4",
   "engines": {
-    "node": ">=18.0.0",
-    "yarn": ">=3.0.0"
+    "node": ">=20.0.0"
   },
   "browserslist": {
     "production": [
@@ -54,7 +52,6 @@
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",
     "@vitejs/plugin-react-swc": "^3.3.2",
-    "@yarnpkg/sdks": "^3.0.0-rc.51",
     "eslint": "^8.45.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
@@ -69,11 +66,11 @@
     "git-add": "git add .",
     "git-commit": "git commit -m '(re)building and deploying'",
     "git-push": "git push origin gh-pages",
-    "git-deploy": "yarn git-add && yarn git-commit && yarn git-push",
+    "git-deploy": "bun run git-add && bun run git-commit && bun run git-push",
     "mb-move-assets": "cp -r ./assets/* ./",
     "mb-move-new-build": "mv -f ./build/* ./ && rm -rf ./build",
     "mb-remove-old-build": "rm -rf ./static ./assets ./images",
-    "mb-manage-new-build": "yarn mb-remove-old-build && yarn mb-move-new-build && yarn mb-move-assets",
-    "deploy": "yarn build && yarn mb-manage-new-build && yarn git-deploy"
+    "mb-manage-new-build": "bun run mb-remove-old-build && bun run mb-move-new-build && bun run mb-move-assets",
+    "deploy": "bun run build && bun run mb-manage-new-build && bun run git-deploy"
   }
 }

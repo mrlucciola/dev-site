@@ -10,11 +10,7 @@ on:
     paths:
       - "public/**/*"
       - "src/**/*"
-      - ".pnp.cjs"
-      - ".pnp.loader.mjs"
-      - ".yarnrc.yml"
-      - ".yarn/**/*"
-      - "yarn.lock"
+      - "bun.lockb"
 permissions:
   contents: write
 
@@ -23,9 +19,13 @@ jobs:
     if: github.event_name == 'push' || github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+
       - name: Checkout to runner
         id: checkout-main
-        uses: actions/checkout@v4
         with:
           ref: main
 
@@ -36,8 +36,8 @@ jobs:
       - name: Build from source
         id: build-from-source
         run: |
-          yarn install --immutable
-          yarn build
+          bun install
+          bun build
 
       - name: Deploy webpage
         id: deploy-webpage
