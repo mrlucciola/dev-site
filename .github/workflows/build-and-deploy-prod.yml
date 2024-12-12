@@ -1,0 +1,34 @@
+name: Push Production Build
+
+on:
+  workflow_dispatch: # Trigger this workflow manually
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Init Bun
+        uses: oven-sh/setup-bun@v1
+      - name: Install deps
+        run: bun install
+      - name: Build prod
+        run: |
+          NODE_ENV=production
+          PUBLIC_URL=https://portfolio.mrlucciola.com
+          bun build
+      - name: Create prod tag
+        run: |
+          TAG_ID="prod-$(date +%Y%m%d%H%M%S)" # @todo use QA tag
+          git tag $TAG_ID
+          git push origin $TAG_ID
+
+      - name: Deploy to prod repo
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          personal_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: main
+          folder: dist
+          target_repo: mrlucciola/portfolio-page-prod.git # git@github.com:mrlucciola/portfolio-page-prod.git
+
