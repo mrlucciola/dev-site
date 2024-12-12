@@ -28,7 +28,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           personal_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: main
-          folder: dist
-          target_repo: mrlucciola/portfolio-page-prod.git # git@github.com:mrlucciola/portfolio-page-prod.git
+          publish_branch: main
+          publish_dir: dist
+          external_repository: mrlucciola/portfolio-page-prod.git # git@github.com:mrlucciola/portfolio-page-prod.git
 
