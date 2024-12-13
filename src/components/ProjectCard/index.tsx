@@ -9,6 +9,7 @@ import { useMainStore } from "../../mobx/stores";
 // components
 import Header from "./Header";
 import Body from "./Body";
+import { useAppCtx } from "../App/AppProvider";
 
 /** ### Project view
  * Display component showing information about a single project.
@@ -17,15 +18,11 @@ import Body from "./Body";
  * Sets a ref in order to call "scrollTo..." within NavProjects.\
  * This ref is stored in MobX state.
  */
-const ProjectCard: FC<
-  GridProps.Grid2Props & {
-    projectIdx: number;
-  }
-> = ({ ...props }) => {
+const ProjectCard: FC<GridProps.Grid2Props & { projectIdx: number }> = ({ ...props }) => {
   const projectIdx = props.projectIdx;
   // state: observables
   const activeProjectIdx: number = useMainStore((s) => s.activeProjectIdx);
-  const project = useMainStore((s) => s.projects[projectIdx]);
+  const project = useAppCtx((s) => s.activeProject);
   const { id } = project;
   // state: actions
   const setActiveProject = useMainStore((s) => s.setActiveProject);

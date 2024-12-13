@@ -1,5 +1,5 @@
 // interfaces
-import { Project } from "../../interfaces/project";
+import { Project } from "../mobx/interfaces/project";
 
 /** Markdown string */
 const description = `
@@ -14,8 +14,6 @@ export default new Project(
   new Map([["Frontend", ["React.js", "MobX.js", "Typescript", "Vite", "Bun"]]]), // stack
   "https://github.com/mrlucciola/portfolio-page/", // repo
   undefined, // img
-  "https://portfolio.mrlucciola.com/", // site
-  // "https://portfolio-qa.mrlucciola.com/", // site
-  undefined, // ref
+  "https://portfolio.mrlucciola.com/", // "https://portfolio-qa.mrlucciola.com/"
   undefined // diagramStr
 );

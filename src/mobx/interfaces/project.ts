@@ -19,7 +19,6 @@ export class Project {
     public repo: IUrl,
     public img?: IImg,
     public site?: IUrl,
-    public ref?: RefObject<HTMLDivElement>,
     public diagram?: string
   ) {
     this.id = slugify(this.title);

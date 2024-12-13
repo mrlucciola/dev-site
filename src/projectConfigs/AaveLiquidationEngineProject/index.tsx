@@ -1,5 +1,5 @@
 // interfaces
-import { Project } from "../../../interfaces/project";
+import { Project } from "../../mobx/interfaces/project";
 
 const diagramStr = `
 ---
@@ -74,7 +74,6 @@ for fast lookups and analysis.
     ["Backend", ["Node.js", "PostgreSQL", "Express.js"]],
   ]),
   "https://github.com/mrlucciola/aave-liquidation-engine",
-  undefined,
   undefined,
   undefined,
   diagramStr
