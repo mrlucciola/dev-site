@@ -5,11 +5,13 @@ import Skeleton from "@mui/material/Skeleton";
 // components
 import Diagram from "./Diagram";
 import Img from "./Img";
-// interfaces
-import { Project } from "../../mobx/interfaces/project";
+// data
+import { projectsLookup, type ProjectKey } from "../../projectConfigs";
 
-const ProjectDisplay: FC<{ project: Project }> = ({ project }) => {
-  // for diagram
+const ProjectDisplay: FC<{ projectKey: ProjectKey }> = ({ projectKey }) => {
+  const project = projectsLookup[projectKey];
+
+  // @todo implement `mermaid` diagram
   // const [renderedDiagram, setRenderedDiagram] = useState<RenderResult>();
   // const cssTag = `${project.title}-diagram`;
   // const drawDiagram = async () => {
@@ -22,6 +24,18 @@ const ProjectDisplay: FC<{ project: Project }> = ({ project }) => {
   //   }
   // }, []);
 
+  /**
+    if (project.img || project.diagram) {
+      return (
+        // @todo Convert to `flex`+`column` if not already
+        <CardContent>
+          {project.img && <Img imgUrl={project.img} title={project.title} />}
+          {project.diagram && <Diagram diagramStr={project.diagram} />}
+        </CardContent>
+      );
+    }
+   */
+  // @todo remove this conditional and replace with above multiline-comment
   if (project.img) {
     return <Img imgUrl={project.img} title={project.title} />;
   } else if (project.diagram) {

@@ -2,29 +2,26 @@ import { FC } from "react";
 // mui
 import Grid from "@mui/material/Unstable_Grid2";
 import List from "@mui/material/List";
-// state
-import { observer } from "mobx-react-lite";
-import { useMainStore } from "../../mobx/stores";
 // components
 import ProjectCard from "../ProjectCard";
+// state
+import { ProjectKey } from "../../projectConfigs";
 
-/** ### Page body
- */
+// @todo add env-based conditional to use hidden elems if local dev
+const projectsForDisplay = ProjectKey.options; // isLocal ? ProjectKey.options : ActiveProjectKey.options
+
+/** ### Page body - list of elements */
 const Body: FC = () => {
-  // state
-  const projectsLen = useMainStore((s) => s.projects.length);
-
-  // build
-  const projectElems = [];
-  for (let projectIdx = 0; projectIdx < projectsLen; projectIdx++) {
-    projectElems.push(<ProjectCard projectIdx={projectIdx} key={projectIdx} />);
-  }
+  // Build elems
+  const projectElems = projectsForDisplay.map((projectKey) => (
+    <ProjectCard projectKey={projectKey} key={projectKey} />
+  ));
 
   return (
-    <Grid component={List} flexWrap="wrap" direction="column" overflow="scroll">
+    <Grid component={List} direction="column" overflow="scroll" wrap="nowrap">
       {projectElems}
     </Grid>
   );
 };
 
-export default observer(Body);
+export default Body;

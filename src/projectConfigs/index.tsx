@@ -3,8 +3,8 @@ import { z } from "zod";
 import { type Project } from "../mobx/interfaces/project";
 // projects
 import AaveLiquidationEngine from "./AaveLiquidationEngineProject";
-import Portfolio from "./PortfolioProject";
 import BDA from "./BdaProject";
+import Portfolio from "./PortfolioProject";
 
 // @todo add to this enum
 export const HiddenProjectKey = z.enum(["bda"]);

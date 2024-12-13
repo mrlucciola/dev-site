@@ -16,8 +16,6 @@ enum imgType {}
 
 /** @deprecated convert to zod schema */
 export class Project {
-  public id: string;
-
   constructor(
     public title: string,
     public description: string,
@@ -26,7 +24,9 @@ export class Project {
     public img?: IImg,
     public site?: IUrl,
     public diagram?: string
-  ) {
-    this.id = slugify(this.title);
+  ) {}
+  /** @deprecated this is used as a slug and CSS id/classname - a kebab-case version of the title */
+  get id(): string {
+    return slugify(this.title);
   }
 }
