@@ -1,5 +1,5 @@
 import { useState } from "react";
-import useCtxFactory, { type ICtxState } from "./util/useCtxFactory";
+import useCtxFactory, { type ICtxState } from "../../util/useCtxFactory";
 
 export const { useAppCtx, AppProvider } = useCtxFactory(() => {
   const [isLoading, setIsLoading] = useState(false);

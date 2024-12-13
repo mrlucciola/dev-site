@@ -4,9 +4,9 @@ import Grid from "@mui/material/Unstable_Grid2";
 import List from "@mui/material/List";
 // state
 import { observer } from "mobx-react-lite";
-import { useMainStore } from "../mobx/stores";
+import { useMainStore } from "../../mobx/stores";
 // components
-import ProjectCard from "./ProjectCard";
+import ProjectCard from "../ProjectCard";
 
 /** ### Page body
  */

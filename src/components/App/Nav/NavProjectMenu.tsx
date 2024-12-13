@@ -17,7 +17,7 @@ import Grow from "@mui/material/Grow";
 import ClickAwayListener from "@mui/material/ClickAwayListener";
 // state
 import { observer } from "mobx-react-lite";
-import { useMainStore } from "../../mobx/stores";
+import { useMainStore } from "../../../mobx/stores";
 
 /** ### Navbar `Project` element
  * A single tab button which navigates user to a given project on click.

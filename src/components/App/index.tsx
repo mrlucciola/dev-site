@@ -3,8 +3,8 @@ import mermaid from "mermaid";
 // mui
 import Grid from "@mui/material/Unstable_Grid2";
 // components
-import Body from "./components/Body";
-import Nav from "./components/Nav";
+import Body from "./Body";
+import Nav from "./Nav";
 // state
 import { AppProvider } from "./AppProvider";
 
