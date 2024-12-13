@@ -1,0 +1,17 @@
+{
+  "useCtx": {
+    "prefix": "rfctx",
+    "body": [
+      "export const { use$1Ctx, $1Provider } = useCtxFactory(() => {",
+      "  const [isLoading, setIsLoading] = useState(false);",
+      "",
+      "  return {",
+      "    isLoading,",
+      "    setIsLoading,",
+      "  };",
+      "}, \"$1\");",
+      "export type I$1Ctx = ICtxState<typeof use$1Ctx>;",
+    ],
+    "description": "useCtx"
+  },
+}
