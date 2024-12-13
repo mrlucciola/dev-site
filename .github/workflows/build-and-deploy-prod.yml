@@ -52,6 +52,8 @@ jobs:
           git config user.email github-actions@github.com
           git add .
           git commit -m "Update prod build for ${{ steps.get_tag.outputs.TAG_NAME }}"
+          git remote set-url origin git@github.com:mrlucciola/portfolio-page-prod.git
+          
           git push
           git tag ${{ steps.get_tag.outputs.TAG_NAME }}
           git push --tags
