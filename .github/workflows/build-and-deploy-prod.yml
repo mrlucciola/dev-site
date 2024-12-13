@@ -42,9 +42,6 @@ jobs:
           rm tsconfig.tsbuildinfo
           git rm -rf .
           rsync -a --delete --exclude='.git/' --exclude='dist/' ./ ./
-          echo __________FILES BELOW__________
-          ls -a
-          echo __________FILES ABOVE__________
           cp -a dist/. ./
           rm -rf dist
           git add .
