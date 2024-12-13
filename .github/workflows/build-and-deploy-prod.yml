@@ -1,14 +1,25 @@
 name: Push Production Build
 
 on:
-  workflow_dispatch: # Trigger this workflow manually
+  workflow_dispatch:
+    inputs:
+      tag_name:
+        description: "Tag Name"
+        required: true
+        default: "latest"
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
+      - name: Checkout qa
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Get latest tag
+        id: get_tag
+        run: echo "TAG_NAME=$(git describe --tags --abbrev=0)" >> $GITHUB_OUTPUT
+
       - name: Init Bun
         uses: oven-sh/setup-bun@v1
       - name: Install deps
@@ -18,17 +29,25 @@ jobs:
           NODE_ENV=production
           PUBLIC_URL=https://portfolio.mrlucciola.com
           bun run build
-      - name: Create prod tag
-        run: |
-          TAG_ID="prod-$(date +%Y%m%d%H%M%S)" # @todo use QA tag
-          git tag $TAG_ID
-          git push origin $TAG_ID
 
-      - name: Deploy to prod repo
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Checkout prod
+        uses: actions/checkout@v4
         with:
-          personal_token: ${{ secrets.PORTFOLIO_PROD }}
-          publish_branch: main
-          publish_dir: dist
-          external_repository: mrlucciola/portfolio-page-prod # git@github.com:mrlucciola/portfolio-page-prod.git
+          repository: mrlucciola/portfolio-page-prod
+          token: ${{ secrets.PORTFOLIO_PROD }}
+          path: portfolio-page-prod
 
+      - name: Copy build files
+        run: |
+          rm -rf production-repo/*
+          cp -r dist/* production-repo/
+      - name: Commit and push to Production repo
+        run: |
+          cd production-repo
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add .
+          git commit -m "Update prod build for ${{ steps.get_tag.outputs.TAG_NAME }}"
+          git push
+          git tag ${{ steps.get_tag.outputs.TAG_NAME }}
+          git push --tags
