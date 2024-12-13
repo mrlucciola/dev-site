@@ -1,4 +1,4 @@
-import { FC, RefObject, useEffect, useRef } from "react";
+import { FC, RefObject, useRef } from "react";
 // mui
 import Grid from "@mui/material/Unstable_Grid2";
 import CardHeader from "@mui/material/CardHeader";
@@ -9,35 +9,34 @@ import IconButton from "@mui/material/IconButton";
 import GitHubIcon from "@mui/icons-material/GitHub";
 // state
 import { observer } from "mobx-react-lite";
-import { useMainStore } from "../../mobx/stores";
+// interfaces
+import { projectsLookup, type ProjectKey } from "../../projectConfigs";
 
-const Header: FC<{ projectIdx: number }> = ({ projectIdx }) => {
+const Header: FC<{ projectKey: ProjectKey }> = ({ projectKey }) => {
+  /** @deprecated might not be necessary */
+  const projectConfigRef: RefObject<HTMLDivElement> = useRef<HTMLDivElement>(null);
   // state
-  const setProjectRef = useMainStore((s) => s.setProjectRef);
-  const project = useMainStore((s) => s.projects[projectIdx]);
-  const { title, site, repo } = project;
-  // ref
-  const refPc: RefObject<HTMLDivElement> = useRef<HTMLDivElement>(null);
-  // effects
-  useEffect(() => {
-    refPc.current && setProjectRef(projectIdx, refPc);
-  }, [refPc]);
+  const { title, site, repo } = projectsLookup[projectKey];
 
   return (
     <ListSubheader
       title={title}
       sx={{ width: `100%` }}
       component={CardHeader}
-      ref={refPc}
+      ref={projectConfigRef}
       action={
-        <Grid container direction="row" spacing={2} alignSelf={"center"}>
-          <Grid alignSelf={"center"}>
+        <Grid container direction="row" spacing={2} sx={{ alignSelf: "center" }}>
+          {/* @todo verify conditional spacing does not affect layout */}
+          {/* @todo abstract out this kind of link (TextLink) */}
+          <Grid sx={{ alignSelf: "center" }}>
             {site && (
               <MuiLink href={site as string} component="a">
                 <Typography>Website</Typography>
               </MuiLink>
             )}
           </Grid>
+          {/* @todo verify conditional spacing does not affect layout */}
+          {/* @todo abstract out this kind of link (IconButtonLink) */}
           <Grid alignSelf={"center"}>
             {repo && (
               <IconButton LinkComponent={MuiLink} href={repo as string}>
