@@ -1,6 +1,6 @@
 # Simple workflow for deploying static content to GitHub Pages
-name: Deploy static content to Pages
-run-name: "Deploy QA - Tag: ${{ steps.get_latest_tag.outputs.tag }} (Date: ${{ steps.get_commit_date.outputs.date }})"
+name: Deploy QA on PR merge
+run-name: "Deploy QA - Commit = ${{ github.sha }}"
 
 on:
   # Runs on pushes targeting the default branch
@@ -35,9 +35,6 @@ jobs:
         id: get_latest_tag
         uses: actions-ecosystem/action-get-latest-tag@v1
 
-      - name: Get commit date
-        id: get_commit_date
-        run: echo "date=$(git log -1 --format=%cd --date=short ${{ steps.get_latest_tag.outputs.tag }})" >> $GITHUB_OUTPUT
   # Single deploy job since we're just deploying
   deploy:
     environment:
