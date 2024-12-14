@@ -2,9 +2,9 @@ import { z } from "zod";
 // interfaces
 import { type Project } from "../mobx/interfaces/project";
 // projects
-import AaveLiquidationEngine from "./AaveLiquidationEngineProject";
-import BDA from "./BdaProject";
-import Portfolio from "./PortfolioProject";
+import aaveLiquidationEngineProjectConfig from "./AaveLiquidationEngineProject";
+import bdaProjectConfig from "./BdaProject";
+import portfolioProjectConfig from "./PortfolioProject";
 
 // @todo add to this enum
 export const HiddenProjectKey = z.enum(["bda"]);
@@ -17,9 +17,9 @@ export const ProjectKey = z.enum([...ActiveProjectKey.options, ...HiddenProjectK
 export type ProjectKey = z.infer<typeof ProjectKey>;
 
 export const projectsLookup: { [key in ProjectKey]: Project } = {
-  aaveLiquidationEngine: AaveLiquidationEngine,
-  bda: BDA,
-  portfolio: Portfolio,
+  aaveLiquidationEngine: aaveLiquidationEngineProjectConfig,
+  bda: bdaProjectConfig,
+  portfolio: portfolioProjectConfig,
 };
 
 // @todo add env-based conditional to use hidden elems if local dev

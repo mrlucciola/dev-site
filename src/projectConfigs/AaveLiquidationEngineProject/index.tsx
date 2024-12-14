@@ -1,38 +1,7 @@
-// interfaces
+import { z } from "zod";
 import { Project } from "../../mobx/interfaces/project";
 
-const diagramStr = `
----
-title: Liquidate Undercollateralized Debt Positions
----
-%%{init: {'theme':'dark'}}%%
-flowchart TD
-    subgraph healthCheck ["(1) Check account health"]
-      vault3[User 1's Vault]
-      risk2[Risk Module]
-      oracle2[Price Oracle]
-      vault3 --> risk2 & oracle2
-    end
-
-    healthCheck -- "If vault is\nundercollateralized:\nLiquidate vault" --> calcLiqAmt
-
-    subgraph calcLiqAmt ["(2) Calculate amount of collateral to liquidate"]
-      liq[Liquidation Module] -- "Query collateral token price\nto calc. vault value" <--> oracle3[Price Oracle]
-      liq -- "Calc. liquidation fee" --> platform[Platform settings]
-    end
-
-    calcLiqAmt --> repay
-
-    subgraph repay ["(3) Repay Debt"]
-      userLiq2[Liquidator Account] -- "Pay off User 1's\noutstanding debt" --> vault5[User 1's Vault]
-      vault5 -- "Return debt to platform\n(burn stablecoin)" --> vault5
-      vault5 -- "Send collateral + liquidation fee" --> userLiq3[Liquidator Account]
-    end
-`;
-
-export default new Project(
-  "Aave Liquidation Engine",
-  `
+const description = `
 Polygon smart contract and Node.js application which
 monitoredand liquidated undercollateralized debt positions
 on Aave, a money-market DeFi platform on Polygon (and Ethereum).
@@ -68,13 +37,47 @@ we deployed a managed Polygon RPC node (Infura).
 
 Used a managed PostgreSQL instance to store account health information 
 for fast lookups and analysis.
-  `,
-  new Map([
+`;
+const diagram = `
+---
+title: Liquidate Undercollateralized Debt Positions
+---
+%%{init: {'theme':'dark'}}%%
+flowchart TD
+    subgraph healthCheck ["(1) Check account health"]
+      vault3[User 1's Vault]
+      risk2[Risk Module]
+      oracle2[Price Oracle]
+      vault3 --> risk2 & oracle2
+    end
+
+    healthCheck -- "If vault is\nundercollateralized:\nLiquidate vault" --> calcLiqAmt
+
+    subgraph calcLiqAmt ["(2) Calculate amount of collateral to liquidate"]
+      liq[Liquidation Module] -- "Query collateral token price\nto calc. vault value" <--> oracle3[Price Oracle]
+      liq -- "Calc. liquidation fee" --> platform[Platform settings]
+    end
+
+    calcLiqAmt --> repay
+
+    subgraph repay ["(3) Repay Debt"]
+      userLiq2[Liquidator Account] -- "Pay off User 1's\noutstanding debt" --> vault5[User 1's Vault]
+      vault5 -- "Return debt to platform\n(burn stablecoin)" --> vault5
+      vault5 -- "Send collateral + liquidation fee" --> userLiq3[Liquidator Account]
+    end
+`;
+
+const aaveLiquidiationEngineProject = Project.parse({
+  title: "Aave Liquidation Engine",
+  description,
+  stack: new Map([
     ["Blockchain", ["Polygon SDK", "Solidity", "Ethers.js"]],
     ["Backend", ["Node.js", "PostgreSQL", "Express.js"]],
   ]),
-  "https://github.com/mrlucciola/aave-liquidation-engine",
-  undefined,
-  undefined,
-  diagramStr
-);
+  repo: "https://github.com/mrlucciola/aave-liquidation-engine.git",
+  img: undefined,
+  site: undefined,
+  diagram,
+} as z.input<typeof Project>);
+
+export default aaveLiquidiationEngineProject;
