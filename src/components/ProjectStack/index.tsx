@@ -2,11 +2,10 @@ import { FC } from "react";
 // mui
 import CardContent from "@mui/material/CardContent";
 import Stack from "@mui/material/Stack";
-// state
-import { observer } from "mobx-react-lite";
-import { useMainStore } from "../../mobx/stores";
 // components
 import ProjectStackElem from "./ProjectStackElem";
+// data
+import { projectsLookup, type ProjectKey } from "../../projectConfigs";
 
 /** ### Project tool-stack
  *
@@ -16,18 +15,18 @@ import ProjectStackElem from "./ProjectStackElem";
  * 1. A title;
  * 2. A list of tools;
  */
-const ProjectStack: FC<{ projectIdx: number }> = ({ projectIdx }) => {
-  // state
-  const projectStack = useMainStore((s) => s.projects[projectIdx].stack);
+const ProjectStack: FC<{ projectKey: ProjectKey }> = ({ projectKey }) => {
+  const project = projectsLookup[projectKey];
+  const projectStack = project.stack;
 
-  // build the array of elements by stack
+  // Build elems
   const stackElemArr = [];
   for (const [key, toolsArr] of projectStack) {
     stackElemArr.push(
       <ProjectStackElem
         projectKey={key}
         toolsArr={toolsArr}
-        key={`gridgroup-${key}`}
+        key={`${projectKey}-gridgroup-${key}`}
       />
     );
   }
@@ -39,4 +38,4 @@ const ProjectStack: FC<{ projectIdx: number }> = ({ projectIdx }) => {
   );
 };
 
-export default observer(ProjectStack);
+export default ProjectStack;

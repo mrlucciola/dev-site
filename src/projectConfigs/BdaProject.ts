@@ -1,5 +1,5 @@
 // interfaces
-import { Project } from "../../interfaces/project";
+import { Project } from "../mobx/interfaces/project";
 
 /** Markdown string */
 const description = `
@@ -24,12 +24,9 @@ Songs are pulled from soundcloud, but due to CORS issues, you must disable CORS 
 export default new Project(
   "BDA", // title
   description, // description
-  new Map([
-    ["frontend", ["JavaScript (ES6)", "Web Audio API", "React", "Redux"]],
-  ]), // stack
+  new Map([["frontend", ["JavaScript (ES6)", "Web Audio API", "React", "Redux"]]]), // stack
   "https://github.com/mrlucciola/bpm-detection-algorithm.git", // repo
   "/images/bda-preview.png", // img
   "https://mrlucciola.github.io/bpm-detection-algorithm/", // site
-  undefined, // ref
   undefined // diagramStr
 );

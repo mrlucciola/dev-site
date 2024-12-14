@@ -1,14 +1,14 @@
 import { FC } from "react";
 // mui
-import GridProps from "@mui/material/Unstable_Grid2/Grid2Props";
 import Stack from "@mui/material/Stack";
-import ListItem from "@mui/material/ListItem";
-// state
-import { observer } from "mobx-react-lite";
-import { useMainStore } from "../../mobx/stores";
+import ListItem, { type ListItemProps } from "@mui/material/ListItem";
 // components
 import Header from "./Header";
 import Body from "./Body";
+// state
+import { useAppCtx } from "../App/AppProvider";
+// interfaces
+import { type ProjectKey } from "../../projectConfigs";
 
 /** ### Project view
  * Display component showing information about a single project.
@@ -17,43 +17,39 @@ import Body from "./Body";
  * Sets a ref in order to call "scrollTo..." within NavProjects.\
  * This ref is stored in MobX state.
  */
-const ProjectCard: FC<
-  GridProps.Grid2Props & {
-    projectIdx: number;
-  }
-> = ({ ...props }) => {
-  const projectIdx = props.projectIdx;
+const ProjectCard: FC<ListItemProps & { projectKey: ProjectKey }> = ({
+  projectKey,
+  sx,
+  children,
+  ...listItemProps
+}) => {
   // state: observables
-  const activeProjectIdx: number = useMainStore((s) => s.activeProjectIdx);
-  const project = useMainStore((s) => s.projects[projectIdx]);
-  const { id } = project;
-  // state: actions
-  const setActiveProject = useMainStore((s) => s.setActiveProject);
+  const activeProjectKey = useAppCtx((s) => s.activeProjectKey);
+  const setActiveProjectKey = useAppCtx((s) => s.setActiveProjectKey);
+  const activeProjectSlug = useAppCtx((s) => s.activeProject.id);
 
-  // logic
-  const isActive = projectIdx === activeProjectIdx;
+  const isActive = projectKey === activeProjectKey;
 
   // event handlers
-  const onEventActivateProject = () => {
-    if (!isActive) {
-      setActiveProject(projectIdx, "");
-    }
-  };
+  const onEventActivateProject = () => !isActive && setActiveProjectKey(projectKey);
+  // @todo add additional state+event handler for `hovered` (inactive + hovered)
 
   return (
     <ListItem
-      className={`#${id}`}
-      id={id}
+      direction="column"
+      component={Stack}
       onScroll={onEventActivateProject}
       onMouseOver={onEventActivateProject}
+      // @todo fix - this is a css `id` identifier being used in for class
+      className={`#${activeProjectSlug}`}
+      id={activeProjectSlug}
       sx={{ mh: 5, minWidth: "100%", flex: 1 }}
-      component={Stack}
-      direction="column"
+      {...listItemProps}
     >
-      <Header projectIdx={projectIdx} />
-      <Body projectIdx={projectIdx} />
+      <Header projectKey={projectKey} />
+      <Body projectKey={projectKey} />
     </ListItem>
   );
 };
 
-export default observer(ProjectCard);
+export default ProjectCard;

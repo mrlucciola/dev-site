@@ -1,13 +1,9 @@
-// react
-import { RefObject } from "react";
 // state
 import { makeAutoObservable } from "mobx";
 // stores
 import { RootStore } from ".";
-import { Project } from "../interfaces/project";
 // data
-import { projectsArr } from "../data/projects";
-import { toolsIconMap } from "../data/iconMap";
+import { toolsIconMap } from "../../projectConfigs/iconMap";
 
 /** Main store
  */
@@ -27,47 +23,14 @@ export class MainStore {
 
   /////////////////////////////////////////////////////////
   ////////////////////// OBSERVABLES //////////////////////
-  private _projects: Project[] = projectsArr;
   private _toolsIconMap: { [key: string]: JSX.Element } = toolsIconMap;
-  private _activeProjectId: string = "";
-  private _activeProjectIdx: number = 0;
   ////////////////////// OBSERVABLES //////////////////////
   /////////////////////////////////////////////////////////
 
   /////////////////////////////////////////////////////////
   /////////////////////// COMPUTEDS ///////////////////////
-  get projects(): Project[] {
-    return this._projects;
-  }
+
   get toolsIconMap(): { [key: string]: JSX.Element } {
     return this._toolsIconMap;
   }
-  get activeProjectId(): string {
-    return this._activeProjectId;
-  }
-  get activeProjectIdx(): number {
-    return this._activeProjectIdx;
-  }
-  get activeProject(): Project {
-    return this._projects[this.activeProjectIdx];
-  }
-  /////////////////////// COMPUTEDS ///////////////////////
-  /////////////////////////////////////////////////////////
-
-  /////////////////////////////////////////////////////////
-  //////////////////////// ACTIONS ////////////////////////
-  setProjectRef(projectId: number, projectRef: RefObject<HTMLDivElement>) {
-    this._projects[projectId].ref = projectRef;
-  }
-  setActiveProject(idx: number, id: string) {
-    this._activeProjectIdx = idx;
-    this._activeProjectId = id;
-  }
-  //////////////////////// ACTIONS ////////////////////////
-  /////////////////////////////////////////////////////////
-
-  /////////////////////////////////////////////////////////
-  //////////////////////// HELPERS ////////////////////////
-  //////////////////////// HELPERS ////////////////////////
-  /////////////////////////////////////////////////////////
 }

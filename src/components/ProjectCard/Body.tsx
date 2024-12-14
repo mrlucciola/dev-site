@@ -7,29 +7,29 @@ import CardContent from "@mui/material/CardContent";
 import Card from "@mui/material/Card";
 import ListItem from "@mui/material/ListItem";
 // state
-import { observer } from "mobx-react-lite";
-import { useMainStore } from "../../mobx/stores";
 // components
 import ProjectStack from "../ProjectStack";
 import ProjectDisplay from "./ProjectDisplay";
+// data
+import { type ProjectKey, projectsLookup } from "../../projectConfigs";
 
-const Body: FC<{ projectIdx: number }> = ({ projectIdx }) => {
-  // state
-  const project = useMainStore((s) => s.projects[projectIdx]);
+/** ### Project card body layout */
+const Body: FC<{ projectKey: ProjectKey }> = ({ projectKey }) => {
+  const project = projectsLookup[projectKey];
 
   return (
     <ListItem disableGutters disablePadding divider>
-      <Card sx={{ borderRadius: "0", flex: 1 }}>
-        <ProjectDisplay project={project} />
+      <Card sx={{ borderRadius: 0, flex: 1 }}>
+        <ProjectDisplay projectKey={projectKey} />
 
         <CardContent>
           <Markdown remarkPlugins={[remarkGfm]}>{project.description}</Markdown>
         </CardContent>
 
-        <ProjectStack projectIdx={projectIdx} />
+        <ProjectStack projectKey={projectKey} />
       </Card>
     </ListItem>
   );
 };
 
-export default observer(Body);
+export default Body;

@@ -3,17 +3,16 @@ import mermaid from "mermaid";
 // mui
 import Grid from "@mui/material/Unstable_Grid2";
 // components
-import Body from "./components/Body";
-import Nav from "./components/Nav";
+import Body from "./Body";
+import Nav from "./Nav";
+// state
+import { AppProvider } from "./AppProvider";
 
-mermaid.initialize({
-  startOnLoad: true,
-});
+mermaid.initialize({ startOnLoad: true });
 
-/** ### App entrypoint
- */
-const App: FC = () => {
-  return (
+/** ### App entrypoint */
+const App: FC = () => (
+  <AppProvider>
     <Grid
       className="App"
       container
@@ -25,13 +24,14 @@ const App: FC = () => {
         width: "100vw",
         maxWidth: "100vw",
         minWidth: "100vw",
+        flexwrap: "nowrap",
+        wrap: "nowrap",
       }}
-      wrap="nowrap"
     >
       <Nav />
       <Body />
     </Grid>
-  );
-};
+  </AppProvider>
+);
 
 export default App;
