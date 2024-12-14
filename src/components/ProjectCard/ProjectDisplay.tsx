@@ -4,7 +4,7 @@ import CardContent from "@mui/material/CardContent";
 import Skeleton from "@mui/material/Skeleton";
 // components
 import Diagram from "./Diagram";
-import Img from "./Img";
+import CardImg from "./CardImg";
 // data
 import { projectsLookup, type ProjectKey } from "../../projectConfigs";
 
@@ -29,7 +29,7 @@ const ProjectDisplay: FC<{ projectKey: ProjectKey }> = ({ projectKey }) => {
       return (
         // @todo Convert to `flex`+`column` if not already
         <CardContent>
-          {project.img && <Img imgUrl={project.img} title={project.title} />}
+          {project.img && <CardImg imgUrl={project.img} title={project.title} />}
           {project.diagram && <Diagram diagramStr={project.diagram} />}
         </CardContent>
       );
@@ -37,7 +37,7 @@ const ProjectDisplay: FC<{ projectKey: ProjectKey }> = ({ projectKey }) => {
    */
   // @todo remove this conditional and replace with above multiline-comment
   if (project.img) {
-    return <Img imgUrl={project.img} title={project.title} />;
+    return <CardImg projectKey={projectKey} />;
   } else if (project.diagram) {
     return <Diagram diagramStr={project.diagram} />;
   }

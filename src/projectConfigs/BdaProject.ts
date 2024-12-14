@@ -1,4 +1,4 @@
-// interfaces
+import { z } from "zod";
 import { Project } from "../mobx/interfaces/project";
 
 /** Markdown string */
@@ -12,21 +12,28 @@ Once the low-frequency peaks are isolated from the audio file, the audio is tran
 
 Songs are pulled from soundcloud, but due to CORS issues, you must disable CORS in your browser to use this app properly.
 `;
-/** Mermaid diagram definition */
-// const diagramStr = `
-// // ---
-// // title: BPM Detection Algorithm
-// // ---
-// // %%{init: {'theme':'dark'}}%%
-// // flowchart TD
-// `;
 
-export default new Project(
-  "BDA", // title
-  description, // description
-  new Map([["frontend", ["JavaScript (ES6)", "Web Audio API", "React", "Redux"]]]), // stack
-  "https://github.com/mrlucciola/bpm-detection-algorithm.git", // repo
-  "/images/bda-preview.png", // img
-  "https://mrlucciola.github.io/bpm-detection-algorithm/", // site
-  undefined // diagramStr
-);
+/** @todo implement diagram string
+ *
+ * # Mermaid diagram definition
+ * const diagramStr = `
+ * ---
+ * title: BPM Detection Algorithm
+ * ---
+ * %%{init: {'theme':'dark'}}%%
+ * flowchart TD
+ * `;
+ */
+
+/** */
+const bdaProjectConfig = Project.parse({
+  title: "BDA",
+  description,
+  stack: new Map([["Frontend", ["JavaScript (ES6)", "Web Audio API", "React", "Redux"]]]),
+  repo: "https://github.com/mrlucciola/bpm-detection-algorithm.git",
+  img: "/images/bda-preview.png",
+  site: "https://mrlucciola.github.io/bpm-detection-algorithm/",
+  diagram: undefined,
+} as z.input<typeof Project>);
+
+export default bdaProjectConfig;

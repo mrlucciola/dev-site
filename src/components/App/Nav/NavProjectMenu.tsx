@@ -45,7 +45,7 @@ const NavProjectMenu: FC = () => {
   //     e.preventDefault();
   //     // e.currentTarget
   //     const newProjectIdx = 0;
-  //     setActiveProjectIdx(newProjectIdx, "");
+  //     setActiveProjectKey(newProjectKey);
   //     project.ref!.current!.scrollIntoView();
   //   },
   //   [project.ref]
@@ -66,7 +66,7 @@ const NavProjectMenu: FC = () => {
 
     return (
       <MenuItem onClick={handleMenuClose} key={p}>
-        <Link component="a" href={`#${project.id}`}>
+        <Link component="a" href={`#${project.slug}`}>
           {project.title}
         </Link>
       </MenuItem>
