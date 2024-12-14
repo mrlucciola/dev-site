@@ -45,7 +45,7 @@ const NavProjectMenu: FC = () => {
   //     e.preventDefault();
   //     // e.currentTarget
   //     const newProjectIdx = 0;
-  //     setActiveProjectIdx(newProjectIdx, "");
+  //     setActiveProjectKey(newProjectKey);
   //     project.ref!.current!.scrollIntoView();
   //   },
   //   [project.ref]
