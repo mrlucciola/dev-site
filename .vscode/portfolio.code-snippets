@@ -14,4 +14,14 @@
     ],
     "description": "useCtx"
   },
+  "Issue Defaults": {
+    "prefix": "issue",
+    "body": [
+      "Assignees: mrlucciola",
+      "Labels: $1",
+      "Milestone: ${2:Refactor UI}",
+      "Projects: Portfolio Page",
+    ],
+    "description": "Issue Defaults"
+  },
 }
