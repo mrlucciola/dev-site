@@ -66,7 +66,7 @@ const NavProjectMenu: FC = () => {
 
     return (
       <MenuItem onClick={handleMenuClose} key={p}>
-        <Link component="a" href={`#${project.id}`}>
+        <Link component="a" href={`#${project.slug}`}>
           {project.title}
         </Link>
       </MenuItem>

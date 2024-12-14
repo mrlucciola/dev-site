@@ -26,7 +26,7 @@ const ProjectCard: FC<ListItemProps & { projectKey: ProjectKey }> = ({
   // state: observables
   const activeProjectKey = useAppCtx((s) => s.activeProjectKey);
   const setActiveProjectKey = useAppCtx((s) => s.setActiveProjectKey);
-  const activeProjectSlug = useAppCtx((s) => s.activeProject.id);
+  const activeProjectSlug = useAppCtx((s) => s.activeProject.slug);
 
   const isActive = projectKey === activeProjectKey;
 
