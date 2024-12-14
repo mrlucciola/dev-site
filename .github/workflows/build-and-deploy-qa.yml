@@ -1,20 +1,20 @@
 # Simple workflow for deploying static content to GitHub Pages
-name: Deploy static content to Pages
-run-name: "Deploy QA - Tag: ${{ steps.get_latest_tag.outputs.tag }} (Date: ${{ steps.get_commit_date.outputs.date }})"
+name: Deploy QA on PR merge
+run-name: "Deploy QA - Commit = ${{ github.sha }}"
 
 on:
-  # Runs on pushes targeting the default branch
   push:
-    branches: ["main"]
-
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+    branches:
+      - "main"
+  pull_request:
+    types:
+      - closed
+    paths:
+      - "public/**/*"
+      - "src/**/*"
+      - "bun.lockb"
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
 
 # Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
 # However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
@@ -23,41 +23,38 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  get-tag-info:
-    build-and-deploy:
+  if_merged:
+    if: github.event_name == 'push' || github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repo
+        id: checkout-main
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          ref: main
 
-      - name: Get latest tag
-        id: get_latest_tag
-        uses: actions-ecosystem/action-get-latest-tag@v1
+      - name: Checkout to gh-pages branch
+        id: checkout-gh-pages
+        run: git checkout -B gh-pages
 
-      - name: Get commit date
-        id: get_commit_date
-        run: echo "date=$(git log -1 --format=%cd --date=short ${{ steps.get_latest_tag.outputs.tag }})" >> $GITHUB_OUTPUT
-  # Single deploy job since we're just deploying
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+      - name: Init bun
+        uses: oven-sh/setup-bun@v1
         with:
-          # Upload entire repository
-          path: "."
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          bun-version: latest
+      - name: Build from source
+        id: build-from-source
+        run: |
+          bun install
+          bun run build
 
-      # - name: Get latest tag
-      #   id: get_tag
-      #   run: echo "TAG_NAME=$(git describe --tags --abbrev=0)" >> $GITHUB_OUTPUT
+      - name: Deploy webpage
+        id: deploy-webpage
+        run: |
+          cp -a ./dist/* ./
+          rm -rf ./dist
+          git config user.email "47836741+mrlucciola@users.noreply.github.com"
+          git config user.name "mrlucciola"
+          git add .
+          git commit -m 'redeploying'
+          git push origin gh-pages --force
