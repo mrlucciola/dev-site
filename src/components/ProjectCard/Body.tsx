@@ -7,7 +7,6 @@ import CardContent from "@mui/material/CardContent";
 import Card from "@mui/material/Card";
 import ListItem from "@mui/material/ListItem";
 // state
-import { observer } from "mobx-react-lite";
 // components
 import ProjectStack from "../ProjectStack";
 import ProjectDisplay from "./ProjectDisplay";
@@ -33,4 +32,4 @@ const Body: FC<{ projectKey: ProjectKey }> = ({ projectKey }) => {
   );
 };
 
-export default observer(Body);
+export default Body;

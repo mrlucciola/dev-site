@@ -5,10 +5,7 @@ import List from "@mui/material/List";
 // components
 import ProjectCard from "../ProjectCard";
 // state
-import { ProjectKey } from "../../projectConfigs";
-
-// @todo add env-based conditional to use hidden elems if local dev
-const projectsForDisplay = ProjectKey.options; // isLocal ? ProjectKey.options : ActiveProjectKey.options
+import { projectsForDisplay } from "../../projectConfigs";
 
 /** ### Page body - list of elements */
 const Body: FC = () => {

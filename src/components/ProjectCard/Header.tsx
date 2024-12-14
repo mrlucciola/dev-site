@@ -7,8 +7,6 @@ import Typography from "@mui/material/Typography";
 import ListSubheader from "@mui/material/ListSubheader";
 import IconButton from "@mui/material/IconButton";
 import GitHubIcon from "@mui/icons-material/GitHub";
-// state
-import { observer } from "mobx-react-lite";
 // interfaces
 import { projectsLookup, type ProjectKey } from "../../projectConfigs";
 
@@ -58,4 +56,4 @@ const Header: FC<{ projectKey: ProjectKey }> = ({ projectKey }) => {
     </ListSubheader>
   );
 };
-export default observer(Header);
+export default Header;

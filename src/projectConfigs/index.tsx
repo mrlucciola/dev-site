@@ -21,3 +21,6 @@ export const projectsLookup: { [key in ProjectKey]: Project } = {
   bda: BDA,
   portfolio: Portfolio,
 };
+
+// @todo add env-based conditional to use hidden elems if local dev
+export const projectsForDisplay = ProjectKey.options; // isLocal ? ProjectKey.options : ActiveProjectKey.options

@@ -1,11 +1,4 @@
-import {
-  FC,
-  useRef,
-  useState,
-  useEffect,
-  SyntheticEvent,
-  KeyboardEvent,
-} from "react";
+import { FC, useRef, useState, useEffect, SyntheticEvent, KeyboardEvent } from "react";
 // mui
 import Link from "@mui/material/Link";
 import Button from "@mui/material/Button";
@@ -15,29 +8,22 @@ import MenuItem from "@mui/material/MenuItem";
 import MenuList from "@mui/material/MenuList";
 import Grow from "@mui/material/Grow";
 import ClickAwayListener from "@mui/material/ClickAwayListener";
-// state
-import { observer } from "mobx-react-lite";
-import { useMainStore } from "../../../mobx/stores";
+// data
+import { projectsForDisplay, projectsLookup } from "../../../projectConfigs";
 
 /** ### Navbar `Project` element
  * A single tab button which navigates user to a given project on click.
  */
 const NavProjectMenu: FC = () => {
-  // state
-  const projects = useMainStore((s) => s.projects);
   const [isOpen, setIsOpen] = useState(false);
   // refs
   const anchorRef = useRef<HTMLButtonElement>(null);
   const prevOpenRef = useRef(isOpen);
   // event handlers
-  const handleMenuToggle = () => {
-    setIsOpen((prevOpen) => !prevOpen);
-  };
+  const handleMenuToggle = () => setIsOpen((prevOpen) => !prevOpen);
+
   const handleMenuClose = (e: Event | SyntheticEvent) => {
-    if (
-      anchorRef.current &&
-      anchorRef.current.contains(e.target as HTMLElement)
-    ) {
+    if (anchorRef.current && anchorRef.current.contains(e.target as HTMLElement)) {
       return;
     }
 
@@ -48,10 +34,12 @@ const NavProjectMenu: FC = () => {
       e.preventDefault();
       setIsOpen(false);
     } else if (e.key === "Escape") {
+      // @note does this also need `e.preventDefault();`
       setIsOpen(false);
     }
   };
 
+  // @todo implement nav-to-card functionality
   // const onClickNavToCard = useCallback(
   //   (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
   //     e.preventDefault();
@@ -63,7 +51,7 @@ const NavProjectMenu: FC = () => {
   //   [project.ref]
   // );
 
-  // effects
+  // Effects
   useEffect(() => {
     // return focus to the button when we transitioned from !open -> open
     if (prevOpenRef.current === true && isOpen === false) {
@@ -73,13 +61,17 @@ const NavProjectMenu: FC = () => {
     prevOpenRef.current = isOpen;
   }, [isOpen]);
 
-  const menuItemElems = projects.map((p, idx) => (
-    <MenuItem onClick={handleMenuClose} key={idx}>
-      <Link component="a" href={`#${p.id}`}>
-        {p.title}
-      </Link>
-    </MenuItem>
-  ));
+  const menuItemElems = projectsForDisplay.map((p) => {
+    const project = projectsLookup[p];
+
+    return (
+      <MenuItem onClick={handleMenuClose} key={p}>
+        <Link component="a" href={`#${project.id}`}>
+          {project.title}
+        </Link>
+      </MenuItem>
+    );
+  });
 
   return (
     <>
@@ -91,7 +83,7 @@ const NavProjectMenu: FC = () => {
         aria-haspopup="true"
         onClick={handleMenuToggle}
       >
-        Portfolio
+        Portfolio Projects
       </Button>
       <Popper
         open={isOpen}
@@ -106,8 +98,7 @@ const NavProjectMenu: FC = () => {
           <Grow
             {...TransitionProps}
             style={{
-              transformOrigin:
-                placement === "bottom-start" ? "left top" : "left bottom",
+              transformOrigin: placement === "bottom-start" ? "left top" : "left bottom",
             }}
           >
             <Paper>
@@ -129,4 +120,4 @@ const NavProjectMenu: FC = () => {
   );
 };
 
-export default observer(NavProjectMenu);
+export default NavProjectMenu;
