@@ -10,7 +10,7 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 // interfaces
 import { projectsLookup, type ProjectKey } from "../../projectConfigs";
 
-const Header: FC<{ projectKey: ProjectKey }> = ({ projectKey }) => {
+const ProjectCardHeader: FC<{ projectKey: ProjectKey }> = ({ projectKey }) => {
   /** @deprecated might not be necessary */
   const projectConfigRef: RefObject<HTMLDivElement> = useRef<HTMLDivElement>(null);
   // state
@@ -56,4 +56,4 @@ const Header: FC<{ projectKey: ProjectKey }> = ({ projectKey }) => {
     </ListSubheader>
   );
 };
-export default Header;
+export default ProjectCardHeader;

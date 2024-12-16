@@ -14,10 +14,11 @@ import ProjectDisplay from "./ProjectDisplay";
 import { type ProjectKey, projectsLookup } from "../../projectConfigs";
 
 /** ### Project card body layout */
-const Body: FC<{ projectKey: ProjectKey }> = ({ projectKey }) => {
+const ProjectCardBody: FC<{ projectKey: ProjectKey }> = ({ projectKey }) => {
   const project = projectsLookup[projectKey];
 
   return (
+    // @todo remove - listitem component within a listitem component
     <ListItem disableGutters disablePadding divider>
       <Card sx={{ borderRadius: 0, flex: 1 }}>
         <ProjectDisplay projectKey={projectKey} />
@@ -32,4 +33,4 @@ const Body: FC<{ projectKey: ProjectKey }> = ({ projectKey }) => {
   );
 };
 
-export default Body;
+export default ProjectCardBody;
