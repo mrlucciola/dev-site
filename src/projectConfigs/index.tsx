@@ -6,8 +6,16 @@ import aaveLiquidationEngineProjectConfig from "./AaveLiquidationEngineProject";
 import bdaProjectConfig from "./BdaProject";
 import portfolioProjectConfig from "./PortfolioProject";
 
-// @todo add to this enum
-export const HiddenProjectKey = z.enum(["bda"]);
+export const HiddenProjectKey = z.enum([
+  "bda",
+  // @todo add the following projects
+  // "link-hack-ccip",
+  // "vscode-mermaid",
+  // "ticket-microservice",
+  // "cdp",
+  // "reverse-proxy-server",
+  // "cofi", // (sequencer)
+]);
 export type HiddenProjectKey = z.infer<typeof HiddenProjectKey>;
 
 export const ActiveProjectKey = z.enum(["aaveLiquidationEngine", "portfolio"]);
