@@ -1,9 +1,11 @@
 import { FC } from "react";
 // mui
-import Grid from "@mui/material/Unstable_Grid2";
 import List from "@mui/material/List";
 // components
+import ViewSectionContainer from "./ViewSectionContainer";
+import ContentContainer from "./ContentContainer";
 import ProjectCard from "../ProjectCard";
+import AboutCard from "./AboutCard";
 // state
 import { projectsForDisplay } from "../../projectConfigs";
 
@@ -15,9 +17,12 @@ const Body: FC = () => {
   ));
 
   return (
-    <Grid component={List} direction="column" overflow="scroll" wrap="nowrap">
-      {projectElems}
-    </Grid>
+    <ViewSectionContainer id="body" sx={{ flex: 1, overflowY: "scroll", background: "red" }}>
+      <ContentContainer component={List} direction="column">
+        <AboutCard />
+        {projectElems}
+      </ContentContainer>
+    </ViewSectionContainer>
   );
 };
 

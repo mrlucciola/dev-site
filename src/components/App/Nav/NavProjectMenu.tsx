@@ -82,6 +82,7 @@ const NavProjectMenu: FC = () => {
         aria-expanded={isOpen ? "true" : undefined}
         aria-haspopup="true"
         onClick={handleMenuToggle}
+        sx={{ px: 0 }}
       >
         Portfolio Projects
       </Button>
