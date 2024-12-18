@@ -1,6 +1,6 @@
 import { z } from "zod";
 // interfaces
-import { type Project } from "../mobx/interfaces/project";
+import { type Project } from "./interfaces";
 // projects
 import aaveLiquidationEngineProjectConfig from "./AaveLiquidationEngineProject";
 import bdaProjectConfig from "./BdaProject";

@@ -3,7 +3,7 @@ import { FC } from "react";
 import CardContent from "@mui/material/CardContent";
 import Stack from "@mui/material/Stack";
 // components
-import ProjectStackElem from "./ProjectStackElem";
+import ProjectStackCategory from "./ProjectStackCategory";
 // data
 import { projectsLookup, type ProjectKey } from "../../projectConfigs";
 
@@ -16,17 +16,16 @@ import { projectsLookup, type ProjectKey } from "../../projectConfigs";
  * 2. A list of tools;
  */
 const ProjectStack: FC<{ projectKey: ProjectKey }> = ({ projectKey }) => {
-  const project = projectsLookup[projectKey];
-  const projectStack = project.stack;
+  const projectStack = projectsLookup[projectKey].stack;
 
   // Build elems
   const stackElemArr = [];
-  for (const [key, toolsArr] of projectStack) {
+  for (const [stackCategory, _] of projectStack) {
     stackElemArr.push(
-      <ProjectStackElem
-        projectKey={key}
-        toolsArr={toolsArr}
-        key={`${projectKey}-gridgroup-${key}`}
+      <ProjectStackCategory
+        projectKey={projectKey}
+        stackCategory={stackCategory}
+        key={`${projectKey}-${stackCategory}`}
       />
     );
   }

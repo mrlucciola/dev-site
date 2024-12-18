@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { Project } from "../../mobx/interfaces/project";
+import { Project } from "../interfaces";
 
 const description = `
 Polygon smart contract and Node.js application which

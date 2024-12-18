@@ -2,7 +2,7 @@ import { useState } from "react";
 // utils
 import useCtxFactory, { type ICtxState } from "../../util/useCtxFactory";
 // interfaces
-import { type Project } from "../../mobx/interfaces/project";
+import { type Project } from "../../projectConfigs/interfaces";
 // data
 import { ProjectKey, projectsLookup } from "../../projectConfigs";
 
