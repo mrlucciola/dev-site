@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { slugify } from "../../util/slugify";
+import { slugify } from "../util/slugify";
 
 export const StackCategory = z.enum([
   "Frontend",

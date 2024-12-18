@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { Project } from "../mobx/interfaces/project";
+import { Project } from "./interfaces";
 
 /** Markdown string */
 const description = `

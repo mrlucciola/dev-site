@@ -6,7 +6,7 @@ import Typography from "@mui/material/Typography";
 import StackToolLayout from "./StackToolLayout";
 // utils
 import { projectsLookup, type ProjectKey } from "../../projectConfigs";
-import { type StackCategory } from "../../mobx/interfaces/project";
+import { type StackCategory } from "../../projectConfigs/interfaces";
 
 /** ### List of tools/libraries used in project
  * Display component.
