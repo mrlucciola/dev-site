@@ -9,11 +9,7 @@ const Nav: FC = () => (
   <AppSectionContainer
     direction="row"
     wrap="nowrap"
-    sx={{
-      overflowX: "hidden",
-      flex: 1,
-      justifyContent: "space-between",
-    }}
+    sx={{ overflowX: "hidden", flex: 1, justifyContent: "space-between" }}
     containerProps={{
       id: "nav",
       direction: "row",

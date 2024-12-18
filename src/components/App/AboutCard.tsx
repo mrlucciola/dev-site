@@ -34,10 +34,9 @@ const AboutCard: FC = () => (
     divider
     className="#about"
     id="about"
-    sx={{ flex: 1, background: "green" }}
   >
-    <Card sx={{ borderRadius: 0, flex: 1, background: "blue" }}>
-      <CardContent sx={{ background: "purple" }}>
+    <Card sx={{ borderRadius: 0, flex: 1 }}>
+      <CardContent>
         <MarkdownText>{description}</MarkdownText>
       </CardContent>
     </Card>

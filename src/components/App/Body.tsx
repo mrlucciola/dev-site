@@ -18,11 +18,7 @@ const Body: FC = () => {
   return (
     <AppSectionContainer
       component={List}
-      sx={{ background: "red" }}
-      containerProps={{
-        id: "body",
-        sx: { flex: 1, overflowY: "scroll", background: "pink" },
-      }}
+      containerProps={{ id: "body", sx: { flex: 1, overflowY: "scroll" } }}
     >
       <AboutCard />
       {projectElems}
