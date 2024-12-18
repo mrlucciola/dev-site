@@ -1,7 +1,4 @@
 import { FC } from "react";
-// markdown
-import Markdown from "react-markdown";
-import remarkGfm from "remark-gfm";
 // mui
 import CardContent from "@mui/material/CardContent";
 import Card from "@mui/material/Card";
@@ -12,6 +9,7 @@ import ProjectStack from "../ProjectStack";
 import ProjectDisplay from "./ProjectDisplay";
 // data
 import { type ProjectKey, projectsLookup } from "../../projectConfigs";
+import MarkdownText from "../../util/MarkdownBlock";
 
 /** ### Project card body layout */
 const ProjectCardBody: FC<{ projectKey: ProjectKey }> = ({ projectKey }) => {
@@ -24,7 +22,7 @@ const ProjectCardBody: FC<{ projectKey: ProjectKey }> = ({ projectKey }) => {
         <ProjectDisplay projectKey={projectKey} />
 
         <CardContent>
-          <Markdown remarkPlugins={[remarkGfm]}>{project.description}</Markdown>
+          <MarkdownText>{project.description}</MarkdownText>
         </CardContent>
 
         <ProjectStack projectKey={projectKey} />

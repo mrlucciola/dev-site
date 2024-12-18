@@ -28,6 +28,7 @@ const App: FC = () => (
         minWidth: "100vw",
         overflowX: "hidden",
         overflowY: "hidden",
+        justifyContent: "start",
       }}
     >
       <Nav />

@@ -2,8 +2,7 @@ import { FC } from "react";
 // mui
 import List from "@mui/material/List";
 // components
-import ViewSectionContainer from "./ViewSectionContainer";
-import ContentContainer from "./ContentContainer";
+import AppSectionContainer from "./AppSectionContainer";
 import ProjectCard from "../ProjectCard";
 import AboutCard from "./AboutCard";
 // state
@@ -17,12 +16,17 @@ const Body: FC = () => {
   ));
 
   return (
-    <ViewSectionContainer id="body" sx={{ flex: 1, overflowY: "scroll", background: "red" }}>
-      <ContentContainer component={List} direction="column">
-        <AboutCard />
-        {projectElems}
-      </ContentContainer>
-    </ViewSectionContainer>
+    <AppSectionContainer
+      component={List}
+      sx={{ background: "red" }}
+      containerProps={{
+        id: "body",
+        sx: { flex: 1, overflowY: "scroll", background: "pink" },
+      }}
+    >
+      <AboutCard />
+      {projectElems}
+    </AppSectionContainer>
   );
 };
 

@@ -82,9 +82,9 @@ const NavProjectMenu: FC = () => {
         aria-expanded={isOpen ? "true" : undefined}
         aria-haspopup="true"
         onClick={handleMenuToggle}
-        sx={{ px: 0 }}
+        sx={{ fontSize: 18, fontWeight: 700, textDecoration: "none", textTransform: "none" }}
       >
-        Portfolio Projects
+        Projects
       </Button>
       <Popper
         open={isOpen}
@@ -98,9 +98,7 @@ const NavProjectMenu: FC = () => {
         {({ TransitionProps, placement }) => (
           <Grow
             {...TransitionProps}
-            style={{
-              transformOrigin: placement === "bottom-start" ? "left top" : "left bottom",
-            }}
+            style={{ transformOrigin: placement === "bottom-start" ? "left top" : "left bottom" }}
           >
             <Paper>
               <ClickAwayListener onClickAway={handleMenuClose}>
