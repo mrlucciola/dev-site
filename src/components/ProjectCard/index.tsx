@@ -3,8 +3,8 @@ import { FC } from "react";
 import Stack from "@mui/material/Stack";
 import ListItem, { type ListItemProps } from "@mui/material/ListItem";
 // components
-import Header from "./Header";
-import Body from "./Body";
+import ProjectCardHeader from "./ProjectCardHeader";
+import ProjectCardBody from "./ProjectCardBody";
 // state
 import { useAppCtx } from "../App/AppProvider";
 // interfaces
@@ -46,8 +46,8 @@ const ProjectCard: FC<ListItemProps & { projectKey: ProjectKey }> = ({
       sx={{ mh: 5, minWidth: "100%", flex: 1 }}
       {...listItemProps}
     >
-      <Header projectKey={projectKey} />
-      <Body projectKey={projectKey} />
+      <ProjectCardHeader projectKey={projectKey} />
+      <ProjectCardBody projectKey={projectKey} />
     </ListItem>
   );
 };

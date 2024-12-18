@@ -17,6 +17,8 @@ const App: FC = () => (
       className="App"
       container
       direction="column"
+      id="app"
+      wrap="nowrap"
       sx={{
         height: "100vh",
         minHeight: "100vh",
@@ -24,8 +26,9 @@ const App: FC = () => (
         width: "100vw",
         maxWidth: "100vw",
         minWidth: "100vw",
-        flexwrap: "nowrap",
-        wrap: "nowrap",
+        overflowX: "hidden",
+        overflowY: "hidden",
+        justifyContent: "start",
       }}
     >
       <Nav />
