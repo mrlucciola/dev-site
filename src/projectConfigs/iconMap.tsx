@@ -16,7 +16,11 @@ import {
   SiRust,
 } from "react-icons/si";
 import Avatar from "@mui/material/Avatar";
+import { SxProps } from "@mui/system/styleFunctionSx/styleFunctionSx";
 
+const pngStyle: SxProps = { width: 24, height: 24, m: 0, p: 0 };
+
+/** @deprecated @todo make all elements same size (apply pngStyle) */
 export const toolsIconMap: { [key: string]: JSX.Element } = {
   "React.js": <FaReact />,
   "D3.js": <SiD3Dotjs />,
@@ -36,7 +40,7 @@ export const toolsIconMap: { [key: string]: JSX.Element } = {
       alt="MATIC"
       src="https://cdn.iconscout.com/icon/free/png-128/polygon-token-4086725-3379855.png"
       // src="https://cdn.iconscout.com/icon/free/png-256/polygon-token-4086724-3379854.png"
-      sx={{ width: 24, height: 24, margin: 0, padding: 0 }}
+      sx={pngStyle}
     />
   ),
   Solidity: <SiSolidity />,
@@ -45,7 +49,7 @@ export const toolsIconMap: { [key: string]: JSX.Element } = {
     <Avatar
       alt="SOL"
       src="https://static.coinpaprika.com/coin/sol-solana/logo.png" //?rev=10608559
-      sx={{ ml: `-6px`, width: 24, height: 24, margin: 0, padding: 0 }}
+      sx={{ ...pngStyle, ml: `-6px` }}
     />
   ),
   Rust: <SiRust />,
