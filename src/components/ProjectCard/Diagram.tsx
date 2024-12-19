@@ -1,7 +1,7 @@
 import { FC, useEffect } from "react";
 import mermaid from "mermaid";
 // mui
-import Grid from "@mui/material/Unstable_Grid2/Grid2";
+import Grid from "@mui/material/Grid2";
 
 const Diagram: FC<{
   diagramStr: string;
