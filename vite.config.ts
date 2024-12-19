@@ -8,7 +8,15 @@ const pigmentConfig: PigmentOptions = {
   theme: darkTheme,
 };
 
+const pigmentPlugin = pigment(pigmentConfig);
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), pigment(pigmentConfig)],
+  plugins: [
+    react({
+      jsxImportSource: "@emotion/react",
+      plugins: [["@swc/plugin-styled-components", {}]],
+      devTarget: "esnext",
+    }),
+    pigmentPlugin,
+  ],
 });

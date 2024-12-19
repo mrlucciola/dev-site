@@ -10,14 +10,9 @@ export const darkTheme = createTheme({
     mode: "dark",
   },
   cssVariables: true,
-  colorSchemes: { dark: true, light: false, primary: {} }, // colorSchemes: { dark: true },
+  // @ts-ignore
+  colorSchemes: { dark: true },
 });
-
-// @note Unsure how this is used:
-// const pigmentConfig = {
-//   transformLibraries: ["@mui/material"],
-//   theme: darkTheme,
-// };
 
 declare module "@mui/material-pigment-css" {
   interface ThemeArgs {

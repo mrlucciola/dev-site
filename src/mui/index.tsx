@@ -11,7 +11,7 @@ import { darkTheme } from "./theme";
 import { componentDefaults } from "./componentOverrides";
 // style
 import "@mui/material-pigment-css/styles.css";
-import "./mui/index.css";
+import "./index.css";
 
 const muiCache = createCache({ key: "css", prepend: true });
 

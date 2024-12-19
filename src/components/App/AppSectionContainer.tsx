@@ -3,11 +3,11 @@ import type { FC } from "react";
 import Grid, { type Grid2Props } from "@mui/material/Grid2";
 
 /** @todo add media query for maxwidth */
-const AppSectionLayout: FC<Grid2Props> = ({ children, sx, ...gridProps }) => (
+const AppSectionLayout: FC<Grid2Props> = ({ children, ...gridProps }) => (
   <Grid
     container
     direction="column"
-    sx={{ flex: 1, justifyContent: "center", alignItems: "center", maxWidth: 1300, ...sx }}
+    sx={{ flex: 1, justifyContent: "center", alignItems: "center", maxWidth: 1300 }}
     {...gridProps}
   >
     {children}
@@ -32,7 +32,6 @@ const AppSectionContainer: FC<Grid2Props & { containerProps?: Grid2Props }> = ({
       justifyContent: "start",
       alignItems: "center",
       overflowX: "hidden",
-      ...containerProps?.sx,
     }}
   >
     <AppSectionLayout {...layoutProps}>{children}</AppSectionLayout>

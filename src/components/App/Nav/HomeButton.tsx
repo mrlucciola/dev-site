@@ -9,10 +9,10 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import { blueGrey } from "@mui/material/colors";
 
-const TitleText: FC<Grid2Props> = ({ children, sx, ...gridProps }) => (
+const TitleText: FC<Grid2Props> = ({ children, ...gridProps }) => (
   <Grid
     component={Typography}
-    sx={{ fontWeight: 800, lineHeight: 1.25, color: "white", fontSize: "inherit", ...sx }}
+    sx={{ fontWeight: 800, lineHeight: 1.25, color: "white", fontSize: "inherit" }}
     {...gridProps}
   >
     {children}
