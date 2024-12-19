@@ -1,4 +1,4 @@
-import { FC } from "react";
+import type { FC } from "react";
 import mermaid from "mermaid";
 // mui
 import Grid from "@mui/material/Grid2";

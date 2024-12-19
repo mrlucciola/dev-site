@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { type FC } from "react";
 // mui
 import Grid from "@mui/material/Grid2";
 import Typography from "@mui/material/Typography";

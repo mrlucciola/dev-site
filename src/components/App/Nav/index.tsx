@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { type FC } from "react";
 // components
 import AppSectionContainer from "../AppSectionContainer";
 import NavProjectMenu from "./NavProjectMenu";

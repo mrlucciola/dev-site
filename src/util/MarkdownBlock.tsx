@@ -1,4 +1,4 @@
-import { FC } from "react";
+import type { FC } from "react";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 

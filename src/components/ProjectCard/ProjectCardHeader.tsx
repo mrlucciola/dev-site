@@ -1,4 +1,4 @@
-import { FC, RefObject, useRef } from "react";
+import { type FC, type RefObject, useRef } from "react";
 // mui
 import Grid from "@mui/material/Grid2";
 import CardHeader from "@mui/material/CardHeader";
@@ -17,7 +17,7 @@ const ProjectCardHeader: FC<{ projectKey: ProjectKey }> = ({ projectKey }) => {
   const { title, site, repo } = projectsLookup[projectKey];
 
   return (
-    (<ListSubheader
+    <ListSubheader
       title={title}
       sx={{ width: `100%` }}
       component={CardHeader}
@@ -37,9 +37,9 @@ const ProjectCardHeader: FC<{ projectKey: ProjectKey }> = ({ projectKey }) => {
           {/* @todo abstract out this kind of link (IconButtonLink) */}
           <Grid alignSelf={"center"}>
             {repo && (
-              (<IconButton LinkComponent={MuiLink} href={repo as string}>
+              <IconButton LinkComponent={MuiLink} href={repo as string}>
                 <GitHubIcon />
-              </IconButton>)
+              </IconButton>
               // <MuiLink
               //   href={repo as string}
               //   // component={IconButton}
@@ -53,7 +53,7 @@ const ProjectCardHeader: FC<{ projectKey: ProjectKey }> = ({ projectKey }) => {
       }
     >
       {title}
-    </ListSubheader>)
+    </ListSubheader>
   );
 };
 export default ProjectCardHeader;

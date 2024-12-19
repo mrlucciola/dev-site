@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { type FC } from "react";
 // mui
 import Chip from "@mui/material/Chip";
 import ListItem from "@mui/material/ListItem";

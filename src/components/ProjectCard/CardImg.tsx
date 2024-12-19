@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { type FC } from "react";
 // mui
 import CardMedia from "@mui/material/CardMedia";
 // interfaces

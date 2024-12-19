@@ -1,6 +1,6 @@
-import { FC } from "react";
+import type { FC } from "react";
 // mui
-import Grid, { Grid2Props } from "@mui/material/Grid2";
+import Grid, { type Grid2Props } from "@mui/material/Grid2";
 
 /** @todo add media query for maxwidth */
 const AppSectionLayout: FC<Grid2Props> = ({ children, sx, ...gridProps }) => (

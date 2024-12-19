@@ -1,4 +1,4 @@
-import { FC, useEffect } from "react";
+import { type FC, useEffect } from "react";
 import mermaid from "mermaid";
 // mui
 import Grid from "@mui/material/Grid2";

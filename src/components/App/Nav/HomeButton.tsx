@@ -1,6 +1,6 @@
-import { FC } from "react";
+import type { FC } from "react";
 // mui
-import Grid, { Grid2Props } from "@mui/material/Grid2";
+import Grid, { type Grid2Props } from "@mui/material/Grid2";
 import MuiLink from "@mui/material/Link";
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
