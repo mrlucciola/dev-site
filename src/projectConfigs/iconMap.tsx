@@ -16,7 +16,7 @@ import {
   SiRust,
 } from "react-icons/si";
 import Avatar from "@mui/material/Avatar";
-import { SxProps } from "@mui/system/styleFunctionSx/styleFunctionSx";
+import type { SxProps } from "@mui/system/styleFunctionSx/styleFunctionSx";
 
 const pngStyle: SxProps = { width: 24, height: 24, m: 0, p: 0 };
 
