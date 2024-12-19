@@ -7,6 +7,7 @@ import { darkTheme } from "./mui/theme";
 import App from "./components/App";
 // style
 import "./mui/index.css";
+import "@mui/material-pigment-css/styles.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
 
