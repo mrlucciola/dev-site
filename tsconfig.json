@@ -59,7 +59,7 @@
     "src/**/*",
     "*.ts",
     "*.tsx",
-    "vite.config.ts",
+    "vite.config.mts",
   ],
   "exclude": [
     "node_modules",
