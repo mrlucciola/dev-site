@@ -89,7 +89,7 @@ const NavProjectMenu: FC = () => {
         aria-expanded={isOpen ? "true" : undefined}
         aria-haspopup="true"
         onClick={handleMenuToggle}
-        sx={{ fontSize: 18, fontWeight: 700, textDecoration: "none", textTransform: "none" }}
+        sx={{ fontSize: 18, fontWeight: 700, textDecoration: "none" }}
       >
         Projects
       </Button>

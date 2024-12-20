@@ -1,6 +1,6 @@
 import type { FC } from "react";
 // mui
-import Stack from "@mui/material/Stack";
+import Grid from "@mui/material/Grid2";
 import ListItem from "@mui/material/ListItem";
 import CardContent from "@mui/material/CardContent";
 import Card from "@mui/material/Card";
@@ -10,30 +10,34 @@ import MarkdownText from "../../util/MarkdownBlock";
 const description = `
 ## Senior Fullstack Engineer
 
-I'm a Senior Fullstack Engineer with a focus on building robust and scalable financial applications and decentralized systems.
+### Specializations
+- Webapp development (React, ReST & GraphQL APIs)
+- web3 development
+- Distributed systems
+- DevOps
+- System architecture
 
-With experience across the finance & blockchain space,
-I specialize in frontend development using React,
-building REST and GraphQL APIs with several Node.js backend frameworks.
-
-My background spans system design, architecture, and webapp development, with a solid foundation in DevOps and distributed systems.
 
 ### Tools & Technologies
-- Primary languages: TypeScript, Rust
+- Main languages: TypeScript, Rust
 - Other languages: Solidity, C#
-- Specializations: React, ReST & GraphQL APIs, System Architecture, DevOps, Blockchain (DApps), Distributed Systems
+
+### Domains
+- Finance
+- Blockchain (dApps)
 `;
 
 /** ###  */
 const AboutCard: FC = () => (
   <ListItem
     direction="column"
-    component={Stack}
+    component={Grid}
     disableGutters
     disablePadding
     divider
     className="#about"
     id="about"
+    sx={{ px: 2 }}
   >
     <Card sx={{ borderRadius: 0, flex: 1 }}>
       <CardContent>

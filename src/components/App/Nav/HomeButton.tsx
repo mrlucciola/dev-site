@@ -20,7 +20,12 @@ const TitleText: FC<Grid2Props> = ({ children, ...gridProps }) => (
 );
 
 const HomeButton: FC = () => (
-  <Button component={MuiLink} href="#about" sx={{ textDecoration: "none", textTransform: "none" }}>
+  <Button
+    component={MuiLink}
+    href="#about"
+    sx={{ color: "primary", textDecoration: "none" }}
+    color="primary"
+  >
     <Grid container direction="row" gap={1} sx={{ alignItems: "center" }}>
       <AvatarGroup spacing={10}>
         <Avatar sx={{ bgcolor: blueGrey[700], color: "rgba(18,18,18,.5)", zIndex: 0 }}>M</Avatar>
