@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { type FC } from "react";
 // mui
 import Stack from "@mui/material/Stack";
 import ListItem, { type ListItemProps } from "@mui/material/ListItem";

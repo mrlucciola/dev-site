@@ -1,21 +1,28 @@
 {
   "compilerOptions": {
-    "target": "ES2022",
+    "target": "ESNext", // @note testing ESNext
     "lib": [
       "DOM",
       "DOM.Iterable",
-      "ES2022"
+      "ESNext" // @note testing ESNext
     ],
-    "module": "ES2022",
-    // "allowJs": true, // testing this config
+    "module": "ESNext", // @note testing ESNext
+    "moduleDetection": "force", // @note testing
+    "allowJs": true, // @note testing
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
     "experimentalDecorators": true,
     "useDefineForClassFields": true,
+    "rootDir": ".",
+    "outDir": "./dist",
+    "baseUrl": ".",
+    "declaration": true,
+    "declarationMap": true,
     /* Bundler mode */
     "moduleResolution": "bundler",
+    "verbatimModuleSyntax": true, // @note testing
     "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
@@ -32,13 +39,33 @@
     "strictNullChecks": true,
     // custom
     "incremental": true,
+    // vite
+    "types": [
+      "vite/client",
+    ],
+    "paths": {
+      "@/components/*": [
+        "./src/components/*"
+      ],
+      "@/mui/*": [
+        "./src/mui/*"
+      ],
+      "@/env/*": [
+        "./src/env/*"
+      ],
+    }
   },
   "include": [
     "src/**/*",
+    "*.ts",
+    "*.tsx",
+    "vite.config.mts",
   ],
-  "references": [
-    {
-      "path": "./tsconfig.node.json"
-    }
+  "exclude": [
+    "node_modules",
+    "**/*hidden*",
+    "**/*local*",
+    "**/dist/",
+    "**/*tsconfig.tsbuildinfo",
   ]
 }

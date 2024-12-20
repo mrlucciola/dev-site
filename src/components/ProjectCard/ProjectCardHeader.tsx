@@ -1,6 +1,6 @@
-import { FC, RefObject, useRef } from "react";
+import { type FC, type RefObject, useRef } from "react";
 // mui
-import Grid from "@mui/material/Unstable_Grid2";
+import Grid from "@mui/material/Grid2";
 import CardHeader from "@mui/material/CardHeader";
 import MuiLink from "@mui/material/Link";
 import Typography from "@mui/material/Typography";

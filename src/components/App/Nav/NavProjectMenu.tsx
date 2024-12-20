@@ -1,4 +1,11 @@
-import { FC, useRef, useState, useEffect, SyntheticEvent, KeyboardEvent } from "react";
+import {
+  type FC,
+  useRef,
+  useState,
+  useEffect,
+  type SyntheticEvent,
+  type KeyboardEvent,
+} from "react";
 // mui
 import Link from "@mui/material/Link";
 import Button from "@mui/material/Button";

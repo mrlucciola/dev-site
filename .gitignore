@@ -20,6 +20,7 @@ pnpm-debug.log*
 lerna-debug.log*
 
 # misc
+.swc
 **/*DS_Store
 **/*hidden*
 **/*dist*/

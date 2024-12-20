@@ -1,4 +1,4 @@
-import { FC, PropsWithChildren } from "react";
+import type { FC, PropsWithChildren } from "react";
 // utils
 import { currentEnv, envConfigLookup } from ".";
 import { RuntimeEnvKey, RuntimeEnvLevel } from "./interfaces";

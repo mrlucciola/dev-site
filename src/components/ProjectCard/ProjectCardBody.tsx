@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { type FC } from "react";
 // mui
 import CardContent from "@mui/material/CardContent";
 import Card from "@mui/material/Card";

@@ -1,4 +1,4 @@
-import { Context, createContext, FC, PropsWithChildren, useContext } from "react";
+import { type Context, createContext, type FC, type PropsWithChildren, useContext } from "react";
 
 const createCtxHook =
   <TCtx,>(Ctx: Context<TCtx | null>) =>
